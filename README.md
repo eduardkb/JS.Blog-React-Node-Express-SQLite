@@ -2,8 +2,6 @@
 
 ### TO-DO
 	BACKEND:
-		- post has many comments (JOIN)
-			create post/joincomments
 		- user has many comments (JOIN)
 			create user/joincomments		
 
