@@ -1,20 +1,18 @@
 module.exports = (sequelize, DataTypes) => {
-    const Post = sequelize.define("Post", {
+    const Comment = sequelize.define("Comment", {
         id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true
         },
-        title: {
+        comment: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        picture: {
-            type: DataTypes.TEXT,
-        },
-        body: {
-            type: DataTypes.TEXT,
+        upvote: {
+            type: DataTypes.INTEGER,
             allowNull: false,
+            unique: true,
         },
         published: {
             type: DataTypes.BOOLEAN,
@@ -22,14 +20,14 @@ module.exports = (sequelize, DataTypes) => {
         },
     });
 
-    Post.associate = (models) => {
-        Post.belongsTo(models.User, {
-            foreignKey: 'userId'
-        });
-        Post.hasMany(models.Comment, {
+    Comment.associate = (models) => {
+        Comment.belongsTo(models.Post, {
             foreignKey: 'postId'
+        });
+        Comment.belongsTo(models.User, {
+            foreignKey: 'userId'
         });
     }
 
-    return Post;
-};
+    return Comment;
+}

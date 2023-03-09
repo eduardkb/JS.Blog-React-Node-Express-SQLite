@@ -1,5 +1,21 @@
 # JS Blog
 
+### TO-DO
+	BACKEND:
+	- fix not inserting comment
+	- post has many comments
+		create post/joincomments
+	- user has many comments
+		create user/joincomments		
+
+	- create table category
+	- create FK categoryid
+		category has many post
+		post belongs to category
+		post has fk (fk categoryid)
+	- category as many posts
+		create category/joinposts
+
 ### start and run project
 	$ npm install
 	$ npm run dev
@@ -18,10 +34,15 @@
 	User:
 		PK: id
 		FIELDS: name, email, pass, role, timestamploggedin
+
+		1- User 1->M Post
+		2- User 1->M Comment
 	Post:
 		PK: id
 		FIELDS: title, picture, body, published
-		FK: userId, categoryId
+		FK: userId, categoryId		
+
+		3- Post 1->M Comment
 	Comment:
 		PK: id
 		FIELDS: comment, upvote, published
@@ -29,6 +50,8 @@
 	Category:
 		PK: id
 		FIELDS: name, description, active
+
+		4- Category 1->M Post
 	Tag:
 		PK: id
 		FIELDS: name

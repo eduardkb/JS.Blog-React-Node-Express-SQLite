@@ -1,0 +1,28 @@
+copy project: scp -r -i ..\awsKeys\KY-NV-SSHKey.pem * ubuntu@3.209.1.2:~/dev/JS.Blog-React-Node-Express-SQLite/.
+copy DB: scp -r -i ..\awsKeys\KY-NV-SSHKey.pem ubuntu@3.209.1.2:~/dev/JS.Blog-React-Node-Express-SQLite/db/* C:\Users\ekbuhal\Downloads\.
+
+curl -H "Content-type: application/x-www-form-urlencoded" \
+     -d "name=Nando Erves" \
+     -d "email=nerves@uta.edu" \
+     -d "pass=nerves1234" \
+	 -d "role=user" \
+     -X POST \
+     localhost:3000/api/user
+	  
+curl -H "Content-type: application/x-www-form-urlencoded" \
+     -d "title=new ways of prog" \
+     -d "picture=pict22" \
+     -d "body=new post text" \
+	 -d "published=false" \
+	 -d "userId=2" \
+     -X POST \
+     localhost:3000/api/post
+	  
+curl -H "Content-type: application/x-www-form-urlencoded" \
+     -d "comment=new test comm 6" \
+     -d "upvote=5" \
+     -d "published=true" \
+	 -d "userId=3" \
+	 -d "postId=2" \
+     -X POST \
+     localhost:3000/api/comment

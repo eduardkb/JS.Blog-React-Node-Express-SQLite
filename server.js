@@ -22,6 +22,7 @@ function initilizeServer() {
     // include routes in server.js
     require('./app/routes/user.routes')(app);
     require('./app/routes/post.routes')(app);
+    require('./app/routes/comment.routes')(app);
 
     // add test data to database
     // console.log(`Adding dev data to database.`);

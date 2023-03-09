@@ -1,6 +1,7 @@
 const db = require('../models');
 const User = db.User;
 const Post = db.Post;
+const Comment = db.Comment;
 
 exports.addDevData = () => {
     // Create a user
@@ -53,6 +54,24 @@ exports.addDevData = () => {
     addPost(post1)
     addPost(post2)
     addPost(post3)
+
+    const comm1 = {
+        comment: "comment 1 test",
+        upvote: 2,
+        published: false,
+        userId: 3,
+        postId: 2,
+    }
+    const comm2 = {
+        comment: "comment 2 test",
+        upvote: 3,
+        published: true,
+        userId: 3,
+        postId: 2,
+    }
+
+    addComm(comm1)
+    addComm(comm2)
 };
 
 function addUser(user) {
@@ -72,5 +91,15 @@ function addPost(post) {
         })
         .catch(() => {
             console.log(`DEBUG DEV: problem while adding Post ${post.title}`)
+        });
+}
+
+function addComm(comment) {
+    Comment.create(comment)
+        .then(() => {
+            console.log(`DEBUG DEV: Added comment ${comment.comment}`)
+        })
+        .catch(() => {
+            console.log(`DEBUG DEV: problem while adding comment ${comment.comment}`)
         });
 }
