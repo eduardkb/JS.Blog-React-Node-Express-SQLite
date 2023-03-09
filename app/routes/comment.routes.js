@@ -2,23 +2,23 @@ const router = require('express').Router();
 const comment = require('../controllers/comment.controller');
 
 module.exports = (app) => {
-    // Create a new user
+    // Create a new comment
     router.post('/', comment.create);
 
-    // Retrieve all user
+    // Retrieve all comment
     router.get('/', comment.findAll);
 
-    // Retrieve a single user with id
-    // router.get('/:id', user.findOne);
+    // Retrieve a single comment with id
+    // router.get('/:id', comment.findOne);
 
-    // Update a user with id
-    // router.put('/:id', user.update);
+    // Update a comment with id
+    // router.put('/:id', comment.update);
 
-    // Delete a user with id
-    // router.delete('/:id', user.delete);
+    // Delete a comment with id
+    // router.delete('/:id', comment.delete);
 
-    // Delete all user
-    // router.delete('/', user.deleteAll);
+    // Delete all comment
+    // router.delete('/', comment.deleteAll);
 
     app.use('/api/comment', router);
 };

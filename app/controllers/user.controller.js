@@ -25,11 +25,9 @@ exports.create = (req, res) => {
     // Save User in the database
     User.create(user)
         .then((data) => {
-            console.log(`DEBUG MSG: Add user |${user}|${user.name}|`)
             res.send(data);
         })
         .catch((err) => {
-            console.log(`DEBUG ERR MSG: Add user |${user}|${user.name}|`)
             res.status(500).send({
                 message:
                     err.message || 'Some error occurred while creating a user.',

@@ -2,12 +2,6 @@
 
 ### TO-DO
 	BACKEND:
-		- fix not inserting comment
-		- add timestamps=false to tables that do not require it
-			const Profile = sequelize.define('profile', {
-			  name: DataTypes.STRING
-			}, { timestamps: false });
-			
 		- post has many comments (JOIN)
 			create post/joincomments
 		- user has many comments (JOIN)
@@ -24,6 +18,11 @@
 		- create Tags table (M:N association)
 			https://sequelize.org/docs/v6/advanced-association-concepts/advanced-many-to-many/
 			https://www.bezkoder.com/sequelize-associate-many-to-many/
+			
+		- add timestamps=false to tables that do not require it (category and tags)
+			const Profile = sequelize.define('profile', {
+			  name: DataTypes.STRING
+			}, { timestamps: false });
 
 ### start and run project
 	$ npm install
@@ -38,6 +37,10 @@
 	- /api/post
 		GET: /  (get all posts)
 		POST: / (add a new post)
+	
+	- /api/comment
+		GET: /  (get all comments)
+		POST: / (add a new comment)
 
 ### SQLite tables
 	User:

@@ -6,7 +6,6 @@ const { Op } = db.Sequelize;
 
 // Create and Save a new comment
 exports.create = (req, res) => {
-    console.log(`DEBUG DEBUG: |${req.body.comment}|`)
     // Validate request
     if (!req.body.comment) {
         res.status(400).send({
@@ -17,8 +16,8 @@ exports.create = (req, res) => {
 
     // Create a comment
     const comment = {
-        name: req.body.comment,
-        email: req.body.upvote,
+        comment: req.body.comment,
+        upvote: req.body.upvote,
         published: req.body.published ? req.body.published : false,
         userId: req.body.userId,
         postId: req.body.postId,
@@ -27,14 +26,12 @@ exports.create = (req, res) => {
     // Save comment in the database
     Comment.create(comment)
         .then((data) => {
-            console.log(`DEBUG MSG: Add comment |${comment}|${comment.comment}|`)
             res.send(data);
         })
         .catch((err) => {
-            console.log(`DEBUG ERR MSG: Add comment |${comment}|${comment.comment}|`)
             res.status(500).send({
                 message:
-                    err.message || 'Some error occurred while creating a comment.',
+                    err.message || `Error while creating a comment. |${comment.comment}`,
             });
         });
 };
