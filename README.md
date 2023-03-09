@@ -20,9 +20,9 @@
 ### APIs
 
     - /api/user
-    	GET: /         (get all users)
-    	GET: /joinpost (get all users joined with posts)
-    	POST: /        (add a new user)
+    	GET: /         	(get all users)
+    	GET: /joinpost 	(get all users joined with posts)
+    	POST: /        	(add a new user)
 
     - /api/post
     	GET: /  		(get all posts)
@@ -31,13 +31,13 @@
     	POST: / 		(add a new post)
 
     - /api/comment
-    	GET: /  (get all comments)
-    	POST: / (add a new comment)
+    	GET: /  		(get all comments)
+    	POST: / 		(add a new comment)
 
     - /api/category
-    	GET: /  	(get all category)
-    	GET: /joinpost	(get all categories joined with their posts)
-    	POST: / 	(add a new category)
+    	GET: /  		(get all category)
+    	GET: /joinpost		(get all categories joined with their posts)
+    	POST: / 		(add a new category)
 
 ### SQLite tables
 
