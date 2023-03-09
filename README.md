@@ -38,8 +38,9 @@
     	POST: / (add a new comment)
 
     - /api/category
-    	GET: /  (get all category)
-    	POST: / (add a new category)
+    	GET: /  		(get all category)
+    	GET: /joinpost	(get all categories joined with their posts)
+    	POST: / 		(add a new category)
 
 ### SQLite tables
 

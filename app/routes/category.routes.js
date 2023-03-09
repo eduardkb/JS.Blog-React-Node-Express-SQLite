@@ -8,6 +8,9 @@ module.exports = (app) => {
     // Retrieve all category
     router.get('/', category.findAll);
 
+    // Retrieve all categories and posts
+    router.get('/joinpost', category.findCategoryJoinPost);
+
     // Retrieve a single category with id
     // router.get('/:id', category.findOne);
 

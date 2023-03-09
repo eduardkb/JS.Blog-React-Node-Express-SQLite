@@ -51,6 +51,19 @@ exports.findAll = (req, res) => {
         });
 };
 
+exports.findCategoryJoinPost = (req, res) => {
+    Category.findAll({ include: [db.Post] })
+        .then((data) => {
+            res.send(data);
+        })
+        .catch((err) => {
+            res.status(500).send({
+                message:
+                    err.message || 'Some error occurred while retrieving categories and posts.',
+            });
+        });
+}
+
 // Find a single Tutorial with an id
 // exports.findOne = (req, res) => {
 //   const { id } = req.params;
