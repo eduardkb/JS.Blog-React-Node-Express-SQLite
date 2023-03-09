@@ -2,9 +2,6 @@
 
 ### TO-DO
 	BACKEND:
-		- user has many comments (JOIN)
-			create user/joincomments		
-
 		- create table category
 		- create FK categoryid
 			category has many post
@@ -33,8 +30,9 @@
 		POST: /        (add a new user)
 
 	- /api/post
-		GET: /  (get all posts)
-		POST: / (add a new post)
+		GET: /  			(get all posts)
+		GET: /joincomment 	(get all posts joined with their comments)
+		POST: / 			(add a new post)
 	
 	- /api/comment
 		GET: /  (get all comments)

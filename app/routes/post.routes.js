@@ -10,10 +10,9 @@ module.exports = (app) => {
 
 	// Retrieve all users and posts
     router.get('/joincomment', post.findPostJoinComment);
-
 	
-    // Retrieve a single post with id
-    // router.get('/:id', post.findOne);
+    // Retrieve a single post with id and all comments
+    router.get('/:id/joincomment', post.findOneJoinComment);
 
     // Update a post with id
     // router.put('/:id', post.update);

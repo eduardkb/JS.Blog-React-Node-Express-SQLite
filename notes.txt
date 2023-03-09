@@ -19,10 +19,10 @@ curl -H "Content-type: application/x-www-form-urlencoded" \
      localhost:3000/api/post
 	  
 curl -H "Content-type: application/x-www-form-urlencoded" \
-     -d "comment=new test comm 6" \
-     -d "upvote=5" \
+     -d "comment=new test comm 7" \
+     -d "upvote=7" \
      -d "published=true" \
-	 -d "userId=3" \
-	 -d "postId=2" \
+	 -d "userId=1" \
+	 -d "postId=1" \
      -X POST \
      localhost:3000/api/comment

@@ -66,6 +66,26 @@ exports.findPostJoinComment = (req, res) => {
         });
 }
 
+// Find a single post with id and all comments
+exports.findOneJoinComment = (req, res) => {
+	const {id} = req.params;
+	
+	Post.findByPk(id, { include: [db.Comment] })
+		.then((data) => {
+         if (data) {
+           res.send(data);
+         } else {
+           res.status(404).send({
+             message: `Cannot find post with id=${id}.`,
+           });
+         }
+       })
+       .catch(() => {
+         res.status(500).send({
+           message: `Error retrieving post with id=${id}`,
+         });
+       });
+}
 
 // Find a single Tutorial with an id
 // exports.findOne = (req, res) => {
