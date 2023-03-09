@@ -2,11 +2,6 @@
 
 ### TO-DO
 	BACKEND:
-		- create table category
-		- create FK categoryid
-			category has many post
-			post belongs to category
-			post has fk (fk categoryid)
 		- category has many posts (JOIN)
 			create category/joinposts
 			
