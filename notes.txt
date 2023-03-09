@@ -26,3 +26,10 @@ curl -H "Content-type: application/x-www-form-urlencoded" \
 	 -d "postId=1" \
      -X POST \
      localhost:3000/api/comment
+
+curl -H "Content-type: application/x-www-form-urlencoded" \
+     -d "name=Finances" \
+     -d "description=Financ2 Tips&Tricks" \
+     -d "active=true" \
+     -X POST \
+     localhost:3000/api/category

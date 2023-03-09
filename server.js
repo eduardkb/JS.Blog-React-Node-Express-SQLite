@@ -2,9 +2,10 @@ const express = require('express')
 const db = require('./app/models');
 const fillDB = require('./app/dev/insertDevData')
 
-const app = express();
+const WRITEDEVDATA = false;
 const PORT = 3000;
 
+const app = express();
 //Following lines are to make sure our app can parse the json data
 app.use(express.json());
 app.use(express.urlencoded({
@@ -23,11 +24,14 @@ function initilizeServer() {
     require('./app/routes/user.routes')(app);
     require('./app/routes/post.routes')(app);
     require('./app/routes/comment.routes')(app);
+    require('./app/routes/category.routes')(app);
 
     // add test data to database
-    // console.log(`Adding dev data to database.`);
-    // fillDB.addDevData();
-
+    if (WRITEDEVDATA){
+        console.log(`Adding dev data to database.`);
+        fillDB.addDevData();
+    }
+    
     // start server
     app.listen(PORT, () => {
         console.log(`Server started on port ${PORT}`);
