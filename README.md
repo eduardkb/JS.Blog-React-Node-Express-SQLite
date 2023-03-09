@@ -3,9 +3,6 @@
 ### TO-DO
 
     BACKEND:
-    	- category has many posts (JOIN)
-    		create category/joinposts
-
     	- create Tags table (M:N association)
     		https://sequelize.org/docs/v6/advanced-association-concepts/advanced-many-to-many/
     		https://www.bezkoder.com/sequelize-associate-many-to-many/
@@ -20,7 +17,7 @@
     $ npm install
     $ npm run dev
 
-### API's
+### APIs
 
     - /api/user
     	GET: /         (get all users)
@@ -28,19 +25,19 @@
     	POST: /        (add a new user)
 
     - /api/post
-    	GET: /  				(get all posts)
-    	GET: /joincomment 		(get all posts joined with their comments)
+    	GET: /  		(get all posts)
+    	GET: /joincomment 	(get all posts joined with their comments)
     	GET: /:id/joincomment	(get post with id[x] and all its comments)
-    	POST: / 				(add a new post)
+    	POST: / 		(add a new post)
 
     - /api/comment
     	GET: /  (get all comments)
     	POST: / (add a new comment)
 
     - /api/category
-    	GET: /  		(get all category)
+    	GET: /  	(get all category)
     	GET: /joinpost	(get all categories joined with their posts)
-    	POST: / 		(add a new category)
+    	POST: / 	(add a new category)
 
 ### SQLite tables
 
