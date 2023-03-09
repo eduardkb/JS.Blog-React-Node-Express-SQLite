@@ -2,6 +2,7 @@
 
 ### TO-DO
 	BACKEND:
+		- category create get and add api's
 		- category has many posts (JOIN)
 			create category/joinposts
 			
