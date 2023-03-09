@@ -20,9 +20,9 @@
 ### APIs
 
     - /api/user
-    	GET: /         	(get all users)
-    	GET: /joinpost 	(get all users joined with posts)
-    	POST: /        	(add a new user)
+    	GET: /         		(get all users)
+    	GET: /joinpost 		(get all users joined with posts)
+    	POST: /        		(add a new user)
 
     - /api/post
     	GET: /  		(get all posts)
