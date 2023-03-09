@@ -2,19 +2,28 @@
 
 ### TO-DO
 	BACKEND:
-	- fix not inserting comment
-	- post has many comments
-		create post/joincomments
-	- user has many comments
-		create user/joincomments		
+		- fix not inserting comment
+		- add timestamps=false to tables that do not require it
+			const Profile = sequelize.define('profile', {
+			  name: DataTypes.STRING
+			}, { timestamps: false });
+			
+		- post has many comments (JOIN)
+			create post/joincomments
+		- user has many comments (JOIN)
+			create user/joincomments		
 
-	- create table category
-	- create FK categoryid
-		category has many post
-		post belongs to category
-		post has fk (fk categoryid)
-	- category as many posts
-		create category/joinposts
+		- create table category
+		- create FK categoryid
+			category has many post
+			post belongs to category
+			post has fk (fk categoryid)
+		- category has many posts (JOIN)
+			create category/joinposts
+			
+		- create Tags table (M:N association)
+			https://sequelize.org/docs/v6/advanced-association-concepts/advanced-many-to-many/
+			https://www.bezkoder.com/sequelize-associate-many-to-many/
 
 ### start and run project
 	$ npm install
