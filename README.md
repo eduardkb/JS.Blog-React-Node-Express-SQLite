@@ -3,14 +3,9 @@
 ### TO-DO
 
     BACKEND:
-    	- create Tags table (M:N association)
+    	- verify how to add registries on M:N association
     		https://sequelize.org/docs/v6/advanced-association-concepts/advanced-many-to-many/
     		https://www.bezkoder.com/sequelize-associate-many-to-many/
-
-    	- add timestamps=false to tables that do not require it (category and tags)
-    		const Profile = sequelize.define('profile', {
-    		  name: DataTypes.STRING
-    		}, { timestamps: false });
 
 ### start and run project
 
@@ -38,6 +33,10 @@
     	GET: /  		(get all category)
     	GET: /joinpost		(get all categories joined with their posts)
     	POST: / 		(add a new category)
+
+    - /api/tag
+    	GET: /  		(get all tags)
+    	POST: / 		(add a new tag)
 
 ### SQLite tables
 

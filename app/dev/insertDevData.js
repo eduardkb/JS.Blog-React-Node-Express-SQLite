@@ -3,6 +3,7 @@ const User = db.User;
 const Post = db.Post;
 const Comment = db.Comment;
 const Category = db.Category;
+const Tag = db.Tag;
 const data = require('./data')
 
 exports.addDevData = () => {
@@ -22,6 +23,9 @@ exports.addDevData = () => {
     addComm(data.comment[0])
     addComm(data.comment[1])
 	
+    addTag(data.tag[0])
+    addTag(data.tag[1])
+    addTag(data.tag[2])
 };
 
 function addUser(user) {
@@ -55,12 +59,21 @@ function addComm(comment) {
 }
 
 function addCateg(categ) {
-	console.log("DEBUG DEV3: Data: ", categ.name);
     Category.create(categ)
         .then(() => {
             console.log(`DEBUG DEV: Added category ${categ.name}`)
         })
         .catch(() => {
             console.log(`DEBUG DEV: problem while adding category ${categ.name}`)
+        });
+}
+
+function addTag(tag) {
+    Tag.create(tag)
+        .then(() => {
+            console.log(`DEBUG DEV: Added tag ${tag.name}`)
+        })
+        .catch(() => {
+            console.log(`DEBUG DEV: problem while adding tag ${tag.name}`)
         });
 }

@@ -25,6 +25,7 @@ function initilizeServer() {
     require('./app/routes/post.routes')(app);
     require('./app/routes/comment.routes')(app);
     require('./app/routes/category.routes')(app);
+    require('./app/routes/tag.routes')(app);
 
     // add test data to database
     if (WRITEDEVDATA){

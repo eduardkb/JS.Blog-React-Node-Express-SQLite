@@ -18,7 +18,7 @@ const data = {
             pass: "dforts1234",
             role: "user",
         }
-    ],		
+    ],
     "category":[
         {
             name:"Inform.Tech",
@@ -56,7 +56,7 @@ const data = {
             userId: 3,
             categoryId: 2,
         }
-    ],		
+    ],
     "comment":[
         {
             comment: "comment 1 test",
@@ -73,7 +73,11 @@ const data = {
             postId: 2,
         }
     ],
-    
+    "tag":[
+        {"name":"Cloud"},
+        {"name":"Node"},
+        {"name":"BigData"},
+    ],
 }
 
 module.exports = data;
