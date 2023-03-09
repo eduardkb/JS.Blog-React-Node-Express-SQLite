@@ -66,6 +66,8 @@
     	PK: id
     	FIELDS: name
 
+    	5- Tag M->N Post
+
 ### Initialize Project from zero
 
     $ npm i express dotenv sequelize sequelize-cli
