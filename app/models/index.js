@@ -1,11 +1,16 @@
 'use strict';
 
+const CURRENT_ENV = "development";
+// const CURRENT_ENV = "test";
+
+
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
 const process = require('process');
 const basename = path.basename(__filename);
-const env = process.env.NODE_ENV || 'development';
+const env = process.env.NODE_ENV || CURRENT_ENV;
+console.log("DEBUG: Current env: ", env)
 const config = require(__dirname + '/../config/config.json')[env];
 const db = {};
 

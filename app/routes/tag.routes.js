@@ -8,6 +8,9 @@ module.exports = (app) => {
     // Retrieve all tag
     router.get('/', tag.findAll);
 
+    // Retrieve a single tag with id and all posts
+    router.get('/joinPost/:id', tag.findOneTagJoinPost);
+
     // Retrieve a single tag with id
     // router.get('/:id', tag.findOne);
 

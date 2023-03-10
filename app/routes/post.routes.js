@@ -8,11 +8,14 @@ module.exports = (app) => {
     // Retrieve all post
     router.get('/', post.findAll);
 
-	// Retrieve all users and posts
+	// Retrieve all posts and posts
     router.get('/joincomment', post.findPostJoinComment);
 	
     // Retrieve a single post with id and all comments
-    router.get('/:id/joincomment', post.findOneJoinComment);
+    router.get('/joincomment/:id', post.findOneJoinComment);
+
+    // Retrieve a single post with id and all tags
+    router.get('/joinTag/:id', post.findOnePostJoinComment);
 
     // Update a post with id
     // router.put('/:id', post.update);

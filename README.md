@@ -1,11 +1,6 @@
-# JS Blog
+# JS BLOG - FRONTEND
 
-### TO-DO
-
-    BACKEND:
-    	- verify how to add registries on M:N association
-    		https://sequelize.org/docs/v6/advanced-association-concepts/advanced-many-to-many/
-    		https://www.bezkoder.com/sequelize-associate-many-to-many/
+# JS Blog - BACKEND
 
 ### start and run project
 

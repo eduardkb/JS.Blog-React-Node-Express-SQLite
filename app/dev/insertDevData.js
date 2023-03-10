@@ -4,11 +4,9 @@ const Post = db.Post;
 const Comment = db.Comment;
 const Category = db.Category;
 const Tag = db.Tag;
-const data = require('./data')
+const data = require('./data.json')
 
 exports.addDevData = () => {
-	console.log("DEBUG DEV1: Data to add: ", data.user[0].name);
-	
 	addUser(data.user[0]);
     addUser(data.user[1]);
     addUser(data.user[2]);
@@ -26,6 +24,9 @@ exports.addDevData = () => {
     addTag(data.tag[0])
     addTag(data.tag[1])
     addTag(data.tag[2])
+
+    addPost_Tags(1, 2)
+    addPost_Tags(2, 2)
 };
 
 function addUser(user) {
@@ -77,3 +78,22 @@ function addTag(tag) {
             console.log(`DEBUG DEV: problem while adding tag ${tag.name}`)
         });
 }
+
+function addPost_Tags(idTag, idPost){
+
+    Tag.findOne({ where: { id: idTag } })
+        .then(function(resTag){
+            Post.findOne({ where: { id: idPost } })
+                .then(function (resPost){
+                    resTag.addPost(resPost);
+                    console.log(`DEBUG DEV: Added relation between tag ${idTag} post ${idPost}`)
+                })
+                .catch(() => {
+                    console.log(`DEBUG DEV: Problem adding relation between tag ${idTag} post ${idPost}`)
+                });
+        })
+        .catch(() => {
+            console.log(`DEBUG DEV: Problem adding relation between tag ${idTag} post ${idPost}`)
+        });
+}
+

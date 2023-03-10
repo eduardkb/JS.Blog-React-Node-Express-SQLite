@@ -1,3 +1,4 @@
+const { post } = require('../dev/data');
 const db = require('../models');
 
 const Tag = db.Tag;
@@ -48,6 +49,27 @@ exports.findAll = (req, res) => {
             });
         });
 };
+
+exports.findOneTagJoinPost = (req, res) => {
+	const {id} = req.params;
+
+    Tag.findByPk(id, { include: [db.Post] })
+		.then((data) => {
+         if (data) {
+           res.send(data);
+         } else {
+           res.status(404).send({
+             message: `Cannot find tag with id=${id}.`,
+           });
+         }
+       })
+       .catch(() => {
+         res.status(500).send({
+           message: `Error retrieving tag with id=${id}`,
+         });
+       });
+}
+
 
 // Find a single Tutorial with an id
 // exports.findOne = (req, res) => {

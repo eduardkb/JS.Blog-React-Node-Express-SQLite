@@ -4,11 +4,11 @@
     "storage": "db/database.sqlite"
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "reactusr",
+    "password": "ReactusrPass1234",
+    "database": "devreactdb",
+    "host": "52.206.152.104",
+    "dialect": "postgres"
   },
   "production": {
     "username": "root",
