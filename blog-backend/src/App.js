@@ -1,7 +1,16 @@
+import '@fontsource/roboto/300.css';
+import Header from "./components/Header";
+import MainPannel from "./components/MainPannel";
+import Footer from "./components/Footer";
+import TestComponents from './components/TestComponents';
+
 function App() {
   return (
     <div className="App">
-      <h1>Hello App</h1>
+      <Header />
+      <MainPannel />
+      <Footer />      
+      <TestComponents />
     </div>
   );
 }
