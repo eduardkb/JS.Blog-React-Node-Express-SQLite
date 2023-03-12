@@ -1,7 +1,8 @@
 import { styled } from '@mui/system';
 
 export const MainCardsDiv = styled('div')({
-    margin:10, 
+    marginTop:15,
+    marginLeft:15,
     padding:10, 
     textAlign: 'center',
 });
