@@ -19,8 +19,8 @@ import Grid from "@mui/material/Grid"
 // create app bar
 import AppBar from "@mui/material/AppBar"
 import Toolbar from "@mui/material/Toolbar"
-import IconButton from "@mui/material/IconButton"
-import MenuIcon from "@mui/icons-material/Menu"
+// import IconButton from "@mui/material/IconButton"
+// import MenuIcon from "@mui/icons-material/Menu"
 import Typography from "@mui/material/Typography"
 
 const theme = createTheme({
@@ -79,17 +79,25 @@ export default function TestComponents(){
 function MyHeaderBar(){
     return(
         <div>
-            <AppBar color="info">
+            <AppBar color="primary">
                 <Toolbar>
-                    <IconButton>
-                        <MenuIcon />
-                    </IconButton>
-                    <Typography variant="h6">
-                        MUI Theming
-                    </Typography>
-                    <Button variant="contained">
-                        Login
-                    </Button>
+                    <Grid container spacing={4}>
+                        <Grid item xs >
+                            <Typography variant="h6" >
+                                Logo
+                            </Typography>
+                        </Grid>
+                        <Grid item xs>
+                            <Typography variant="h6" >
+                                EKB Blog
+                            </Typography>
+                        </Grid>
+                        <Grid item xs>
+                            <Button variant="contained" >
+                                Login
+                            </Button>                        
+                        </Grid>
+                    </Grid>
                     
                 </Toolbar>
             </AppBar>
