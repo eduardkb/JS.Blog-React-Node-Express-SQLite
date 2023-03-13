@@ -1,10 +1,25 @@
 # JS Blog - Frontend
 
-# Initial setup
+### start and run project
+    $ npm install
+    $ npm run dev
+
+### Components tree
+	- App
+		- Header 
+		- Main
+			- Filter #TO-DO
+			- PostPannel
+				- Posts #TO-DO
+		- Footer
+
+
+### Initial setup
 
     npx create-react-app blog-backend
     npm install @mui/material @emotion/react @emotion/styled @fontsource/roboto @mui/icons-material
-
+	
+#### =========================================================================================
 # JS Blog - BACKEND
 
 ### start and run project
