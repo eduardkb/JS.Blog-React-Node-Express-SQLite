@@ -11,6 +11,9 @@ module.exports = (app) => {
 	// Retrieve all posts and posts
     router.get('/joincomment', post.findPostJoinComment);
 	
+	// Retrieve all posts and tags
+    router.get('/jointag', post.findPostJoinTag);
+	
     // Retrieve a single post with id and all comments
     router.get('/joincomment/:id', post.findOneJoinComment);
 

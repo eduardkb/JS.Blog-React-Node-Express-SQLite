@@ -66,6 +66,19 @@ exports.findPostJoinComment = (req, res) => {
         });
 }
 
+exports.findPostJoinTag = (req, res) => {
+    Post.findAll({ include: [db.Tag] })
+        .then((data) => {
+            res.send(data);
+        })
+        .catch((err) => {
+            res.status(500).send({
+                message:
+                    err.message || 'Some error occurred while retrieving posts and tags.',
+            });
+        });
+}
+
 // Find a single post with id and all comments
 exports.findOneJoinComment = (req, res) => {
 	const {id} = req.params;
@@ -86,6 +99,7 @@ exports.findOneJoinComment = (req, res) => {
          });
        });
 }
+
 
 exports.findOnePostJoinComment = (req, res) => {
 	const {id} = req.params;
