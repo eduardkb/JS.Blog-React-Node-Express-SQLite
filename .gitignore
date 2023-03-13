@@ -2,7 +2,7 @@
 
 # dependencies
 /node_modules
-/blog-backend/node_modules
+/aFrontend/node_modules
 /.pnp
 .pnp.js
 
@@ -11,7 +11,7 @@
 
 # production
 /build
-/blog-backend/build/
+/aFrontend/build/
 
 # misc
 .DS_Store
