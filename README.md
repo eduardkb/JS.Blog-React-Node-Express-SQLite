@@ -10,7 +10,7 @@
 		- Main
 			- Filter #TO-DO
 			- PostPannel
-				- Posts #TO-DO
+				- Post
 		- Footer
 
 

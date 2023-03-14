@@ -1,1 +1,59 @@
-[{"id":1,"title":"Ti Cloud","picture":"Pict_1","body":"cloud desc","published":false,"createdAt":"2023-03-10T12:46:56.350Z","updatedAt":"2023-03-10T12:46:56.350Z","categoryId":1,"userId":2,"Tags":[]},{"id":2,"title":"Dev Node","picture":"Pict_2","body":"Node desc","published":true,"createdAt":"2023-03-10T12:46:56.351Z","updatedAt":"2023-03-10T12:46:56.351Z","categoryId":2,"userId":2,"Tags":[{"id":1,"name":"Cloud","Post_Tags":{"createdAt":"2023-03-10T12:46:56.478Z","updatedAt":"2023-03-10T12:46:56.478Z","PostId":2,"TagId":1}},{"id":2,"name":"Node","Post_Tags":{"createdAt":"2023-03-10T12:46:56.480Z","updatedAt":"2023-03-10T12:46:56.480Z","PostId":2,"TagId":2}}]},{"id":3,"title":"Finance iBov","picture":"Pict_3","body":"ibov desc","published":false,"createdAt":"2023-03-10T12:46:56.351Z","updatedAt":"2023-03-10T12:46:56.351Z","categoryId":2,"userId":3,"Tags":[]}]
+[
+    {
+        "id": 1,
+        "title": "Ti Cloud",
+        "picture": "Pict_1",
+        "body": "cloud desc",
+        "published": false,
+        "createdAt": "2023-03-10T12:46:56.350Z",
+        "updatedAt": "2023-03-10T12:46:56.350Z",
+        "categoryId": 1,
+        "userId": 2,
+        "Tags": []
+    },
+    {
+        "id": 2,
+        "title": "Dev Node",
+        "picture": "Pict_2",
+        "body": "Node desc",
+        "published": true,
+        "createdAt": "2023-03-13T12:46:56.351Z",
+        "updatedAt": "2023-03-10T12:46:56.351Z",
+        "categoryId": 2,
+        "userId": 2,
+        "Tags": [
+            {
+                "id": 1,
+                "name": "Cloud",
+                "Post_Tags": {
+                    "createdAt": "2023-03-10T12:46:56.478Z",
+                    "updatedAt": "2023-03-10T12:46:56.478Z",
+                    "PostId": 2,
+                    "TagId": 1
+                }
+            },
+            {
+                "id": 2,
+                "name": "Node",
+                "Post_Tags": {
+                    "createdAt": "2023-03-10T12:46:56.480Z",
+                    "updatedAt": "2023-03-10T12:46:56.480Z",
+                    "PostId": 2,
+                    "TagId": 2
+                }
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Finance iBov",
+        "picture": "Pict_3",
+        "body": "ibov desc",
+        "published": false,
+        "createdAt": "2023-03-14T7:46:56.351Z",
+        "updatedAt": "2023-03-10T12:46:56.351Z",
+        "categoryId": 2,
+        "userId": 3,
+        "Tags": []
+    }
+]

@@ -1,3 +1,13 @@
+# To-Do
+	- Backend
+		- remove upvote from comment
+		- add upvote on post
+		- fix data
+		- regenerate tables and data
+		- put data on frontend
+	- 
+		
+
 copy project: scp -r -i ..\awsKeys\KY-NV-SSHKey.pem * ubuntu@3.209.1.2:~/dev/JS.Blog-React-Node-Express-SQLite/.
 copy DB: scp -r -i ..\awsKeys\KY-NV-SSHKey.pem ubuntu@3.209.1.2:~/dev/JS.Blog-React-Node-Express-SQLite/db/* C:\Users\ekbuhal\Downloads\.
 
