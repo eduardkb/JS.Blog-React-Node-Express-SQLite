@@ -8,7 +8,7 @@
 	- App
 		- Header 
 		- Main
-			- Filter #TO-DO
+			- Filter
 			- PostPannel
 				- Post
 		- Footer

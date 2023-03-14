@@ -4,10 +4,11 @@ import Button from '@mui/material/Button';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Icon from '@mui/icons-material/Badge';
+import { classCss } from '../mui_css/muiStyles';
 
 const Header = () =>{
     return(
-        <AppBar position="static" sx={{bgcolor:'primary.main' ,color:'text.main', marginBottom:"20px"}} >
+        <AppBar position="static" sx={classCss.headerAppBar} >
             <Toolbar sx={{justifyContent: "space-between"}}>
                 <Icon/>                
                 <Typography variant="h6" >

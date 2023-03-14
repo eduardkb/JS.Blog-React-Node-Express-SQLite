@@ -6,7 +6,14 @@
 		- regenerate tables and data
 		- put data on frontend
 	- Frontend
-		- timer while reading data and display placeholder
+		- get postdata from Hook
+		- configure context for postdata
+		- read postdata asyncronously
+		- display placeholder while loading data
+		- get category with hook
+		- display category
+		
+		- filter - make drop down
 		
 
 copy project: scp -r -i ..\awsKeys\KY-NV-SSHKey.pem * ubuntu@3.209.1.2:~/dev/JS.Blog-React-Node-Express-SQLite/.

@@ -7,8 +7,8 @@ import moment from 'moment/moment';
 function Post(post){	
 	const {title, picture, createdAt, upvote} = post.postData;
     return(		
-		<Box style={classCss.box}>			
-			<Paper style={classCss.paper}>{picture}</Paper>
+		<Box style={classCss.boxPost}>			
+			<Paper style={classCss.paperPost}>{picture}</Paper>
 			<Typography variant="h5" textAlign="center">
 				{title}							
 			</Typography>
