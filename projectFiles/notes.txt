@@ -5,7 +5,8 @@
 		- fix data
 		- regenerate tables and data
 		- put data on frontend
-	- 
+	- Frontend
+		- timer while reading data and display placeholder
 		
 
 copy project: scp -r -i ..\awsKeys\KY-NV-SSHKey.pem * ubuntu@3.209.1.2:~/dev/JS.Blog-React-Node-Express-SQLite/.

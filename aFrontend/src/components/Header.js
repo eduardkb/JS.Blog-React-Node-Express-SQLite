@@ -7,7 +7,7 @@ import Icon from '@mui/icons-material/Badge';
 
 const Header = () =>{
     return(
-        <AppBar position="static" sx={{bgcolor:'primary.main' ,color:'text.main'}} >
+        <AppBar position="static" sx={{bgcolor:'primary.main' ,color:'text.main', marginBottom:"20px"}} >
             <Toolbar sx={{justifyContent: "space-between"}}>
                 <Icon/>                
                 <Typography variant="h6" >

@@ -1,19 +1,20 @@
 [
     {
         "id": 1,
-        "title": "Ti Cloud",
+        "title": "Government-backed digital money to represent $213B in payments by 2030",
         "picture": "Pict_1",
         "body": "cloud desc",
-        "published": false,
+        "published": true,
         "createdAt": "2023-03-10T12:46:56.350Z",
         "updatedAt": "2023-03-10T12:46:56.350Z",
         "categoryId": 1,
         "userId": 2,
+        "upvote": 3,
         "Tags": []
     },
     {
         "id": 2,
-        "title": "Dev Node",
+        "title": "ChatGPT now chatting via Azure OpenAI Service",
         "picture": "Pict_2",
         "body": "Node desc",
         "published": true,
@@ -21,6 +22,7 @@
         "updatedAt": "2023-03-10T12:46:56.351Z",
         "categoryId": 2,
         "userId": 2,
+        "upvote": 112,
         "Tags": [
             {
                 "id": 1,
@@ -49,11 +51,25 @@
         "title": "Finance iBov",
         "picture": "Pict_3",
         "body": "ibov desc",
-        "published": false,
-        "createdAt": "2023-03-14T7:46:56.351Z",
+        "published": true,
+        "createdAt": "2023-03-14T07:46:56.351Z",
         "updatedAt": "2023-03-10T12:46:56.351Z",
         "categoryId": 2,
         "userId": 3,
+        "upvote": 54,
+        "Tags": []
+    },
+    {
+        "id": 4,
+        "title": "ManageEngine Security and Risk",
+        "picture": "Pict_4",
+        "body": "ManageEngine announced that it has added a security and risk posture management dashboard to Log360, its unified security information and event…",
+        "published": true,
+        "createdAt": "2023-03-14T16:00:56.351Z",
+        "updatedAt": "2023-03-10T12:46:56.351Z",
+        "categoryId": 3,
+        "userId": 1,
+        "upvote": 1,
         "Tags": []
     }
 ]

@@ -26,24 +26,22 @@ export const myTheme = createTheme({
 
 export const classCss = {
   divPostsPannel: {
-    flexGrow: 1,
-	padding: 20,
+    flexGrow: 1,	  
   },
+
   paper: {    
-	margin:10,
-	padding:10,
     textAlign: "center",
     backgroundColor: "white",
-    color: myTheme.palette.tertiary.main,
-	width: '360px',
-	height: '200px',
+    color: myTheme.palette.tertiary.main,	  
+	  height: '200px',
   },
+  
   box:{
-	margin: 20,
-	backgroundColor: myTheme.palette.primary.main,
+	  margin: 20,
+    padding: 10,
+	  backgroundColor: myTheme.palette.primary.main,
     color: myTheme.palette.text.main,
-	width: '400px',
-	height: '300px',
-	borderRadius: '5px',
+	  width: '400px',	
+	  borderRadius: '5px',
   }
 };
