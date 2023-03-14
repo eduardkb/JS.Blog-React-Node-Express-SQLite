@@ -14,6 +14,7 @@
 		- display category
 		
 		- filter - make drop down
+			- see: https://mui.com/material-ui/transitions/#collapse
 		
 
 copy project: scp -r -i ..\awsKeys\KY-NV-SSHKey.pem * ubuntu@3.209.1.2:~/dev/JS.Blog-React-Node-Express-SQLite/.
