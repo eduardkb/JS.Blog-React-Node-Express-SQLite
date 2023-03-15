@@ -5,22 +5,22 @@ import Box from "@mui/material/Box";
 import { classCss } from "../mui_css/muiStyles";
 import moment from "moment/moment";
 
-function Post(post){	
-	const {title, picture, createdAt, upvote} = post.postData;
-	return(		
-		<Box style={classCss.boxPost}>			
+function PostCard(post) {
+	const { title, picture, createdAt, upvote } = post.posts;
+	return (
+		<Box style={classCss.boxPost}>
 			<Paper style={classCss.paperPost}>{picture}</Paper>
 			<Typography variant="h5" textAlign="center">
-				{title}							
+				{title}
 			</Typography>
-			<Typography variant="h6" textAlign="center">							
-				<span style={{float: "left"}}>
+			<Typography variant="h6" textAlign="center">
+				<span style={{ float: "left" }}>
 					Posted: {moment.utc(createdAt).fromNow()}
 				</span>
-				<span style={{float: "right"}}>Upvotes: {upvote}</span>
+				<span style={{ float: "right" }}>Upvotes: {upvote}</span>
 			</Typography>
 		</Box>
 	);
 }
 
-export default Post;
+export default PostCard;

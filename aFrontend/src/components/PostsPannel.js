@@ -1,31 +1,32 @@
-import React from "react";
-import postData from "../dev/DB_PostAndTags.json";
-import Post from "./Post";
+import React, { useContext } from "react";
+import PostCard from "./PostCard";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import { classCss } from "../mui_css/muiStyles";
+import { PostDataContext } from "../contexts/PostsContext";
 
-const PostsPannel = () =>{    
-	return(
+const PostsPannel = () => {
+	const { posts } = useContext(PostDataContext);
+	return (
 		<div style={classCss.divPostsPannel}>
 			<Container maxWidth="xl">
-				<Grid container spacing={2} justifyContent="center">						
-					{postData
-						.filter((post)=>{
-							return(
+				<Grid container spacing={2} justifyContent="center">
+					{posts
+						.filter((post) => {
+							return (
 								post.published
 							);
 						})
-						.sort((a, b) => {		
+						.sort((a, b) => {
 							// sorts by date 
 							return new Date(b.createdAt) - new Date(a.createdAt);
 						})
-						.map((post)=>{
-							return(
-								<Post key={post.id} postData={post}/>
+						.map((post) => {
+							return (
+								<PostCard key={post.id} posts={post} />
 							);
 						})}
-				</Grid>			
+				</Grid>
 			</Container>
 		</div>
 	);

@@ -8,12 +8,14 @@
 ### Components tree
 
     - App
-    	- Header
-    	- Main
-    		- Filter
-    		- PostPannel
-    			- Post
-    	- Footer
+		- Admin
+		- MainApp
+			- Header
+			- Main
+				- Filter
+				- PostPannel
+					- Post
+			- Footer
 
 ### Initial setup
 
@@ -104,4 +106,4 @@
     				"source.fixAll.eslint": true
     			},
     			"eslint.validate": ["javascript"]
-    			}
+    		}

@@ -2,8 +2,6 @@
 	- Backend
           - 
 	- Frontend
-		- get postdata from Hook
-		- configure context for postdata
 		- read postdata asyncronously
 		- display placeholder while loading data
 		- get category with hook
