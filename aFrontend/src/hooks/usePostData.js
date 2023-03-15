@@ -7,10 +7,10 @@ export const REQUEST_STATUS = {
     FAILURE: "failure",
 };
 
-function usePostData(delayTime = 3000) {
-    const [dataPost, setdataPost] = useState([]);
-    const [requestStatusPost, setrequestStatusPost] = useState(REQUEST_STATUS.LOADING);
-    const [errorPost, seterrorPost] = useState("");
+function usePostData(delayTime = 1000) {
+    const [dataPost, setDataPost] = useState([]);
+    const [requestStatusPost, setRequestStatusPost] = useState(REQUEST_STATUS.LOADING);
+    const [errorPost, setErrorPost] = useState("");
 
     // create delay function
     const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -20,12 +20,12 @@ function usePostData(delayTime = 3000) {
         async function delayFunc() {
             try {
                 await delay(delayTime);
-                // throw "Problem while reading server data";
-                setrequestStatusPost(REQUEST_STATUS.SUCCESS);
-                setdataPost(postsData);
+                // throw "Problem while reading server data - Posts";
+                setRequestStatusPost(REQUEST_STATUS.SUCCESS);
+                setDataPost(postsData);
             } catch (e) {
-                setrequestStatusPost(REQUEST_STATUS.FAILURE);
-                seterrorPost(e);
+                setRequestStatusPost(REQUEST_STATUS.FAILURE);
+                setErrorPost(e);
             }
         }
         delayFunc();

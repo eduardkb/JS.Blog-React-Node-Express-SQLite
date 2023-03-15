@@ -2,9 +2,8 @@
 	- Backend
           - 
 	- Frontend
-		- get category with hook
-		- display category
-		- MainApp - error handling if data is not loaded displaying a message
+          - fix categories display
+		- MainApp - display better error message.
 
 		- filter - make drop down (see: https://mui.com/material-ui/transitions/#collapse)
 
