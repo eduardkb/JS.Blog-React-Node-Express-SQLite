@@ -20,6 +20,11 @@ module.exports = (sequelize, DataTypes) => {
 			type: DataTypes.BOOLEAN,
 			allowNull: false,
 		},
+		upvote: {
+			type: DataTypes.INTEGER,
+			allowNull: false,
+			unique: true,
+		},
 	});
 
 	Post.associate = (models) => {

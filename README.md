@@ -65,13 +65,13 @@
     	2- User 1->M Comment
     Post:
     	PK: id
-    	FIELDS: title, picture, body, published
+    	FIELDS: title, picture, body, published, upvote
     	FK: userId, categoryId
 
     	3- Post 1->M Comment
     Comment:
     	PK: id
-    	FIELDS: comment, upvote, published
+    	FIELDS: comment, published
     	FK: userId, postId
     Category:
     	PK: id

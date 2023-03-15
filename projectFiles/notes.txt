@@ -1,10 +1,6 @@
 # To-Do
 	- Backend
-		- remove upvote from comment
-		- add upvote on post
-		- fix data
-		- regenerate tables and data
-		- put data on frontend
+          - 
 	- Frontend
 		- get postdata from Hook
 		- configure context for postdata

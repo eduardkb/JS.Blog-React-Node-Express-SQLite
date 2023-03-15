@@ -18,15 +18,15 @@ module.exports = (sequelize, DataTypes) => {
 			type: DataTypes.BOOLEAN,
 			allowNull: false,
 		}
-	}, 
-	{ timestamps: false }
+	},
+		{ timestamps: false }
 	);
-	
+
 	Category.associate = models => {
 		Category.hasMany(models.Post, {
 			foreignKey: "categoryId"
 		});
 	};
-	
+
 	return Category;
 };

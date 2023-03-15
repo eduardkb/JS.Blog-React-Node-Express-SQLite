@@ -9,12 +9,12 @@ module.exports = (sequelize, DataTypes) => {
 			type: DataTypes.STRING,
 			allowNull: false,
 		},
-	}, 
-	{ timestamps: false }
+	},
+		{ timestamps: false }
 	);
 	Tag.associate = (models) => {
 		Tag.belongsToMany(models.Post, { through: "Post_Tags" });
 	};
-    
+
 	return Tag;
 };

@@ -1,5 +1,5 @@
 {
-    "user":[
+    "user": [
         {
             "name": "John Snow",
             "email": "jsnow@uta.edu",
@@ -19,26 +19,27 @@
             "role": "user"
         }
     ],
-    "category":[
+    "category": [
         {
-            "name":"Inform.Tech",
-            "description":"IT Stuff",
-            "active":true
+            "name": "Inform.Tech",
+            "description": "IT Stuff",
+            "active": true
         },
         {
-            "name":"Programming",
-            "description":"Interesting Programming",
-            "active":false
+            "name": "Programming",
+            "description": "Interesting Programming",
+            "active": false
         }
     ],
-    "post":[
+    "post": [
         {
             "title": "Ti Cloud",
             "picture": "Pict_1",
             "body": "cloud desc",
             "published": false,
             "userId": 2,
-            "categoryId": 1
+            "categoryId": 1,
+            "upvote": 3
         },
         {
             "title": "Dev Node",
@@ -46,7 +47,8 @@
             "body": "Node desc",
             "published": true,
             "userId": 2,
-            "categoryId": 2
+            "categoryId": 2,
+            "upvote": 115
         },
         {
             "title": "Finance iBov",
@@ -54,28 +56,33 @@
             "body": "ibov desc",
             "published": false,
             "userId": 3,
-            "categoryId": 2
+            "categoryId": 2,
+            "upvote": 68
         }
     ],
-    "comment":[
+    "comment": [
         {
             "comment": "comment 1 test",
-            "upvote": 2,
             "published": false,
             "userId": 3,
             "postId": 3
         },
         {
             "comment": "comment 2 test",
-            "upvote": 3,
             "published": true,
             "userId": 3,
             "postId": 2
         }
     ],
-    "tag":[
-        {"name":"Cloud"},
-        {"name":"Node"},
-        {"name":"BigData"}
+    "tag": [
+        {
+            "name": "Cloud"
+        },
+        {
+            "name": "Node"
+        },
+        {
+            "name": "BigData"
+        }
     ]
 }

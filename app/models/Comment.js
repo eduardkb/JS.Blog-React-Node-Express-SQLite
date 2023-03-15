@@ -9,11 +9,6 @@ module.exports = (sequelize, DataTypes) => {
 			type: DataTypes.STRING,
 			allowNull: false,
 		},
-		upvote: {
-			type: DataTypes.INTEGER,
-			allowNull: false,
-			unique: true,
-		},
 		published: {
 			type: DataTypes.BOOLEAN,
 			allowNull: false,
