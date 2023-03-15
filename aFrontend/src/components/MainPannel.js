@@ -2,8 +2,8 @@ import React from "react";
 import PostsPannel from "./PostsPannel";
 import FilterPannel from "./FilterPannel";
 
-const MainPannel = () =>{
-	return(
+const MainPannel = () => {
+	return (
 		<div>
 			<FilterPannel />
 			<PostsPannel />

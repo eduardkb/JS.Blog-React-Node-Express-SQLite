@@ -2,10 +2,9 @@
 	- Backend
           - 
 	- Frontend
-		- read postdata asyncronously
-		- display placeholder while loading data
 		- get category with hook
 		- display category
+          - MainApp - error handling if data is not loaded displaying a message
 		
 		- filter - make drop down
 			- see: https://mui.com/material-ui/transitions/#collapse

@@ -5,8 +5,9 @@ import Container from "@mui/material/Container";
 import { classCss } from "../mui_css/muiStyles";
 import { PostDataContext } from "../contexts/PostsContext";
 
-const PostsPannel = () => {
+const PostsPannel = ({ postsReqStatus }) => {
 	const { posts } = useContext(PostDataContext);
+
 	return (
 		<div style={classCss.divPostsPannel}>
 			<Container maxWidth="xl">
