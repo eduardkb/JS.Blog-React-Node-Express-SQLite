@@ -1,4 +1,4 @@
-const db = require('../models');
+const db = require("../models");
 
 const User = db.User;
 
@@ -6,64 +6,64 @@ const { Op } = db.Sequelize;
 
 // Create and Save a new user
 exports.create = (req, res) => {
-    // Validate request
-    if (!req.body.name) {
-        res.status(400).send({
-            message: 'Content can not be empty!',
-        });
-        return;
-    }
+	// Validate request
+	if (!req.body.name) {
+		res.status(400).send({
+			message: "Content can not be empty!",
+		});
+		return;
+	}
 
-    // Create a user
-    const user = {
-        name: req.body.name,
-        email: req.body.email,
-        pass: req.body.pass,
-        role: req.body.role,
-    };
+	// Create a user
+	const user = {
+		name: req.body.name,
+		email: req.body.email,
+		pass: req.body.pass,
+		role: req.body.role,
+	};
 
-    // Save User in the database
-    User.create(user)
-        .then((data) => {
-            res.send(data);
-        })
-        .catch((err) => {
-            res.status(500).send({
-                message:
-                    err.message || 'Some error occurred while creating a user.',
-            });
-        });
+	// Save User in the database
+	User.create(user)
+		.then((data) => {
+			res.send(data);
+		})
+		.catch((err) => {
+			res.status(500).send({
+				message:
+                    err.message || "Some error occurred while creating a user.",
+			});
+		});
 };
 
 // Retrieve all Users from the database.
 exports.findAll = (req, res) => {
-    const { title } = req.query;
-    const condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
+	const { title } = req.query;
+	const condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
 
-    User.findAll({ where: condition })
-        .then((data) => {
-            res.send(data);
-        })
-        .catch((err) => {
-            res.status(500).send({
-                message:
-                    err.message || 'Some error occurred while retrieving users.',
-            });
-        });
+	User.findAll({ where: condition })
+		.then((data) => {
+			res.send(data);
+		})
+		.catch((err) => {
+			res.status(500).send({
+				message:
+                    err.message || "Some error occurred while retrieving users.",
+			});
+		});
 };
 
 exports.findUserJoinPost = (req, res) => {
-    User.findAll({ include: [db.Post] })
-        .then((data) => {
-            res.send(data);
-        })
-        .catch((err) => {
-            res.status(500).send({
-                message:
-                    err.message || 'Some error occurred while retrieving users and posts.',
-            });
-        });
-}
+	User.findAll({ include: [db.Post] })
+		.then((data) => {
+			res.send(data);
+		})
+		.catch((err) => {
+			res.status(500).send({
+				message:
+                    err.message || "Some error occurred while retrieving users and posts.",
+			});
+		});
+};
 
 
 // Find a single Tutorial with an id

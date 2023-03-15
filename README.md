@@ -1,25 +1,27 @@
 # JS Blog - Frontend
 
 ### start and run project
+
     $ npm install
     $ npm run dev
 
 ### Components tree
-	- App
-		- Header 
-		- Main
-			- Filter
-			- PostPannel
-				- Post
-		- Footer
 
+    - App
+    	- Header
+    	- Main
+    		- Filter
+    		- PostPannel
+    			- Post
+    	- Footer
 
 ### Initial setup
 
     npx create-react-app blog-backend
     npm install @mui/material @emotion/react @emotion/styled @fontsource/roboto @mui/icons-material
-	
+
 #### =========================================================================================
+
 # JS Blog - BACKEND
 
 ### start and run project
@@ -91,3 +93,15 @@
     	"dev": "nodemon index.js"
     create sequelize files:
     	$ ./node_modules/.bin/sequelize init
+
+    eslint
+    	$ npm install eslint
+    	$ eslint --init
+    	on config.json
+    		{
+    			"editor.formatOnSave": true,
+    			"editor.codeActionsOnSave": {
+    				"source.fixAll.eslint": true
+    			},
+    			"eslint.validate": ["javascript"]
+    			}

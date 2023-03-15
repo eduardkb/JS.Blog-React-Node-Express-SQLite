@@ -1,33 +1,33 @@
 module.exports = (sequelize, DataTypes) => {
-    const Comment = sequelize.define("Comment", {
-        id: {
-            type: DataTypes.INTEGER,
-            autoIncrement: true,
-            primaryKey: true
-        },
-        comment: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        upvote: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            unique: true,
-        },
-        published: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false,
-        },
-    });
+	const Comment = sequelize.define("Comment", {
+		id: {
+			type: DataTypes.INTEGER,
+			autoIncrement: true,
+			primaryKey: true
+		},
+		comment: {
+			type: DataTypes.STRING,
+			allowNull: false,
+		},
+		upvote: {
+			type: DataTypes.INTEGER,
+			allowNull: false,
+			unique: true,
+		},
+		published: {
+			type: DataTypes.BOOLEAN,
+			allowNull: false,
+		},
+	});
 
-    Comment.associate = (models) => {
-        Comment.belongsTo(models.Post, {
-            foreignKey: 'postId'
-        });
-        Comment.belongsTo(models.User, {
-            foreignKey: 'userId'
-        });
-    }
+	Comment.associate = (models) => {
+		Comment.belongsTo(models.Post, {
+			foreignKey: "postId"
+		});
+		Comment.belongsTo(models.User, {
+			foreignKey: "userId"
+		});
+	};
 
-    return Comment;
-}
+	return Comment;
+};

@@ -1,4 +1,4 @@
-const db = require('../models');
+const db = require("../models");
 
 const Category = db.Category;
 
@@ -6,63 +6,63 @@ const { Op } = db.Sequelize;
 
 // Create and Save a new Category
 exports.create = (req, res) => {
-    // Validate request
-    if (!req.body.name) {
-        res.status(400).send({
-            message: 'Content can not be empty!',
-        });
-        return;
-    }
+	// Validate request
+	if (!req.body.name) {
+		res.status(400).send({
+			message: "Content can not be empty!",
+		});
+		return;
+	}
 
-    // Create a Category
-    const category = {
-        name: req.body.name,
-        description: req.body.description,
-        active: req.body.active ? req.body.active : false,
-    };
+	// Create a Category
+	const category = {
+		name: req.body.name,
+		description: req.body.description,
+		active: req.body.active ? req.body.active : false,
+	};
 
-    // Save Category in the database
-    Category.create(category)
-        .then((data) => {
-            res.send(data);
-        })
-        .catch((err) => {
-            res.status(500).send({
-                message:
+	// Save Category in the database
+	Category.create(category)
+		.then((data) => {
+			res.send(data);
+		})
+		.catch((err) => {
+			res.status(500).send({
+				message:
                     err.message || `Error while creating a Category. |${Category.name}`,
-            });
-        });
+			});
+		});
 };
 
 // Retrieve all Category from the database.
 exports.findAll = (req, res) => {
-    const { title } = req.query;
-    const condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
+	const { title } = req.query;
+	const condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
 
-    Category.findAll({ where: condition })
-        .then((data) => {
-            res.send(data);
-        })
-        .catch((err) => {
-            res.status(500).send({
-                message:
-                    err.message || 'Some error occurred while retrieving Categorys.',
-            });
-        });
+	Category.findAll({ where: condition })
+		.then((data) => {
+			res.send(data);
+		})
+		.catch((err) => {
+			res.status(500).send({
+				message:
+                    err.message || "Some error occurred while retrieving Categorys.",
+			});
+		});
 };
 
 exports.findCategoryJoinPost = (req, res) => {
-    Category.findAll({ include: [db.Post] })
-        .then((data) => {
-            res.send(data);
-        })
-        .catch((err) => {
-            res.status(500).send({
-                message:
-                    err.message || 'Some error occurred while retrieving categories and posts.',
-            });
-        });
-}
+	Category.findAll({ include: [db.Post] })
+		.then((data) => {
+			res.send(data);
+		})
+		.catch((err) => {
+			res.status(500).send({
+				message:
+                    err.message || "Some error occurred while retrieving categories and posts.",
+			});
+		});
+};
 
 // Find a single Tutorial with an id
 // exports.findOne = (req, res) => {

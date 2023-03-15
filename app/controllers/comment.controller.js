@@ -1,4 +1,4 @@
-const db = require('../models');
+const db = require("../models");
 
 const Comment = db.Comment;
 
@@ -6,51 +6,51 @@ const { Op } = db.Sequelize;
 
 // Create and Save a new comment
 exports.create = (req, res) => {
-    // Validate request
-    if (!req.body.comment) {
-        res.status(400).send({
-            message: 'Content can not be empty!',
-        });
-        return;
-    }
+	// Validate request
+	if (!req.body.comment) {
+		res.status(400).send({
+			message: "Content can not be empty!",
+		});
+		return;
+	}
 
-    // Create a comment
-    const comment = {
-        comment: req.body.comment,
-        upvote: req.body.upvote,
-        published: req.body.published ? req.body.published : false,
-        userId: req.body.userId,
-        postId: req.body.postId,
-    };
+	// Create a comment
+	const comment = {
+		comment: req.body.comment,
+		upvote: req.body.upvote,
+		published: req.body.published ? req.body.published : false,
+		userId: req.body.userId,
+		postId: req.body.postId,
+	};
 
-    // Save comment in the database
-    Comment.create(comment)
-        .then((data) => {
-            res.send(data);
-        })
-        .catch((err) => {
-            res.status(500).send({
-                message:
+	// Save comment in the database
+	Comment.create(comment)
+		.then((data) => {
+			res.send(data);
+		})
+		.catch((err) => {
+			res.status(500).send({
+				message:
                     err.message || `Error while creating a comment. |${comment.comment}`,
-            });
-        });
+			});
+		});
 };
 
 // Retrieve all comment from the database.
 exports.findAll = (req, res) => {
-    const { title } = req.query;
-    const condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
+	const { title } = req.query;
+	const condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
 
-    Comment.findAll({ where: condition })
-        .then((data) => {
-            res.send(data);
-        })
-        .catch((err) => {
-            res.status(500).send({
-                message:
-                    err.message || 'Some error occurred while retrieving comments.',
-            });
-        });
+	Comment.findAll({ where: condition })
+		.then((data) => {
+			res.send(data);
+		})
+		.catch((err) => {
+			res.status(500).send({
+				message:
+                    err.message || "Some error occurred while retrieving comments.",
+			});
+		});
 };
 
 // Find a single Tutorial with an id

@@ -1,3 +1,4 @@
+import React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import { classCss } from "../mui_css/muiStyles";
@@ -11,8 +12,8 @@ const FilterPannel = () =>{
 				</Typography>
 			</Box>
 		</div>
-	)
-}
+	);
+};
 
 
 
