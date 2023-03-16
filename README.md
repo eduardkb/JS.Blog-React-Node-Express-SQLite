@@ -41,7 +41,8 @@
     - /api/post
     	GET: /  		(get all posts)
     	GET: /joincomment 	(get all posts joined with their comments)
-    	GET: /:id/joincomment	(get post with id[x] and all its comments)
+    	GET: /joincomment/:id	(get post with id[x] and all its comments)
+		GET: /joinTag/:id	(get post with id[x] and all its tags)
     	POST: / 		(add a new post)
 
     - /api/comment
@@ -55,6 +56,7 @@
 
     - /api/tag
     	GET: /  		(get all tags)
+		GET: /joinPost/:id	(get tag with id[x] and all its posts)
     	POST: / 		(add a new tag)
 
 ### SQLite tables

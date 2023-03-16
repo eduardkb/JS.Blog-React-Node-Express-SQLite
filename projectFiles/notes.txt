@@ -1,10 +1,9 @@
 # To-Do
 	- Backend
-          - 
+          - change "GET: post/joincomment/:id" to get user name
 	- Frontend
-          - fix categories display
-		- MainApp - display better error message.
-
+          - create hook to filter posts by category
+		- MainApp - Error Handling- display better error message if data is not loaded
 		- filter - make drop down (see: https://mui.com/material-ui/transitions/#collapse)
 
 copy project: scp -r -i ..\awsKeys\KY-NV-SSHKey.pem * ubuntu@3.209.1.2:~/dev/JS.Blog-React-Node-Express-SQLite/.
