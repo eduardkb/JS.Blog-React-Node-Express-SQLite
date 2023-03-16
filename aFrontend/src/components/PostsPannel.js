@@ -12,13 +12,13 @@ const PostsPannel = () => {
 		<Container maxWidth="xl" sx={{ margin: "30px 0px" }}>
 			{catFilter}
 			<Grid container spacing={3} style={classCss.mainPannelGrid}>
-				{RenderPosts(posts)}
+				{renderPosts(posts)}
 			</Grid>
 		</Container>
 	);
 };
 
-function RenderPosts(posts) {
+function renderPosts(posts) {
 	return (
 		<>
 			{posts

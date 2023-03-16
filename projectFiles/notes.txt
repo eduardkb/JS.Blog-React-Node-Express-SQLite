@@ -2,7 +2,7 @@
 	- Backend
           - add "GET: post by ID" and JOIN with user name, coments and tags
 	- Frontend
-          - fix bug on categories button for sm screen
+          - 
           - filter items on PostsPannel using created Hook
 		- MainApp - Error Handling- display better error message if data is not loaded
 		- filter - make drop down (see: https://mui.com/material-ui/transitions/#collapse)

@@ -29,14 +29,16 @@ function Header(props) {
 		function SmCategoryMenu(props) {
 			const categories = props.categories
 			const setCatFilter = props.funcCatFilter
+			return (
+				categories.map((category) => {
+					return (
+						<Button key={category.id} onClick={e => handleBtnCatClick(e, category.id, setCatFilter)} size="small" variant="contained" sx={{ bgcolor: "secondary.main", marginLeft: 1, marginBottom: 1 }}>
+							{category.name}
+						</Button>
+					)
+				})
 
-			categories.map((category) => {
-				return (
-					<Button key={category.id} onClick={e => handleBtnCatClick(e, category.id, setCatFilter)} size="small" variant="contained" sx={{ bgcolor: "secondary.main", marginLeft: 1, marginBottom: 1 }}>
-						{category.name}
-					</Button>
-				)
-			})
+			)
 		}
 		function XsCategoryMenu(props) {
 			const categories = props.categories
@@ -127,12 +129,13 @@ function Header(props) {
 		if (props.buildType === 'sm') {
 			return (
 				<>
-					{/* <Button key={0} onClick={e => handleBtnCatClick(e, 0, setCatFilter)} size="small" variant="contained" sx={{ bgcolor: "secondary.main", marginLeft: 1, marginBottom: 1 }}>
+					<Button key={0} onClick={e => handleBtnCatClick(e, 0, setCatFilter)} size="small" variant="contained" sx={{ bgcolor: "secondary.main", marginLeft: 1, marginBottom: 1 }}>
 						All
-					</Button> */}
+					</Button>
 					<SmCategoryMenu categories={categories} funcCatFilter={setCatFilter} />
 				</>
 			)
+
 		}
 
 	}
