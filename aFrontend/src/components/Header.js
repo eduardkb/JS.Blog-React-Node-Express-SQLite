@@ -7,7 +7,6 @@ import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
 import MenuIcon from "@mui/icons-material/Menu"
-import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Tooltip from '@mui/material/Tooltip';
@@ -30,13 +29,18 @@ function Header(props) {
 			const categories = props.categories
 			const setCatFilter = props.funcCatFilter
 			return (
-				categories.map((category) => {
-					return (
-						<Button key={category.id} onClick={e => handleBtnCatClick(e, category.id, setCatFilter)} size="small" variant="contained" sx={{ bgcolor: "secondary.main", marginLeft: 1, marginBottom: 1 }}>
-							{category.name}
-						</Button>
-					)
-				})
+				<React.Fragment>
+					<Button key={0} onClick={e => handleBtnCatClick(e, 0, setCatFilter)} size="small" variant="contained" sx={{ bgcolor: "secondary.main", marginLeft: 1, marginBottom: 1 }}>
+						All
+					</Button>
+					{categories.map((category) => {
+						return (
+							<Button key={category.id} onClick={e => handleBtnCatClick(e, category.id, setCatFilter)} size="small" variant="contained" sx={{ bgcolor: "secondary.main", marginLeft: 1, marginBottom: 1 }}>
+								{category.name}
+							</Button>
+						)
+					})}
+				</React.Fragment>
 
 			)
 		}
@@ -54,20 +58,20 @@ function Header(props) {
 			};
 			return (
 				<React.Fragment>
-					<Box>
-						<Typography variant="h6" sx={{ margin: 0 }}>
+					<Box >
+						<Typography display="inline" variant="h6" sx={{ margin: 0, verticalAlign: "middle" }}>
 							Categories:
 						</Typography>
 						<Tooltip title="Categories">
 							<MenuIcon
+								sx={{ verticalAlign: "middle" }}
+								color="text"
 								onClick={handleClick}
-								size="small"
-								sx={{ ml: 2 }}
+								fontSize="large"
 								aria-controls={open ? 'account-menu' : undefined}
 								aria-haspopup="true"
 								aria-expanded={open ? 'true' : undefined}
 							>
-								<Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
 							</MenuIcon>
 						</Tooltip>
 					</Box>
@@ -128,12 +132,7 @@ function Header(props) {
 		}
 		if (props.buildType === 'sm') {
 			return (
-				<>
-					<Button key={0} onClick={e => handleBtnCatClick(e, 0, setCatFilter)} size="small" variant="contained" sx={{ bgcolor: "secondary.main", marginLeft: 1, marginBottom: 1 }}>
-						All
-					</Button>
-					<SmCategoryMenu categories={categories} funcCatFilter={setCatFilter} />
-				</>
+				<SmCategoryMenu categories={categories} funcCatFilter={setCatFilter} />
 			)
 
 		}
@@ -145,22 +144,22 @@ function Header(props) {
 			return (
 				<>
 					<Divider sx={{ marginTop: "5px", borderBottomWidth: 3 }} />
-					<Grid container spacing={2} sx={{ alignItems: 'end' }}>
-						<Grid item xs={6} >
+					<Grid container spacing={2}>
+						<Grid item xs={6} display="flex" alignItems="end">
 							<Typography variant="h6" sx={{ margin: 0 }}>
 								Filter:
 							</Typography>
 						</Grid>
-						<Grid item xs={6} textAlign='right' >
+						<Grid item xs={6}>
 							{/* Display only on screens larger than sm */}
-							<Box sx={{ display: { xs: "none", sm: "block" } }}>
-								<Typography variant="h6" sx={{ margin: 0 }}>
+							<Box sx={{ display: { xs: "none", sm: "block" }, textAlign: "right" }}>
+								<Typography variant="h6" sx={{ margin: 0 }} >
 									Categories:
 								</Typography>
 								<BuildCatMenu categories={dta} buildType="sm" />
 							</Box>
 							{/* Display only on xs screen */}
-							<Box sx={{ display: { xs: "block", sm: "none" } }}>
+							<Box sx={{ display: { xs: "block", sm: "none" }, textAlign: "right" }}>
 								<BuildCatMenu categories={dta} buildType="xs" />
 							</Box>
 						</Grid>

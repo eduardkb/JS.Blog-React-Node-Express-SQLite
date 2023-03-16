@@ -20,7 +20,7 @@
         "published": true,
         "createdAt": "2023-03-13T12:46:56.351Z",
         "updatedAt": "2023-03-10T12:46:56.351Z",
-        "categoryId": 2,
+        "categoryId": 1,
         "userId": 2,
         "upvote": 112,
         "Tags": [
@@ -67,7 +67,80 @@
         "published": true,
         "createdAt": "2023-03-14T16:00:56.351Z",
         "updatedAt": "2023-03-10T12:46:56.351Z",
+        "categoryId": 1,
+        "userId": 1,
+        "upvote": 5,
+        "Tags": []
+    },
+    {
+        "id": 5,
+        "title": "AWS Cloud EC2",
+        "picture": "Pict_5",
+        "body": "AWS Post body",
+        "published": true,
+        "createdAt": "2023-03-16T23:00:56.351Z",
+        "updatedAt": "2023-03-10T12:46:56.351Z",
         "categoryId": 3,
+        "userId": 1,
+        "upvote": 8,
+        "Tags": [
+            {
+                "id": 1,
+                "name": "Cloud",
+                "Post_Tags": {
+                    "createdAt": "2023-03-10T12:46:56.478Z",
+                    "updatedAt": "2023-03-10T12:46:56.478Z",
+                    "PostId": 2,
+                    "TagId": 1
+                }
+            },
+            {
+                "id": 2,
+                "name": "Node",
+                "Post_Tags": {
+                    "createdAt": "2023-03-10T12:46:56.480Z",
+                    "updatedAt": "2023-03-10T12:46:56.480Z",
+                    "PostId": 2,
+                    "TagId": 2
+                }
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "title": "Azure basics",
+        "picture": "Pict_6",
+        "body": "Azure Post body",
+        "published": true,
+        "createdAt": "2023-03-15T09:00:56.351Z",
+        "updatedAt": "2023-03-10T12:46:56.351Z",
+        "categoryId": 3,
+        "userId": 1,
+        "upvote": 215,
+        "Tags": []
+    },
+    {
+        "id": 7,
+        "title": "How to save money",
+        "picture": "Pict_7",
+        "body": "Save money Post body",
+        "published": true,
+        "createdAt": "2023-03-16T10:00:56.351Z",
+        "updatedAt": "2023-03-10T12:46:56.351Z",
+        "categoryId": 4,
+        "userId": 1,
+        "upvote": 1,
+        "Tags": []
+    },
+    {
+        "id": 8,
+        "title": "Python",
+        "picture": "Pict_8",
+        "body": "PY Post body",
+        "published": true,
+        "createdAt": "2023-03-14T22:00:56.351Z",
+        "updatedAt": "2023-03-10T12:46:56.351Z",
+        "categoryId": 2,
         "userId": 1,
         "upvote": 1,
         "Tags": []
