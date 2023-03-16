@@ -102,6 +102,14 @@ function Header(props) {
 
 	function catSubMenu() {
 		if (dta !== undefined) {
+			console.log("D1-", dta)
+			dta.unshift({
+				"id": 0,
+				"name": "All",
+				"description": "All Items",
+				"active": true
+			})
+			console.log("D2-", dta)
 			return (
 				<>
 					<Divider sx={{ marginTop: "5px", borderBottomWidth: 3 }} />
