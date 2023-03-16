@@ -1,11 +1,11 @@
 import React from "react";
 import PostsPannel from "./PostsPannel";
-import FilterPannel from "./FilterPannel";
+// import FilterPannel from "./FilterPannel";
 
 const MainPannel = () => {
 	return (
 		<div>
-			<FilterPannel />
+			{/* <FilterPannel /> */}
 			<PostsPannel />
 		</div>
 	);
