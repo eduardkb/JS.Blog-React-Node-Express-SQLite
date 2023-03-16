@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./Header";
-import MainPannel from "./MainPannel";
+import PostsPannel from "./PostsPannel";
 import Footer from "./Footer";
 import { PostsProvider } from "../contexts/PostsContext";
 import { REQUEST_STATUS } from "../hooks/usePostData";
@@ -55,7 +55,7 @@ function MainApp() {
 
 		<PostsProvider startingPosts={dataPost}>
 			<Header data={dataCategory} />
-			<MainPannel />
+			<PostsPannel />
 			<Footer />
 		</PostsProvider>
 

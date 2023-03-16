@@ -66,4 +66,10 @@ export const classCss = {
     textAlign: "left",
     fontSize: 'small',
   },
+  footerBox: {
+    textAlign: "center",
+    bgcolor: "primary.main",
+    color: "text.main",
+    padding: "10px"
+  },
 };

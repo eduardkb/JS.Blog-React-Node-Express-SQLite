@@ -1,19 +1,25 @@
 [
     {
         "id": 1,
-        "name": "IT",
+        "name": "Information Technology",
         "description": "IT Stuff",
         "active": true
     },
     {
         "id": 2,
-        "name": "Pro",
+        "name": "Programming",
         "description": "Interesting Programming",
         "active": false
     },
     {
         "id": 3,
-        "name": "Fin",
+        "name": "Cloud",
+        "description": "finances",
+        "active": true
+    },
+    {
+        "id": 4,
+        "name": "Finances",
         "description": "finances",
         "active": true
     }

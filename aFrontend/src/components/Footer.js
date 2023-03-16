@@ -1,12 +1,13 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import { classCss } from "../mui_css/muiStyles";
 
-const Footer = () =>{
-	return(
-		<Box sx={{textAlign:"center", bgcolor:"primary.main" ,color:"text.main", padding:"10px"}}>
+const Footer = () => {
+	return (
+		<Box sx={classCss.footerBox}>
 			<Typography variant="h7">
-                Web 
+				Web
 			</Typography>
 		</Box>
 	);
