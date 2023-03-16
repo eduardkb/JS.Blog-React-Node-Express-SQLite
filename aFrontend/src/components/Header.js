@@ -1,4 +1,5 @@
-import * as React from "react";
+import React, { useContext } from "react";
+import { PostDataContext } from "../contexts/PostsContext";
 import AppBar from "@mui/material/AppBar";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
@@ -11,23 +12,15 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Tooltip from '@mui/material/Tooltip';
 
+
+
 function Header(props) {
 	const dta = props.data
 
-	function CategoryList(categories) {
-		return (
-			categories.map((category) => {
-				return (
-					<Button key={category.id} size="small" variant="contained" sx={{ bgcolor: "secondary.main", marginLeft: 1, marginBottom: 1 }}>
-						{category.name}
-					</Button>
-				)
-			})
-		)
-	}
-
-	function CategoryMenu(props) {
+	function XsCategoryMenu(props) {
 		const categories = props.categories
+		const setCatFilter = props.funcCatFilter
+
 		const [anchorEl, setAnchorEl] = React.useState(null);
 		const open = Boolean(anchorEl);
 		const handleClick = (event) => {
@@ -36,10 +29,16 @@ function Header(props) {
 		const handleClose = () => {
 			setAnchorEl(null);
 		};
+		const handleBtnCatClick = (e, id, setFunc) => {
+			e.preventDefault();
+			setFunc(id)
+		}
 		return (
 			<React.Fragment>
 				<Box>
-					Category:
+					<Typography variant="h6" sx={{ margin: 0 }}>
+						Categories:
+					</Typography>
 					<Tooltip title="Categories">
 						<MenuIcon
 							onClick={handleClick}
@@ -90,7 +89,7 @@ function Header(props) {
 				>
 					{categories.map((category) => {
 						return (
-							<MenuItem key={category.id} onClick={handleClose}>
+							<MenuItem key={category.id} onClick={e => handleBtnCatClick(e, category.id, setCatFilter)}>
 								{category.name}
 							</MenuItem>
 						)
@@ -100,16 +99,35 @@ function Header(props) {
 		);
 	}
 
+	function BuildCatMenu(props) {
+		const categories = props.categories
+		const { setCatFilter } = useContext(PostDataContext);
+		const handleBtnCatClick = (e, id, setFunc) => {
+			e.preventDefault();
+			setFunc(id)
+		}
+
+		if (props.buildType === 'xs') {
+			return (
+				<XsCategoryMenu categories={categories} funcCatFilter={setCatFilter} />
+			)
+		}
+		if (props.buildType === 'sm') {
+			return (
+				categories.map((category) => {
+					return (
+						<Button key={category.id} onClick={e => handleBtnCatClick(e, category.id, setCatFilter)} size="small" variant="contained" sx={{ bgcolor: "secondary.main", marginLeft: 1, marginBottom: 1 }}>
+							{category.name}
+						</Button>
+					)
+				})
+			)
+		}
+
+	}
+
 	function catSubMenu() {
 		if (dta !== undefined) {
-			console.log("D1-", dta)
-			dta.unshift({
-				"id": 0,
-				"name": "All",
-				"description": "All Items",
-				"active": true
-			})
-			console.log("D2-", dta)
 			return (
 				<>
 					<Divider sx={{ marginTop: "5px", borderBottomWidth: 3 }} />
@@ -121,19 +139,15 @@ function Header(props) {
 						</Grid>
 						<Grid item xs={6} textAlign='right' >
 							{/* Display only on screens larger than sm */}
-							<Box sx={{
-								display: { xs: "none", sm: "block" }
-							}}>
+							<Box sx={{ display: { xs: "none", sm: "block" } }}>
 								<Typography variant="h6" sx={{ margin: 0 }}>
 									Categories:
 								</Typography>
-								{CategoryList(dta)}
+								<BuildCatMenu categories={dta} buildType="sm" />
 							</Box>
 							{/* Display only on xs screen */}
-							<Box sx={{
-								display: { xs: "block", sm: "none" }
-							}}>
-								<CategoryMenu categories={dta} />
+							<Box sx={{ display: { xs: "block", sm: "none" } }}>
+								<BuildCatMenu categories={dta} buildType="xs" />
 							</Box>
 						</Grid>
 					</Grid>

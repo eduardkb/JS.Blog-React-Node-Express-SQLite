@@ -5,11 +5,12 @@ import Container from "@mui/material/Container";
 import { classCss } from "../mui_css/muiStyles";
 import { PostDataContext } from "../contexts/PostsContext";
 
-const PostsPannel = ({ postsReqStatus }) => {
-	const { posts } = useContext(PostDataContext);
+const PostsPannel = () => {
+	const { posts, catFilter } = useContext(PostDataContext);
 
 	return (
 		<Container maxWidth="xl" sx={{ margin: "30px 0px" }}>
+			{catFilter}
 			<Grid container spacing={3} style={classCss.mainPannelGrid}>
 				{RenderPosts(posts)}
 			</Grid>

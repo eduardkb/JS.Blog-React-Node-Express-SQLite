@@ -8,7 +8,7 @@
 ### Components tree
 
     - App
-		- Admin
+		- Admin (To-Do)
 		- MainApp
 			- Header
 			- Main

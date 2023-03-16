@@ -30,9 +30,9 @@ if (WRITE_DEV_DATA) {
 else {
     db.sequelize.sync()
         .then((result) => {
-            console.log("=========================");
-            console.log("DEBUG: DB Synced: ", result);
-            console.log("=========================");
+            // console.log("=========================");
+            // console.log("DEBUG: DB Synced: ", result);
+            // console.log("=========================");
             initilizeServer();
         })
         .catch((err) => {

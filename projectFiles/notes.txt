@@ -1,8 +1,9 @@
 # To-Do
 	- Backend
-          - change "GET: post/joincomment/:id" to get user name
+          - add "GET: post by ID" and JOIN with user name, coments and tags
 	- Frontend
-          - create hook to filter posts by category
+          - put button "all" on categories for XS and SM screens
+          - filter items on PostsPannel using created Hook
 		- MainApp - Error Handling- display better error message if data is not loaded
 		- filter - make drop down (see: https://mui.com/material-ui/transitions/#collapse)
 
