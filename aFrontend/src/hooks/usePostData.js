@@ -7,7 +7,7 @@ export const REQUEST_STATUS = {
     FAILURE: "failure",
 };
 
-function usePostData(delayTime = 1000) {
+function usePostData(delayTime = 300) {
     const [dataPost, setDataPost] = useState([]);
     const [requestStatusPost, setRequestStatusPost] = useState(REQUEST_STATUS.LOADING);
     const [errorPost, setErrorPost] = useState("");

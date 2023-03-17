@@ -22,17 +22,14 @@ function renderPosts(posts, catFilter) {
 		<>
 			{posts
 				.filter((post) => {
-					if (catFilter === 0) {
-						return (
-							post.published
-						);
-					}
-					else {
-						return (
-							post.published &&
-							post.categoryId === catFilter
-						);
-					}
+					return (
+						post.published
+					);
+				})
+				.filter((post) => {
+					return (
+						catFilter === 0 ? post : post.categoryId === catFilter
+					);
 				})
 				.sort((a, b) => {
 					// sorts by date 
