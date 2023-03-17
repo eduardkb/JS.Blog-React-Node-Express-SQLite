@@ -57,8 +57,8 @@ function MainApp() {
 
 		< PostsProvider startingPosts={dataPost} >
 
-			<Header data={dataCategory} />
-			{postSelected === 0 ? <PostsPannel setPostSelected={setPostSelected} /> : <PostDetails postSelected={postSelected} />}
+			<Header data={dataCategory} setPostSelected={setPostSelected} />
+			{postSelected === 0 ? <PostsPannel setPostSelected={setPostSelected} /> : <PostDetails postSelected={postSelected} setPostSelected={setPostSelected} />}
 			<Footer />
 		</PostsProvider >
 

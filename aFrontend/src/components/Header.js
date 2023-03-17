@@ -11,11 +11,14 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Tooltip from '@mui/material/Tooltip';
 import TextField from "@mui/material/TextField";
+import Link from "@mui/material/Link";
+
 
 
 
 function Header(props) {
 	const dta = props.data
+	const setPostSelected = props.setPostSelected
 
 	function BuildCatMenu(props) {
 		const categories = props.categories
@@ -23,6 +26,7 @@ function Header(props) {
 
 		const handleBtnCatClick = (e, id, setFunc) => {
 			e.preventDefault();
+			setPostSelected(0)
 			setFunc(id)
 		}
 
@@ -193,9 +197,11 @@ function Header(props) {
 	return (
 		<AppBar position="static">
 			<div style={{ padding: 5 }}>
-				<Grid container spacing={2} sx={{ direction: "row", alignItems: "center", }}>
+				<Grid container spacing={2} sx={{ direction: "row" }}>
 					<Grid item xs={4} textAlign='left'>
-						<img src='/EKBLogo.png' alt="logo" style={{ maxWidth: "40px" }} />
+						<Link href=".">
+							<img src='/EKBLogo.png' alt="logo" style={{ maxWidth: "40px" }} />
+						</Link>
 					</Grid>
 					<Grid item xs={4} textAlign='center'>
 						<Typography variant="h4" sx={{ margin: 0 }}>
@@ -209,7 +215,7 @@ function Header(props) {
 				{catSubMenu()}
 			</div>
 
-		</AppBar>
+		</AppBar >
 	);
 };
 export default Header;

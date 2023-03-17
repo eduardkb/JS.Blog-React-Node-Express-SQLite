@@ -1,6 +1,5 @@
 import React from "react";
 import Typography from "@mui/material/Typography";
-import Paper from "@mui/material/Paper";
 import Card from "@mui/material/Box";
 import { classCss } from "../mui_css/muiStyles";
 import moment from "moment/moment";

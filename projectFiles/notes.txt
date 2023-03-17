@@ -2,9 +2,10 @@
 	- Backend
           - add "GET: post by ID" and JOIN with user name, coments and tags
 	- Frontend
-          - implement two "back" buttons in  post details bage
+          - React does not recognize the `textAlign` prop on a DOM element.          
           - categories buttons and page icon have to return to main page          
           - separate components ( move submenu categories and filter to a new component)
+          - bug: when filtered by post title and entering post details the filed loses content.
           - filter - make drop down (see: https://mui.com/material-ui/transitions/#collapse)
                - put filter by post title  inside dropdown
 		- MainApp - Error Handling- display better error message if data is not loaded
