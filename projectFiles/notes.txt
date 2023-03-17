@@ -2,7 +2,9 @@
 	- Backend
           - add "GET: post by ID" and JOIN with user name, coments and tags
 	- Frontend
-          - separate components filter from header
+          - implement two "back" buttons in  post details bage
+          - categories buttons and page icon have to return to main page          
+          - separate components ( move submenu categories and filter to a new component)
           - filter - make drop down (see: https://mui.com/material-ui/transitions/#collapse)
                - put filter by post title  inside dropdown
 		- MainApp - Error Handling- display better error message if data is not loaded

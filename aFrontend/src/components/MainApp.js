@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import Header from "./Header";
 import PostsPannel from "./PostsPannel";
 import Footer from "./Footer";
@@ -7,10 +8,12 @@ import { REQUEST_STATUS } from "../hooks/usePostData";
 import { Container, LinearProgress, Stack } from "@mui/material";
 import usePostData from "../hooks/usePostData";
 import useCategoryData from "../hooks/useCategoryData";
+import PostDetails from "./PostDetails";
 
 function MainApp() {
 	const { dataPost, errorPost, requestStatusPost } = usePostData();
 	const { dataCategory, errorCategory, requestStatusCategory } = useCategoryData();
+	const [postSelected, setPostSelected] = useState(0);
 
 	const loadStatus = requestStatusPost === REQUEST_STATUS.LOADING || requestStatusCategory === REQUEST_STATUS.LOADING
 	const errorStatus = errorPost !== "" || errorCategory !== ""
@@ -50,14 +53,14 @@ function MainApp() {
 			</>
 		)
 	}
-
 	return (
 
-		<PostsProvider startingPosts={dataPost}>
+		< PostsProvider startingPosts={dataPost} >
+
 			<Header data={dataCategory} />
-			<PostsPannel />
+			{postSelected === 0 ? <PostsPannel setPostSelected={setPostSelected} /> : <PostDetails postSelected={postSelected} />}
 			<Footer />
-		</PostsProvider>
+		</PostsProvider >
 
 	);
 }

@@ -72,4 +72,11 @@ export const classCss = {
     color: "text.main",
     padding: "10px"
   },
+  postsPictureBox: {
+    backgroundColor: "green",
+    height: "100%",
+    width: "100%",
+    borderRadius: '5px',
+    cursor: 'pointer',
+  },
 };

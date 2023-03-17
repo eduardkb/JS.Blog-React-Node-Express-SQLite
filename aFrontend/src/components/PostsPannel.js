@@ -5,19 +5,20 @@ import Container from "@mui/material/Container";
 import { classCss } from "../mui_css/muiStyles";
 import { PostDataContext } from "../contexts/PostsContext";
 
-const PostsPannel = () => {
+const PostsPannel = ({ setPostSelected }) => {
 	const { posts, catFilter, titleFilter } = useContext(PostDataContext);
 
 	return (
-		<Container maxWidth="xl" sx={{ margin: "30px 0px" }}>
+
+		< Container maxWidth="xl" sx={{ margin: "30px 0px" }}>
 			<Grid container spacing={3} style={classCss.mainPannelGrid}>
-				{renderPosts(posts, catFilter, titleFilter)}
+				{renderPosts(posts, catFilter, titleFilter, setPostSelected)}
 			</Grid>
-		</Container>
+		</Container >
 	);
 };
 
-function renderPosts(posts, catFilter, titleFilter) {
+function renderPosts(posts, catFilter, titleFilter, setPostSelected) {
 	return (
 		<>
 			{posts
@@ -43,7 +44,7 @@ function renderPosts(posts, catFilter, titleFilter) {
 				.map((post) => {
 					return (
 						<Grid item key={post.id} xs={12} sm={6} md={4} xl={3} >
-							<PostCard posts={post} />
+							<PostCard post={post} setPostSelected={setPostSelected} />
 						</Grid>
 					);
 				})}
