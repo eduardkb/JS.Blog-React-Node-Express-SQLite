@@ -6,18 +6,18 @@ import { classCss } from "../mui_css/muiStyles";
 import { PostDataContext } from "../contexts/PostsContext";
 
 const PostsPannel = () => {
-	const { posts, catFilter } = useContext(PostDataContext);
+	const { posts, catFilter, titleFilter } = useContext(PostDataContext);
 
 	return (
 		<Container maxWidth="xl" sx={{ margin: "30px 0px" }}>
 			<Grid container spacing={3} style={classCss.mainPannelGrid}>
-				{renderPosts(posts, catFilter)}
+				{renderPosts(posts, catFilter, titleFilter)}
 			</Grid>
 		</Container>
 	);
 };
 
-function renderPosts(posts, catFilter) {
+function renderPosts(posts, catFilter, titleFilter) {
 	return (
 		<>
 			{posts
@@ -30,6 +30,11 @@ function renderPosts(posts, catFilter) {
 					return (
 						catFilter === 0 ? post : post.categoryId === catFilter
 					);
+				})
+				.filter((post) => {
+					return (
+						post.title.toLowerCase().includes(titleFilter.toLowerCase())
+					)
 				})
 				.sort((a, b) => {
 					// sorts by date 

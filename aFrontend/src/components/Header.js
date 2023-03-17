@@ -10,6 +10,8 @@ import MenuIcon from "@mui/icons-material/Menu"
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Tooltip from '@mui/material/Tooltip';
+import TextField from "@mui/material/TextField";
+
 
 
 function Header(props) {
@@ -18,6 +20,7 @@ function Header(props) {
 	function BuildCatMenu(props) {
 		const categories = props.categories
 		const { setCatFilter } = useContext(PostDataContext);
+
 		const handleBtnCatClick = (e, id, setFunc) => {
 			e.preventDefault();
 			setFunc(id)
@@ -137,6 +140,28 @@ function Header(props) {
 
 	}
 
+	function FilterMenu(props) {
+		const { settitleFilter } = useContext(PostDataContext)
+		function handleChangePostFilter(e) {
+			settitleFilter(e.target.value);
+		}
+		return (
+			<>
+				<Typography variant="h6" sx={{ margin: 0 }}>
+					Filter:
+				</Typography>
+				<TextField
+					id="filterPostTitle"
+					label="Filter by Post Title"
+					variant="standard"
+					color="tertiary"
+					sx={{ ml: 1 }}
+					onChange={handleChangePostFilter}
+				/>
+			</>
+		)
+	}
+
 	function catSubMenu() {
 		if (dta !== undefined) {
 			return (
@@ -144,9 +169,7 @@ function Header(props) {
 					<Divider sx={{ marginTop: "5px", borderBottomWidth: 3 }} />
 					<Grid container spacing={2}>
 						<Grid item xs={6} display="flex" alignItems="end">
-							<Typography variant="h6" sx={{ margin: 0 }}>
-								Filter:
-							</Typography>
+							<FilterMenu />
 						</Grid>
 						<Grid item xs={6}>
 							{/* Display only on screens larger than sm */}
