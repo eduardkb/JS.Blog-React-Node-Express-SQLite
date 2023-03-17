@@ -10,22 +10,29 @@ const PostsPannel = () => {
 
 	return (
 		<Container maxWidth="xl" sx={{ margin: "30px 0px" }}>
-			{catFilter}
 			<Grid container spacing={3} style={classCss.mainPannelGrid}>
-				{renderPosts(posts)}
+				{renderPosts(posts, catFilter)}
 			</Grid>
 		</Container>
 	);
 };
 
-function renderPosts(posts) {
+function renderPosts(posts, catFilter) {
 	return (
 		<>
 			{posts
 				.filter((post) => {
-					return (
-						post.published
-					);
+					if (catFilter === 0) {
+						return (
+							post.published
+						);
+					}
+					else {
+						return (
+							post.published &&
+							post.categoryId === catFilter
+						);
+					}
 				})
 				.sort((a, b) => {
 					// sorts by date 

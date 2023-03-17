@@ -15,8 +15,6 @@ import Tooltip from '@mui/material/Tooltip';
 function Header(props) {
 	const dta = props.data
 
-
-
 	function BuildCatMenu(props) {
 		const categories = props.categories
 		const { setCatFilter } = useContext(PostDataContext);
