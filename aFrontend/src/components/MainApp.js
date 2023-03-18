@@ -56,7 +56,6 @@ function MainApp() {
 	return (
 
 		< PostsProvider startingPosts={dataPost} >
-
 			<Header data={dataCategory} setPostSelected={setPostSelected} />
 			{postSelected === 0 ? <PostsPannel setPostSelected={setPostSelected} /> : <PostDetails postSelected={postSelected} setPostSelected={setPostSelected} />}
 			<Footer />

@@ -1,9 +1,7 @@
 # To-Do
 	- Backend
           - add "GET: post by ID" and JOIN with user name, coments and tags
-	- Frontend          
-          - when filter and no posts display message informing filter did not return any post
-          - separate components ( move submenu categories and filter to a new component)          
+	- Frontend                    
           - filter - make drop down (see: https://mui.com/material-ui/transitions/#collapse)
                - put filter by post title  inside dropdown
 		- MainApp - Error Handling- display better error message if data is not loaded
