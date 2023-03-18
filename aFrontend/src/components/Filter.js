@@ -10,10 +10,50 @@ import Divider from "@mui/material/Divider";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
+import Paper from '@mui/material/Paper';
+import Slide from '@mui/material/Slide';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import ArrowDropDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
 
 export default function Filter(props) {
     const dta = props.dta
     const setPostSelected = props.setPostSelected
+    const slideItems = (
+        <Paper elevation={4}>
+            <Box padding='30px'>
+                <TextField
+                    variant="standard"
+                    color="tertiary"
+                />
+                <Button variant="contained" >Clear Filters</Button>
+            </Box>
+        </Paper>
+    );
+
+    function FilterSlide() {
+        const [checked, setChecked] = React.useState(false);
+
+        const handleChange = () => {
+            setChecked((prev) => !prev);
+        };
+
+        return (
+            <Box sx={{ height: 180 }}>
+                <Box sx={{ width: `calc(500px + 16px)` }}>
+                    <FormControlLabel
+                        control={<Button variant='outlined'
+                            startIcon={<ArrowDropDownIcon />}
+                            onClick={handleChange}
+                            sx={{ backgroundColor: "secondary.main" }}
+                        />}
+                    />
+                    <Slide direction="right" in={checked} mountOnEnter unmountOnExit>
+                        {slideItems}
+                    </Slide>
+                </Box>
+            </Box>
+        );
+    }
 
     function BuildCatMenu(props) {
         const categories = props.categories
@@ -149,10 +189,7 @@ export default function Filter(props) {
             setTitleFilter(e.target.value);
         }
         return (
-            <>
-                <Typography variant="h6" sx={{ margin: 0 }}>
-                    Filter:
-                </Typography>
+            <Box>
                 <TextField
                     id="filterPostTitle"
                     label="Filter by Post Title"
@@ -163,7 +200,7 @@ export default function Filter(props) {
                     value={titleFilter}
                 />
                 <Button variant="contained" onClick={handleBtnClearFilters}>Clear Filters</Button>
-            </>
+            </Box>
         )
     }
 
@@ -173,7 +210,9 @@ export default function Filter(props) {
                 <Divider sx={{ marginTop: "5px", borderBottomWidth: 3 }} />
                 <Grid container spacing={2}>
                     <Grid item xs={6} display="flex" alignItems="end">
+
                         <FilterMenu />
+                        <FilterSlide />
                     </Grid>
                     <Grid item xs={6}>
                         {/* Display only on screens larger than sm */}
@@ -194,3 +233,4 @@ export default function Filter(props) {
     }
 
 }
+

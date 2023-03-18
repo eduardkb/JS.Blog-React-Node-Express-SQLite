@@ -4,6 +4,7 @@
 	- Frontend                    
           - filter - make drop down (see: https://mui.com/material-ui/transitions/#collapse)
                - put filter by post title  inside dropdown
+          - separate components by funciton (header, mainBlog, footer, admin)
 		- MainApp - Error Handling- display better error message if data is not loaded
 		
 

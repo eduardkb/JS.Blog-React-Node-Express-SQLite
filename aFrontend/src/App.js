@@ -6,8 +6,8 @@ import { myTheme } from "./mui_css/muiStyles";
 function App() {
 	return (
 		<div className="App">
-			<ThemeProvider theme={myTheme}>				
-				<MainApp />								
+			<ThemeProvider theme={myTheme}>
+				<MainApp />
 			</ ThemeProvider>
 		</div>
 	);

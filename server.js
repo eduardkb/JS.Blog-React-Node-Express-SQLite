@@ -17,9 +17,10 @@ app.use(express.urlencoded({
 // Sync database
 if (WRITE_DEV_DATA) {
     db.sequelize.sync({ force: true })
-        .then(() => {
+        .then((result) => {
             console.log("=========================");
             console.log("Dropped and re-synced db.");
+            console.log("Results Verbose: ", result);
             console.log("=========================");
             initilizeServer();
         })
@@ -29,10 +30,7 @@ if (WRITE_DEV_DATA) {
 }
 else {
     db.sequelize.sync()
-        .then((result) => {
-            // console.log("=========================");
-            // console.log("DEBUG: DB Synced: ", result);
-            // console.log("=========================");
+        .then(() => {
             initilizeServer();
         })
         .catch((err) => {
