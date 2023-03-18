@@ -9,7 +9,7 @@ function PostsProvider({ children, startingPosts }) {
 
     function fResetFilters() {
         setCatFilter(0);
-        setTitleFilter(0);
+        setTitleFilter("");
     }
 
     return (

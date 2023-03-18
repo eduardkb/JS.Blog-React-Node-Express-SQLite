@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
-
+import { PostDataContext } from "../contexts/PostsContext";
 
 export default function PostDetails(props) {
     const postSelected = props.postSelected;
     const setPostSelected = props.setPostSelected;
+    const { fResetFilters } = useContext(PostDataContext)
 
     function handleBtnBackToMainClick(e, id) {
         e.preventDefault();
-        setPostSelected(id)
+        fResetFilters();
+        setPostSelected(id);
     }
 
     return (

@@ -2,8 +2,7 @@
 	- Backend
           - add "GET: post by ID" and JOIN with user name, coments and tags
 	- Frontend          
-          - while on post details if back button clicked clear all filters
-          - while on post details - if clicking on a specific category clear all filters and apply category filter
+          - when filter and no posts display message informing filter did not return any post
           - separate components ( move submenu categories and filter to a new component)          
           - filter - make drop down (see: https://mui.com/material-ui/transitions/#collapse)
                - put filter by post title  inside dropdown
