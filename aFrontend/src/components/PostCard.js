@@ -23,7 +23,7 @@ function PostCard({ post, setPostSelected }) {
 				onClick={e => handleBtnPostTitleClick(e, post.id)}
 			/>
 			<Box display="flex" alignItems="center" justifyContent="center">
-				<Button variant="text" color="secondary" onClick={e => handleBtnPostTitleClick(e, post.id)} textAlign="center">
+				<Button variant="text" color="secondary" onClick={e => handleBtnPostTitleClick(e, post.id)}>
 					<Typography variant="h6">
 						{post.title}
 					</Typography>
