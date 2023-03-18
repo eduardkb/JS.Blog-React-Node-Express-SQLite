@@ -1,9 +1,10 @@
 # To-Do
 	- Backend
           - add "GET: post by ID" and JOIN with user name, coments and tags
-	- Frontend    
-          - separate components ( move submenu categories and filter to a new component)
-          - bug: when filtered by post title and entering post details the filed loses content.
+	- Frontend          
+          - while on post details if back button clicked clear all filters
+          - while on post details - if clicking on a specific category clear all filters and apply category filter
+          - separate components ( move submenu categories and filter to a new component)          
           - filter - make drop down (see: https://mui.com/material-ui/transitions/#collapse)
                - put filter by post title  inside dropdown
 		- MainApp - Error Handling- display better error message if data is not loaded

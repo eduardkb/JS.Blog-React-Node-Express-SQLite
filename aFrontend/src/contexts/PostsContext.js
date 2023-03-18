@@ -5,9 +5,15 @@ export const PostDataContext = createContext();
 function PostsProvider({ children, startingPosts }) {
     const [posts, setPosts] = useState(startingPosts);
     const [catFilter, setCatFilter] = useState(0);
-    const [titleFilter, settitleFilter] = useState("");
+    const [titleFilter, setTitleFilter] = useState("");
+
+    function fResetFilters() {
+        setCatFilter(0);
+        setTitleFilter(0);
+    }
+
     return (
-        <PostDataContext.Provider value={{ setPosts, posts, setCatFilter, catFilter, titleFilter, settitleFilter }}>
+        <PostDataContext.Provider value={{ setPosts, posts, setCatFilter, catFilter, titleFilter, setTitleFilter, fResetFilters }}>
             {children}
         </PostDataContext.Provider>
     )

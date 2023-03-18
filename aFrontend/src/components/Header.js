@@ -144,10 +144,14 @@ function Header(props) {
 
 	}
 
-	function FilterMenu(props) {
-		const { settitleFilter } = useContext(PostDataContext)
+	function FilterMenu() {
+		const { titleFilter, setTitleFilter, fResetFilters } = useContext(PostDataContext)
 		function handleChangePostFilter(e) {
-			settitleFilter(e.target.value);
+			setTitleFilter(e.target.value);
+		}
+		function handleBtnClearFilters(e) {
+			fResetFilters()
+			setTitleFilter(e.target.value);
 		}
 		return (
 			<>
@@ -161,7 +165,9 @@ function Header(props) {
 					color="tertiary"
 					sx={{ ml: 1 }}
 					onChange={handleChangePostFilter}
+					value={titleFilter}
 				/>
+				<Button variant="contained" onClick={handleBtnClearFilters}>Clear Filters</Button>
 			</>
 		)
 	}
