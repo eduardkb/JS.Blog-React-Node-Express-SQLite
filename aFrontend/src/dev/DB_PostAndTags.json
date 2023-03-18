@@ -124,7 +124,7 @@
         "title": "How to save money",
         "picture": "Pict_7",
         "body": "Save money Post body",
-        "published": true,
+        "published": false,
         "createdAt": "2023-03-16T10:00:56.351Z",
         "updatedAt": "2023-03-10T12:46:56.351Z",
         "categoryId": 4,
