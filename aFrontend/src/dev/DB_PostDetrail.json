@@ -18,6 +18,24 @@
             "updatedAt": "2023-03-15T00:29:05.270Z",
             "postId": 2,
             "userId": 3
+        },
+        {
+            "id": 5,
+            "comment": "comment 5 test",
+            "published": true,
+            "createdAt": "2023-03-15T00:29:05.270Z",
+            "updatedAt": "2023-03-15T00:29:05.270Z",
+            "postId": 2,
+            "userId": 3
+        },
+        {
+            "id": 6,
+            "comment": "comment 6 test",
+            "published": true,
+            "createdAt": "2023-03-15T00:29:05.270Z",
+            "updatedAt": "2023-03-15T00:29:05.270Z",
+            "postId": 2,
+            "userId": 3
         }
     ]
 }

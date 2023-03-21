@@ -2,7 +2,7 @@
 	- Backend
           - add "GET: post by ID" and JOIN with user name, coments and tags
 	- Frontend                   
-          - improve comment display on post details
+          - post details - get username from API and diplay user name
           - get post details data from API
           - filter - fix drop down
           - separate components by funciton (header, mainBlog, footer, admin)
