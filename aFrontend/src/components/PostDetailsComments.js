@@ -6,7 +6,7 @@ import Divider from '@mui/material/Divider';
 export default function PostDetailsComments(props) {
     const comments = props.comm;
     const filteredComments = comments.filter((comment) => {
-        return (comment.published = true)
+        return (comment.published === true)
     })
 
     if (filteredComments.length > 0) {
@@ -18,7 +18,7 @@ export default function PostDetailsComments(props) {
                 <Box sx={{ ml: 5 }}>
                     {filteredComments.map((comment) => {
                         return (
-                            <div>
+                            <div key={comment.id}>
                                 <Typography variant="body2" display="block">
                                     User: {comment.userId}
                                 </Typography>

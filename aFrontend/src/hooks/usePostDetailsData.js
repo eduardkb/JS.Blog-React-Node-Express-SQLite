@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import postsData from "../dev/DB_PostDetrail.json"
+import axios from "axios";
 
 export const REQUEST_STATUS = {
     LOADING: "loading",
@@ -11,6 +12,7 @@ function usePostDetailsData(delayTime = 200) {
     const [postDetails, setPostDetails] = useState([]);
     const [requestStatusPostDetails, setRequestStatusPostDetails] = useState(REQUEST_STATUS.LOADING);
     const [errorPostDetails, setErrorPostDetails] = useState("");
+    const restUrl = "https://dev.eduardkb.website/api/post/joincomment/2"
 
     // create delay function
     const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -20,12 +22,14 @@ function usePostDetailsData(delayTime = 200) {
         async function delayFunc() {
             try {
                 await delay(delayTime);
+                //const result = await axios.get(restUrl);
                 // throw "Problem while reading server data";
                 setRequestStatusPostDetails(REQUEST_STATUS.SUCCESS);
                 setPostDetails(postsData);
             } catch (e) {
                 setRequestStatusPostDetails(REQUEST_STATUS.FAILURE);
-                setErrorPostDetails(e);
+                console.log("err:", e)
+                setErrorPostDetails(e.message);
             }
         }
         delayFunc();
