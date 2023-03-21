@@ -3,8 +3,7 @@
           - fix CORS policy and enable axios reading data on frontend
           - add "GET: post by ID" and JOIN with user name, coments and tags
 	- Frontend                   
-          - get post details data from API - after CORS update on backend
-          - post details - pass ID to hook to get correct post id
+          - get post details data from API - after CORS update on backend          
           - filter - fix drop down
           - post details - get username from API and diplay user name          
           - separate components by funciton (header, mainBlog, footer, admin)

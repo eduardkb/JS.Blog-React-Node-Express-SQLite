@@ -16,7 +16,7 @@ export default function PostDetails(props) {
     const postSelected = props.postSelected;
     const setPostSelected = props.setPostSelected;
     const { fResetFilters } = useContext(PostDataContext)
-    const { postDetails, requestStatusPostDetails, errorPostDetails } = usePostDetailsData();
+    const { postDetails, requestStatusPostDetails, errorPostDetails } = usePostDetailsData(postSelected);
 
     function handleBtnBackToMainClick(e, id) {
         e.preventDefault();
