@@ -1,14 +1,14 @@
 import React from "react";
 import { useState } from "react";
-import Header from "./Header";
-import PostsPannel from "./PostsPannel";
-import Footer from "./Footer";
+import Header from "./Header/Header";
+import PostsPannel from "./Main/PostsPannel";
+import Footer from "./Footer/Footer";
 import { PostsProvider } from "../contexts/PostsContext";
 import { REQUEST_STATUS } from "../hooks/usePostData";
 import { Container, LinearProgress, Stack } from "@mui/material";
 import usePostData from "../hooks/usePostData";
 import useCategoryData from "../hooks/useCategoryData";
-import PostDetails from "./PostDetails";
+import PostDetails from "./Main/PostDetails";
 
 function MainApp() {
 	const { dataPost, errorPost, requestStatusPost } = usePostData();

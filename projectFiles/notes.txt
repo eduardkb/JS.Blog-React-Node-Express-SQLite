@@ -5,8 +5,7 @@
 	- Frontend                   
           - get post details data from API - after CORS update on backend          
           - filter - fix drop down
-          - post details - get username from API and diplay user name          
-          - separate components by funciton (header, mainBlog, footer, admin)
+          - post details - get username from API and diplay user name
 		- MainApp - Error Handling- display better error message if data is not loaded
 		
 

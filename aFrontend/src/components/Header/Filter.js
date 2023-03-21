@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { PostDataContext } from "../contexts/PostsContext";
+import { PostDataContext } from "../../contexts/PostsContext";
 import MenuIcon from "@mui/icons-material/Menu"
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';

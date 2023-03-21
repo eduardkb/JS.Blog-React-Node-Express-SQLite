@@ -6,10 +6,10 @@ import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Skeleton from "@mui/material/Skeleton";
-import { PostDataContext } from "../contexts/PostsContext";
-import usePostDetailsData from "../hooks/usePostDetailsData";
-import { REQUEST_STATUS } from "../hooks/usePostDetailsData"
-import { classCss } from "../mui_css/muiStyles";
+import { PostDataContext } from "../../contexts/PostsContext";
+import usePostDetailsData from "../../hooks/usePostDetailsData";
+import { REQUEST_STATUS } from "../../hooks/usePostDetailsData"
+import { classCss } from "../../mui_css/muiStyles";
 import PostDetailsComments from "./PostDetailsComments";
 
 export default function PostDetails(props) {

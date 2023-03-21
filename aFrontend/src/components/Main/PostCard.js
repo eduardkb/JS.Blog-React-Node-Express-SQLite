@@ -1,7 +1,7 @@
 import React from "react";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Box";
-import { classCss } from "../mui_css/muiStyles";
+import { classCss } from "../../mui_css/muiStyles";
 import moment from "moment/moment";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";

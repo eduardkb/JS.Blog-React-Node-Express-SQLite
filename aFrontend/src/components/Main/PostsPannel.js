@@ -4,8 +4,8 @@ import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
 import Alert from "@mui/material/Alert";
 import Box from "@mui/material/Box";
-import { classCss } from "../mui_css/muiStyles";
-import { PostDataContext } from "../contexts/PostsContext";
+import { classCss } from "../../mui_css/muiStyles";
+import { PostDataContext } from "../../contexts/PostsContext";
 
 
 const PostsPannel = ({ setPostSelected }) => {
