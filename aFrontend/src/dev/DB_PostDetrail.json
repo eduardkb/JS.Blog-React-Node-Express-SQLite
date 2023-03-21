@@ -1,0 +1,23 @@
+{
+    "id": 2,
+    "title": "Dev Node",
+    "picture": "Pict_2",
+    "body": "Node desc",
+    "published": true,
+    "upvote": 115,
+    "createdAt": "2023-03-15T00:29:05.269Z",
+    "updatedAt": "2023-03-15T00:29:05.269Z",
+    "categoryId": 2,
+    "userId": 2,
+    "Comments": [
+        {
+            "id": 2,
+            "comment": "comment 2 test",
+            "published": true,
+            "createdAt": "2023-03-15T00:29:05.270Z",
+            "updatedAt": "2023-03-15T00:29:05.270Z",
+            "postId": 2,
+            "userId": 3
+        }
+    ]
+}

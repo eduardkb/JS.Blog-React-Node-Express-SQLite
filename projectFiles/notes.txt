@@ -1,9 +1,9 @@
 # To-Do
 	- Backend
           - add "GET: post by ID" and JOIN with user name, coments and tags
-	- Frontend                    
-          - filter - make drop down (see: https://mui.com/material-ui/transitions/#collapse)
-               - put filter by post title  inside dropdown
+	- Frontend                   
+          - continue developint display simple post data on postdetails 
+          - filter - fix drop down
           - separate components by funciton (header, mainBlog, footer, admin)
 		- MainApp - Error Handling- display better error message if data is not loaded
 		

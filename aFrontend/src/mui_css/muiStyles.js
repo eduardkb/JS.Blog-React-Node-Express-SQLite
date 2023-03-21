@@ -79,4 +79,9 @@ export const classCss = {
     borderRadius: '5px',
     cursor: 'pointer',
   },
+  centerBox: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  }
 };
