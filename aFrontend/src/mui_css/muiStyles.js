@@ -73,11 +73,18 @@ export const classCss = {
     padding: "10px"
   },
   postsPictureBox: {
-    backgroundColor: "green",
     height: "100%",
     width: "100%",
     borderRadius: '5px',
     cursor: 'pointer',
+  },
+  postDetailsPicture: {
+    height: "100%",
+    width: "100%",
+    borderRadius: '5px',
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
   centerBox: {
     display: "flex",

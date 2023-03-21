@@ -10,6 +10,7 @@ import { PostDataContext } from "../contexts/PostsContext";
 import usePostDetailsData from "../hooks/usePostDetailsData";
 import { REQUEST_STATUS } from "../hooks/usePostDetailsData"
 import { classCss } from "../mui_css/muiStyles";
+import PostDetailsComments from "./PostDetailsComments";
 
 export default function PostDetails(props) {
     const postSelected = props.postSelected;
@@ -45,7 +46,7 @@ export default function PostDetails(props) {
 
     if (requestStatusPostDetails === REQUEST_STATUS.FAILURE) {
         return (
-            <Box sx={classCss.centerBox} margin='100px 0px'>
+            <Box sx={[classCss.centerBox, { margin: '100px 0px' }]} >
                 <Alert variant="outlined" severity="error">
                     Post requested could not be found. Message: "{errorPostDetails}"
                 </Alert>
@@ -54,15 +55,28 @@ export default function PostDetails(props) {
     }
 
     return (
-        < Container maxWidth="xl" sx={{ margin: "30px 0px" }}>
-            {/* <Button variant="contained" onClick={e => handleBtnBackToMainClick(e, 0)}>Back to Main Page</Button> */}
-            <h1>post details test page</h1>
-            <h6>post #: {postSelected}</h6>
+        <Box sx={classCss.centerBox}>
+            < Container maxWidth="lg" sx={{ backgroundColor: "tertiary.main", m: "30px 0px", p: "10px" }}>
+                {/* <Button variant="contained" onClick={e => handleBtnBackToMainClick(e, 0)}>Back to Main Page</Button> */}
+                <Box sx={classCss.centerBox}>
+                    <Typography variant="h3" display="block">
+                        {postDetails.title}
+                    </Typography>
+                </Box>
+                <Grid container sx={classCss.centerBox}>
+                    <Box
+                        component="img"
+                        sx={classCss.postDetailsPicture}
+                        alt="blog picture"
+                        src="/PicturePlaceholder.jpg"
+                        maxWidth="600px"
+                    />
+                </Grid>
 
-            <p>Details: {postDetails.title}</p>
-            <p>Stat: {requestStatusPostDetails}</p>
-            <p>Error: {errorPostDetails}</p>
-            <Button variant="contained" onClick={e => handleBtnBackToMainClick(e, 0)}>Back to Main Page</Button>
-        </Container>
+                <p>{postDetails.body}</p>
+                <PostDetailsComments comm={postDetails.Comments} />
+                <Button variant="contained" onClick={e => handleBtnBackToMainClick(e, 0)}>Back to Main Page</Button>
+            </Container >
+        </Box>
     )
 }

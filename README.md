@@ -11,10 +11,11 @@
 		- Admin (To-Do)
 		- MainApp
 			- Header
-			- Main
 				- Filter
+			- Main				
 				- PostPannel
 					- Post
+				- PostDetails
 			- Footer
 
 ### Initial setup

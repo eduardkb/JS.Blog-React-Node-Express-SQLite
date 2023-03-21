@@ -2,7 +2,8 @@
 	- Backend
           - add "GET: post by ID" and JOIN with user name, coments and tags
 	- Frontend                   
-          - continue developint display simple post data on postdetails 
+          - improve comment display on post details
+          - get post details data from API
           - filter - fix drop down
           - separate components by funciton (header, mainBlog, footer, admin)
 		- MainApp - Error Handling- display better error message if data is not loaded

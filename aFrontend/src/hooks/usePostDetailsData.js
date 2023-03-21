@@ -20,7 +20,7 @@ function usePostDetailsData(delayTime = 200) {
         async function delayFunc() {
             try {
                 await delay(delayTime);
-                //throw "Problem while reading server data";
+                // throw "Problem while reading server data";
                 setRequestStatusPostDetails(REQUEST_STATUS.SUCCESS);
                 setPostDetails(postsData);
             } catch (e) {
