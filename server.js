@@ -1,6 +1,7 @@
 const express = require("express");
 const db = require("./app/models");
 const fillDB = require("./app/dev/insertDevData");
+const cors = require("cors");
 
 const WRITE_DEV_DATA = false;
 const PORT = 8080;
@@ -12,7 +13,11 @@ app.use(express.urlencoded({
     extended: false
 }));
 
-
+// CORS Backend access permissions
+const corsOptions = {
+    origin: "*",
+};
+app.use(cors(corsOptions));
 
 // Sync database
 if (WRITE_DEV_DATA) {

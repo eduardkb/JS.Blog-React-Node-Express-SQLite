@@ -1,10 +1,10 @@
 # To-Do
 	- Backend
-          - fix CORS policy and enable axios reading data on frontend
+          - add more posts and data on backend creating DB
           - add "GET: post by ID" and JOIN with user name, coments and tags
-	- Frontend                   
-          - get post details data from API - after CORS update on backend          
+	- Frontend                         
           - filter - fix drop down
+          - read posts and category data with axios          
           - post details - get username from API and diplay user name
 		- MainApp - Error Handling- display better error message if data is not loaded
 		

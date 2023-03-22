@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import postsData from "../dev/DB_PostDetrail.json"
+// import postsData from "../dev/DB_PostDetrail.json"
 import axios from "axios";
+import GLOBAL_SETTINGS from "../config";
 
 export const REQUEST_STATUS = {
     LOADING: "loading",
@@ -12,7 +13,8 @@ function usePostDetailsData(postID, delayTime = 200) {
     const [postDetails, setPostDetails] = useState([]);
     const [requestStatusPostDetails, setRequestStatusPostDetails] = useState(REQUEST_STATUS.LOADING);
     const [errorPostDetails, setErrorPostDetails] = useState("");
-    const restUrl = `https://dev.eduardkb.website/api/post/joincomment/${postID}`
+    //const restUrl = `https://dev.eduardkb.website/api/post/joincomment/${postID}`
+    const restUrl = `${GLOBAL_SETTINGS.axiosUrl}/api/post/joincomment/${postID}`
 
     // create delay function
     const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -22,10 +24,10 @@ function usePostDetailsData(postID, delayTime = 200) {
         async function delayFunc() {
             try {
                 await delay(delayTime);
-                //const result = await axios.get(restUrl);
+                const result = await axios.get(restUrl);
                 // throw "Problem while reading server data";
                 setRequestStatusPostDetails(REQUEST_STATUS.SUCCESS);
-                setPostDetails(postsData);
+                setPostDetails(result.data);
             } catch (e) {
                 setRequestStatusPostDetails(REQUEST_STATUS.FAILURE);
                 setErrorPostDetails(e.message);

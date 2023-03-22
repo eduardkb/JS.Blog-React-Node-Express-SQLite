@@ -12,10 +12,10 @@
 		- MainApp
 			- Header
 				- Filter
-			- Main				
-				- PostPannel
+			- Main	
+				- PostPannel  (main pannel with all posts)
 					- Post
-				- PostDetails
+				- PostDetails (changes main pannel to details of clicked post)
 			- Footer
 
 ### Initial setup
@@ -94,6 +94,7 @@
 
     $ npm i express dotenv sequelize sequelize-cli
     $ npm i sqlite3
+	$ npm i cors
     $ npm install --save-dev nodemon
     On file package.js add script
     	"dev": "nodemon index.js"
