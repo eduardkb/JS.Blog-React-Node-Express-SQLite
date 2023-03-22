@@ -21,7 +21,7 @@
     ],
     "category": [
         {
-            "name": "Inform.Tech",
+            "name": "Information Technology",
             "description": "IT Stuff",
             "active": true
         },
@@ -29,31 +29,45 @@
             "name": "Programming",
             "description": "Interesting Programming",
             "active": false
+        },
+        {
+            "name": "Cloud",
+            "description": "Cloud is great",
+            "active": false
         }
     ],
     "post": [
         {
-            "title": "Ti Cloud",
+            "title": "TI Who Owns The Moon?",
             "picture": "Pict_1",
-            "body": "cloud desc",
-            "published": false,
+            "body": "Figuring out who owns what is usually easy. It’s as clear as day that you own the shoes on your feet right now. You probably also own the computer or device you’re listening to this lesson with too. It’s not likely anyone would argue the fact that you own those things, either. What about things that aren’t as easy to own, though? Or things that are much farther away, like the moon?The concept of anyone owning the moon seems pretty silly. The concept of any single person owning the moon seems even sillier. Even if you could imagine owning the moon, you might think it would be a whole country who owned the moon. Not just any country either, but the country who had gone to the moon the most often.The reality is much different, though. In fact, there is a man who claims to be the sole owner of the moon. Dennis M. Hope has owned the moon since the year 1980. What makes Dennis the owner of the moon? Because he says, he owns the moon, and no one can prove that he doesn’t.It sounds crazy, but the 1967 United Nations Outer Space Treaty says that no country can own the moon. Good thing for Dennis the treaty doesn’t say anything about individuals owning the moon. Dennis sent multiple letters to the United Nations saying that he owned the moon and asked for a reason why he couldn’t claim ownership of the moon. When the United Nations didn’t respond, Dennis took that as a sign that the moon was his property. Owning the moon has been Dennis’ only source of income since 1995.For over 15 years now, Dennis has been selling plots of land on the moon for bargain prices. About $35, which includes the lunar tax, gets you a whole acre of land on the moon. Dennis has even sold plots of the moon as large as some countries for $250,000.While the early bird often gets the worm, in this case, Dennis’s claims to the moon will most likely become meaningless. China recently sent a robot to the moon with the main goal of digging a hole to explore for valuable minerals. Scientists think the moon could be rich in valuable minerals such as titanium, uranium, and also helium 3. Helium 3 is a gas that costs 10 million US dollars per kilogram. It’s not just governments but also private companies who are planning to mine the natural resources of the moon.As more and more companies and governments make progress toward settling and mining the moon, what will happen to Dennis and all his customers? Will their ownership rights be valid? Or will it all turn out to be a big disappointment to everyone but Dennis, who got rich from someone else’s moon? Only time will tell.",
+            "published": true,
             "userId": 2,
             "categoryId": 1,
             "upvote": 3
         },
         {
-            "title": "Dev Node",
+            "title": "TI Atlantis",
             "picture": "Pict_2",
-            "body": "Node desc",
+            "body": "The ancient civilization of Atlantis was a utopia. It was lush and full of food and wildlife. And the people of Atlantis were wise and just. They were a knowledgeable society capable of pulling off amazing feats of architecture and engineering. Most people believe that the story of Atlantis is just a tall tale, but some say it was a real place that was wiped out by a flood and earthquakes.The ancient Greek philosopher Plato learned of the lost civilization of Atlantis from a relative named Solon. Plato said that Solon visited Egypt around 600 BC, where he learned of Atlantis from priests at the Temple of Sais. The priests said that Atlantis was destroyed 9,000 years before the time of Solon. This would place Atlantis at approximately 9600 BC. According to author and historian Graham Hancock, this timing is significant.Throughout history, many explorers have searched for the lost city of Atlantis but have failed to find it. These days, the story of Atlantis is generally thought of as a myth, but that might be changing. New evidence points to a global disaster, which could have caused its destruction.After the last great ice age ended about 15,000 years ago, the world began warming again. Then after thousands of years of warming, temperatures plummeted and then rose again rapidly 1200 years later. This event is called the Younger Dryas. At the beginning and end of the Younger Dryas, the rapid climate change wreaked havoc on our world. This event ended in approximately 9600 BC – the same time that Plato said Atlantis was destroyed.Some scientists believe that the climate change of the Younger Dryas was caused by comet fragments. Regardless of the cause, the sudden warming would have caused flooding in some areas.Many ancient stories paint a picture of floods, earthquakes or the world going up in flames. In the Bible, Noah builds a boat to save people from a catastrophic flood. According to other legends, destruction comes from the sky, which could actually be stories of comets. Other ancient stories speak of a time when the world was on fire or a time when the earth shook. Graham Hancock claims that these ancient legends and what we know of the earth’s history of climate change back up Plato’s story of the destruction of Atlantis. Indeed, the timing of the Younger Dryas and the timing of Plato’s account of Atlantis appear to be spot on.",
             "published": true,
             "userId": 2,
-            "categoryId": 2,
+            "categoryId": 1,
             "upvote": 115
         },
         {
-            "title": "Finance iBov",
+            "title": "Programming Nature As Medicine",
             "picture": "Pict_3",
-            "body": "ibov desc",
+            "body": "Like many people, Gemma Hartley struggles with depression and anxiety. For five years, she used meditation to keep her symptoms in check. But one day, facing some tight writing deadlines at work, she felt herself beginning to slip back toward her old symptoms. This time, meditating wasn’t enough.That’s when a friend told her about something the Japanese call shinrin-yoku. This roughly translates to Forest Bathing.Forest bathing is a practice which involves walking slowly through a forest. While walking, forest bathers intentionally experience nature through all five senses. Unlike hiking, forest bathing is not about exercising. Rather, forest bathing is about connecting with the forest and letting go of worries.Hartley decided to give it a go. She was led out into the forest with 30 others by a certified forest bathing guide. Under the treetops, she was encouraged to see, hear, feel, smell and taste the forest in new ways.Afterward, she headed back to the city, where she had a mountain of work to do. But instead of feeling stressed and agitated, she thought of the forest. Suddenly, the words flowed freely from her fingers. For Hartley, forest bathing had been a success.In Japan, forest bathing is considered standard preventative medicine. And now, studies have confirmed its incredible benefits. That’s why other countries are beginning to follow suit. Instead of prescribing medications, some doctors are writing prescriptions for forest bathing.Research shows that just a 15-minute leisurely walk in nature decreases the stress hormone cortisol by 19 percent. Blood pressure and heart rate also dropped. Considering that in the U.S., 75 to 90 percent of all doctor’s visits are stress-related, this is very good news.Forest bathing doesn’t just help humans to cope with stress. It also boosts the immune system. It turns out that trees produce a chemical that supports disease-killing cells in the human body.In one experiment, participants walked in the forest twice a day for three days. Afterward, studies showed that they had 40 percent more white blood cells. These cells boost the immune system. A month later, their immune system still showed a 15 percent elevation.Time in nature also works wonders on our cognitive performance. College students took tests before and after being in the wilderness for three days. They performed a whopping 50 percent better on cognitive tests after being in the wild.Humans evolved in nature, and studies now show that’s where our bodies feel most at home. The next time you’re feeling down, remember just 15 minutes under the trees does a world of good.If you happen to be one of the majority of humans who live in cities, don’t lose hope. Even looking at a picture of nature or diffusing pine tree essential oils in your home improves health.",
+            "published": true,
+            "userId": 3,
+            "categoryId": 2,
+            "upvote": 12
+        },
+        {
+            "title": "The Modern World Changed Your Brain",
+            "picture": "Pict_4",
+            "body": "Take a look at the pink circles. If you’re like most people, the circle on the right probably looks bigger, but they are actually the same size.People of the Himba tribe are not so easily fooled by optical illusions like this. The Himba can be found in the small town of Opuwo, Namibia, in small numbers. They’re easy to pick out, with the distinctive red paint that they spread on their skin and hair. They’re few and far between in town because they mostly live a life untouched by modern times. The younger generations are being drawn to the charms of contemporary society, and this town is giving them a taste.Jules Davidoff is studying these semi-nomadic herders at this pivotal point in their history. It turns out that the brains of people in pre-modern cultures like the Himba perceive things differently than people in modern cultures.People of the Himba tribe are more focused on small details than they are on the larger context. People in modern cultures see more of the context and less of the details. This makes the Himba tribe less easily fooled by optical illusions. They are so focused on the smaller details that their brains don’t misinterpret what their eyes see. And this doesn’t just apply to visual focus. People in the Himba tribe are also less easily distracted – their mental focus is stronger.Davidoff found that Himba people who went to Opuwo, even for a short trip, were more susceptible to optical illusions and their focus decreased.The reason for this is unclear, but most researchers agree that the modern world presents us with a lot of stimuli that grab our attention. This is something that the technology industry knows all too well. They spend millions looking for ways to keep our attention on their online sites and apps. Some say this is damaging our focus and possibly our IQ.Justin Rosenstein is an unlikely ally in a backlash against the tech assault on our attention. He is the creator of Facebook’s notorious “Like” button. He was worried about the Internet’s toll on his attention, so he is backing off. He tweaked his laptop to block certain addictive websites, and he even set up parental controls on his phone that limit his access.Just a small dose of modern society has been shown to impact the people of the Himba tribe dramatically. For many of us who live within the modern world full-time, our perception is no longer what it was. But people like Rosenstein believe we’re not too far gone and it’s not too late to start safeguarding our attention.",
             "published": false,
             "userId": 3,
             "categoryId": 2,
@@ -62,16 +76,28 @@
     ],
     "comment": [
         {
-            "comment": "comment 1 test",
-            "published": false,
+            "comment": "Just a small dose of modern society has been shown to impact the people of the Himba tribe dramatically.",
+            "published": true,
+            "userId": 2,
+            "postId": 1
+        },
+        {
+            "comment": "Jules Davidoff is studying these semi-nomadic herders",
+            "published": true,
             "userId": 3,
             "postId": 3
         },
         {
-            "comment": "comment 2 test",
+            "comment": "Eventually, her grandmother passed down this ancient power to heal through whispering to her granddaughter, Babka Vanda.",
             "published": true,
             "userId": 3,
-            "postId": 2
+            "postId": 3
+        },
+        {
+            "comment": "The Himba can be found in the small town of Opuwo",
+            "published": false,
+            "userId": 3,
+            "postId": 3
         }
     ],
     "tag": [
@@ -83,6 +109,20 @@
         },
         {
             "name": "BigData"
+        }
+    ],
+    "tag_post": [
+        {
+            "tag": 1,
+            "post": 1
+        },
+        {
+            "tag": 2,
+            "post": 1
+        },
+        {
+            "tag": 2,
+            "post": 3
         }
     ]
 }

@@ -7,26 +7,24 @@ const Tag = db.Tag;
 const data = require("./data.json");
 
 exports.addDevData = () => {
-	addUser(data.user[0]);
-	addUser(data.user[1]);
-	addUser(data.user[2]);
-
-	addCateg(data.category[0]);
-	addCateg(data.category[1]);
-	
-	addPost(data.post[0]);
-	addPost(data.post[1]);
-	addPost(data.post[2]);
-	
-	addComm(data.comment[0]);
-	addComm(data.comment[1]);
-	
-	addTag(data.tag[0]);
-	addTag(data.tag[1]);
-	addTag(data.tag[2]);
-
-	addPost_Tags(1, 2);
-	addPost_Tags(2, 2);
+	for (let i = 0; i < data.user.length; i++) {
+		addUser(data.user[i]);
+	}
+	for (let i = 0; i < data.category.length; i++) {
+		addCateg(data.category[i]);
+	}
+	for (let i = 0; i < data.post.length; i++) {
+		addPost(data.post[i]);
+	}
+	for (let i = 0; i < data.comment.length; i++) {
+		addComm(data.comment[i]);
+	}
+	for (let i = 0; i < data.tag.length; i++) {
+		addTag(data.tag[i]);
+	}
+	for (let i = 0; i < data.tag_post.length; i++) {
+		addPost_Tags(data.tag_post[i].tag, data.tag_post[i].post);
+	}
 };
 
 function addUser(user) {
@@ -79,12 +77,12 @@ function addTag(tag) {
 		});
 }
 
-function addPost_Tags(idTag, idPost){
+function addPost_Tags(idTag, idPost) {
 
 	Tag.findOne({ where: { id: idTag } })
-		.then(function(resTag){
+		.then(function (resTag) {
 			Post.findOne({ where: { id: idPost } })
-				.then(function (resPost){
+				.then(function (resPost) {
 					resTag.addPost(resPost);
 					console.log(`DEBUG DEV: Added relation between tag ${idTag} post ${idPost}`);
 				})

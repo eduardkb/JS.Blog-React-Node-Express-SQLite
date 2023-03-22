@@ -1,12 +1,12 @@
 # To-Do
-	- Backend
-          - add more posts and data on backend creating DB
+	- Backend          
           - add "GET: post by ID" and JOIN with user name, coments and tags
 	- Frontend                         
           - filter - fix drop down
           - post details - get username from API and diplay user name
           - on PostPannel - display tags below picture
 		- MainApp - Error Handling- display better error message if data is not loaded
+          - save html on backend and retreive. (post examples: https://deepenglish.com/blog/)
 		
 
 copy project: scp -r -i ..\awsKeys\KY-NV-SSHKey.pem * ubuntu@3.209.1.2:~/dev/JS.Blog-React-Node-Express-SQLite/.
