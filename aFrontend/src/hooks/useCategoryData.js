@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
-import categoryData from "../dev/DB_Category.json"
+// import categoryData from "../dev/DB_Category.json"
+import axios from "axios";
+import GLOBAL_SETTINGS from "../config";
 
 export const REQUEST_STATUS = {
     LOADING: "loading",
@@ -11,6 +13,7 @@ function useCategoryData(delayTime = 300) {
     const [dataCategory, setDataCategory] = useState([]);
     const [requestStatusCategory, setRequestStatusCategory] = useState(REQUEST_STATUS.LOADING);
     const [errorCategory, setErrorCategory] = useState("");
+    const restUrl = `${GLOBAL_SETTINGS.axiosUrl}/category`
 
     // create delay function
     const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -20,9 +23,10 @@ function useCategoryData(delayTime = 300) {
         async function delayFunc() {
             try {
                 await delay(delayTime);
+                const result = await axios.get(restUrl);
                 // throw "Problem while reading server data - Category";
                 setRequestStatusCategory(REQUEST_STATUS.SUCCESS);
-                setDataCategory(categoryData);
+                setDataCategory(result.data);
             } catch (e) {
                 setRequestStatusCategory(REQUEST_STATUS.FAILURE);
                 setErrorCategory(e);

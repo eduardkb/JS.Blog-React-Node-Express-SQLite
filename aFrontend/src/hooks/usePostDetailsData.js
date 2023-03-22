@@ -9,12 +9,11 @@ export const REQUEST_STATUS = {
     FAILURE: "failure",
 };
 
-function usePostDetailsData(postID, delayTime = 200) {
+function usePostDetailsData(postID, delayTime = 300) {
     const [postDetails, setPostDetails] = useState([]);
     const [requestStatusPostDetails, setRequestStatusPostDetails] = useState(REQUEST_STATUS.LOADING);
     const [errorPostDetails, setErrorPostDetails] = useState("");
-    //const restUrl = `https://dev.eduardkb.website/api/post/joincomment/${postID}`
-    const restUrl = `${GLOBAL_SETTINGS.axiosUrl}/api/post/joincomment/${postID}`
+    const restUrl = `${GLOBAL_SETTINGS.axiosUrl}/post/joincomment/${postID}`
 
     // create delay function
     const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
