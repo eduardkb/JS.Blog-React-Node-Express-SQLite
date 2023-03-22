@@ -1,9 +1,9 @@
 # To-Do
 	- Backend          
-          - add "GET: post by ID" and JOIN with user name, coments and tags
+          - RELATE 1-add "GET: post by ID" and JOIN with user name, coments and tags
 	- Frontend                         
           - filter - fix drop down
-          - post details - get username from API and diplay user name
+          - RELATE 1-post details - get username from API and diplay user name
           - on PostPannel - display tags below picture
 		- MainApp - Error Handling- display better error message if data is not loaded
           - save html on backend and retreive. (post examples: https://deepenglish.com/blog/)
