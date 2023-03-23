@@ -1,7 +1,7 @@
 {
     "user": [
         {
-            "name": "Guest",
+            "name": "guest",
             "email": "anonymous@uta.edu",
             "pass": "anonymouspass",
             "role": "guest"

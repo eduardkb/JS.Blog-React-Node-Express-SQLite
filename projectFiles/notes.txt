@@ -1,13 +1,14 @@
 # To-Do
 	- Backend          
           - RELATE 1-add "GET: post by ID" and JOIN with user name, coments and tags
-	- Frontend
-          - BUG: categories buttons do not work anymore to return to posts display
-          - BUG: when filtered by post title clicking all and category button generates error
+          - RELATE 2-comments - add createdAt to controller and data to create different post dates
+	- Frontend                    
           - RELATE 1-post details - get username from API and diplay user name
           - on PostPannel - display tags below picture
 		- MainApp - Error Handling- display better error message if data is not loaded
           - save html on backend and retreive. (post examples: https://deepenglish.com/blog/)
+          - RELATE 2-post comments - order by date posted
+          - clicking all on categoris should clear all filters
 		
 
 copy project: scp -r -i ..\awsKeys\KY-NV-SSHKey.pem * ubuntu@3.209.1.2:~/dev/JS.Blog-React-Node-Express-SQLite/.
