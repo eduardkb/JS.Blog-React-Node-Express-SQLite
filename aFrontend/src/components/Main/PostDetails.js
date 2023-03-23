@@ -24,6 +24,30 @@ export default function PostDetails(props) {
         setPostSelected(id);
     }
 
+    function RenderTags({ tags }) {
+        if (tags.length > 0) {
+            return (
+                <Box m={1} display="inline" sx={{
+                    float: "right"
+                }}>
+                    <Typography variant="subtitle2" display="inline"
+                        sx={{
+                            backgroundColor: "white",
+                            borderRadius: '5px'
+                        }} p={"5px"}>
+                        {tags.map((tag) => {
+                            return (
+                                <Typography key={tag.id} display="inline" variant="body2" ml={1} sx={{ backgroundColor: "white", borderRadius: '5px' }}>
+                                    #{tag.name}
+                                </Typography>
+                            )
+                        })}
+                    </Typography>
+                </Box>
+            )
+        }
+    }
+
     if (requestStatusPostDetails === REQUEST_STATUS.LOADING) {
         return (
             <Grid container sx={classCss.centerBox}>
@@ -55,16 +79,28 @@ export default function PostDetails(props) {
     }
 
     return (
-        <Box sx={classCss.centerBox}>
+        <Box>
             < Container maxWidth="lg" sx={{ backgroundColor: "tertiary.main", m: "30px 0px", p: "10px" }}>
-                <Box sx={classCss.centerBox}>
+                <Box m={1} display="inline" sx={{
+                    float: "left"
+                }}>
+                    <Typography variant="subtitle2" display="inline" sx={{ backgroundColor: "white", borderRadius: '5px' }} p={"5px"}>
+                        {postDetails.Category.name}
+                    </Typography>
+                </Box>
+                <RenderTags tags={postDetails.Tags} />
+
+                <Box sx={classCss.centerBox} mt={6}>
                     <Typography variant="h3" sx={{ textDecoration: "underline overline" }}>
                         {postDetails.title}
                     </Typography>
                 </Box>
                 <Box sx={classCss.centerBox}>
-                    <Typography variant="subtitle2">
+                    <Typography variant="subtitle2" mb={2}>
                         Post Date: {new Date(postDetails.createdAt).toLocaleDateString('pt-BR')}
+                    </Typography>
+                    <Typography variant="subtitle2" mb={2} ml={2}>
+                        By: {postDetails.User.name}
                     </Typography>
                 </Box>
                 <Grid container sx={classCss.centerBox}>

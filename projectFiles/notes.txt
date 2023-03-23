@@ -1,8 +1,7 @@
 # To-Do
 	- Backend          
           - 
-	- Frontend                              
-          - RELATE 1-post details - display post user name, tags, comments user name                                                           
+	- Frontend
           - filter - filter by date posted (change field to date mask) and clear filter on category button click
           - Create comment as guest on post details page
 

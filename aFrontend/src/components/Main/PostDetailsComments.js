@@ -25,7 +25,7 @@ export default function PostDetailsComments(props) {
                         return (
                             <div key={comment.id}>
                                 <Typography variant="body2" display="block">
-                                    User: {comment.userId}
+                                    User: {comment.User.name}
                                 </Typography>
                                 <Typography variant="h6" display="block">
                                     Comment: {comment.comment}

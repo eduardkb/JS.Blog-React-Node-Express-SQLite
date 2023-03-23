@@ -13,7 +13,7 @@ function usePostDetailsData(postID, delayTime = 300) {
     const [postDetails, setPostDetails] = useState([]);
     const [requestStatusPostDetails, setRequestStatusPostDetails] = useState(REQUEST_STATUS.LOADING);
     const [errorPostDetails, setErrorPostDetails] = useState("");
-    const restUrl = `${GLOBAL_SETTINGS.axiosUrl}/post/joincomment/${postID}`
+    const restUrl = `${GLOBAL_SETTINGS.axiosUrl}/post/loadpostdetails/${postID}`
 
     // create delay function
     const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
