@@ -20,12 +20,13 @@ export default function Filter(props) {
 
     function BuildCatMenu(props) {
         const categories = props.categories
-        const { setCatFilter } = useContext(PostDataContext);
+        const { setCatFilter, setTitleFilter } = useContext(PostDataContext);
 
-        const handleBtnCatClick = (e, id, setFunc) => {
+        const handleBtnCatClick = (e, CategID, setCategFilter) => {
             e.preventDefault();
-            setPostSelected(0)
-            setFunc(id)
+            setPostSelected(0) // 0 = show main page with all posts insted of one post detail
+            setTitleFilter("") // removes filter by post title if any category button is clicked
+            setCategFilter(CategID) // filter list of posts by Category ID
         }
 
         function SmCategoryMenu(props) {
