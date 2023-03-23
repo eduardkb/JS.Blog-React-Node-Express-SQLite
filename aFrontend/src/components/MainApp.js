@@ -5,10 +5,11 @@ import PostsPannel from "./Main/PostsPannel";
 import Footer from "./Footer/Footer";
 import { PostsProvider } from "../contexts/PostsContext";
 import { REQUEST_STATUS } from "../hooks/usePostData";
-import { Container, LinearProgress, Stack } from "@mui/material";
+import { Container, LinearProgress, Stack, Box, Alert } from "@mui/material";
 import usePostData from "../hooks/usePostData";
 import useCategoryData from "../hooks/useCategoryData";
 import PostDetails from "./Main/PostDetails";
+import { classCss } from "../mui_css/muiStyles";
 
 function MainApp() {
 	const { dataPost, errorPost, requestStatusPost } = usePostData();
@@ -36,9 +37,11 @@ function MainApp() {
 		}
 		function Error() {
 			return (
-				<div>
-					Error: {errorPost ? errorPost : errorCategory}
-				</div>
+				<Box sx={[classCss.centerBox, { margin: '100px 0px' }]} >
+					<Alert variant="outlined" severity="error">
+						Error while getting posts. Message: "{errorPost ? errorPost : errorCategory}"
+					</Alert>
+				</Box>
 			)
 		}
 
