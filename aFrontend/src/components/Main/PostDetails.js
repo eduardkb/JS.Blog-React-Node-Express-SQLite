@@ -57,10 +57,14 @@ export default function PostDetails(props) {
     return (
         <Box sx={classCss.centerBox}>
             < Container maxWidth="lg" sx={{ backgroundColor: "tertiary.main", m: "30px 0px", p: "10px" }}>
-                {/* <Button variant="contained" onClick={e => handleBtnBackToMainClick(e, 0)}>Back to Main Page</Button> */}
                 <Box sx={classCss.centerBox}>
-                    <Typography variant="h3" display="block">
+                    <Typography variant="h3" sx={{ textDecoration: "underline overline" }}>
                         {postDetails.title}
+                    </Typography>
+                </Box>
+                <Box sx={classCss.centerBox}>
+                    <Typography variant="subtitle2">
+                        Post Date: {new Date(postDetails.createdAt).toLocaleDateString('pt-BR')}
                     </Typography>
                 </Box>
                 <Grid container sx={classCss.centerBox}>
