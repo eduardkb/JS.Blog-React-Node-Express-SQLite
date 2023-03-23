@@ -21,6 +21,7 @@ exports.create = (req, res) => {
 		body: req.body.body,
 		published: req.body.published ? req.body.published : false,
 		userId: req.body.userId,
+		createdAt: req.body.createdAt,
 	};
 
 	// Save post in the database
@@ -31,7 +32,7 @@ exports.create = (req, res) => {
 		.catch((err) => {
 			res.status(500).send({
 				message:
-                    err.message || "Some error occurred while creating a post.",
+					err.message || "Some error occurred while creating a post.",
 			});
 		});
 };
@@ -48,7 +49,7 @@ exports.findAll = (req, res) => {
 		.catch((err) => {
 			res.status(500).send({
 				message:
-                    err.message || "Some error occurred while retrieving posts.",
+					err.message || "Some error occurred while retrieving posts.",
 			});
 		});
 };
@@ -61,7 +62,7 @@ exports.findPostJoinComment = (req, res) => {
 		.catch((err) => {
 			res.status(500).send({
 				message:
-                    err.message || "Some error occurred while retrieving posts and comments.",
+					err.message || "Some error occurred while retrieving posts and comments.",
 			});
 		});
 };
@@ -74,15 +75,15 @@ exports.findPostJoinTag = (req, res) => {
 		.catch((err) => {
 			res.status(500).send({
 				message:
-                    err.message || "Some error occurred while retrieving posts and tags.",
+					err.message || "Some error occurred while retrieving posts and tags.",
 			});
 		});
 };
 
 // Find a single post with id and all comments
 exports.findOneJoinComment = (req, res) => {
-	const {id} = req.params;
-	
+	const { id } = req.params;
+
 	Post.findByPk(id, { include: [db.Comment] })
 		.then((data) => {
 			if (data) {
@@ -102,7 +103,7 @@ exports.findOneJoinComment = (req, res) => {
 
 
 exports.findOnePostJoinComment = (req, res) => {
-	const {id} = req.params;
+	const { id } = req.params;
 
 	Post.findByPk(id, { include: [db.Tag] })
 		.then((data) => {
