@@ -11,25 +11,11 @@ const PostsPannel = ({ setPostSelected }) => {
 	const { posts, catFilter, titleFilter, dateFilter } = useContext(PostDataContext);
 
 	const filteredPosts = posts
-		.filter((post) => {
-			return (
-				post.published
-			);
-		})
-		.filter((post) => {
-			return (
-				catFilter === 0 ? post : post.categoryId === catFilter
-			);
-		})
-		.filter((post) => {
-			return (
-				post.title.toLowerCase().includes(titleFilter.toLowerCase())
-			)
-		})
-		.sort((a, b) => {
-			// sorts by date 
-			return new Date(b.createdAt) - new Date(a.createdAt);
-		})
+		.filter((post) => post.published)
+		.filter((post) => catFilter === 0 ? post : post.categoryId === catFilter)
+		.filter((post) => post.title.toLowerCase().includes(titleFilter.toLowerCase()))
+		.filter((post) => dateFilter === "" ? post : post.createdAt >= dateFilter)
+		.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
 
 	return (
 		<>

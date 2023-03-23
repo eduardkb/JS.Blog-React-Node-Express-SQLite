@@ -2,7 +2,7 @@
 	- Backend          
           - 
 	- Frontend
-          - filter - filter by date posted (change field to date mask) and clear filter on category button click
+          - post detail pane not centralized
           - Create comment as guest on post details page
 
           - start Admin page
