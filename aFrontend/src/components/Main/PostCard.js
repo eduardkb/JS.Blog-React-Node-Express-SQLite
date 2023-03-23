@@ -21,7 +21,7 @@ function PostCard({ post, setPostSelected }) {
 					</Typography>
 					{tags.map((tag) => {
 						return (
-							<Typography display="inline" variant="body2" ml={1} sx={{ backgroundColor: "white", borderRadius: '5px' }}>
+							<Typography key={tag.id} display="inline" variant="body2" ml={1} sx={{ backgroundColor: "white", borderRadius: '5px' }}>
 								#{tag.name}
 							</Typography>
 						)

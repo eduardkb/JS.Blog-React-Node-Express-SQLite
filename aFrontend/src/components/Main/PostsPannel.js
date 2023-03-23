@@ -7,9 +7,8 @@ import Box from "@mui/material/Box";
 import { classCss } from "../../mui_css/muiStyles";
 import { PostDataContext } from "../../contexts/PostsContext";
 
-
 const PostsPannel = ({ setPostSelected }) => {
-	const { posts, catFilter, titleFilter } = useContext(PostDataContext);
+	const { posts, catFilter, titleFilter, dateFilter } = useContext(PostDataContext);
 
 	const filteredPosts = posts
 		.filter((post) => {
@@ -34,9 +33,16 @@ const PostsPannel = ({ setPostSelected }) => {
 
 	return (
 		<>
+			<div style={{ margin: 5 }}>
+				DATE Filter Value:
+				{dateFilter}
+			</div>
+
 			{
 				filteredPosts.length > 0 ?
-					<RenderPosts filteredPosts={filteredPosts} setPostSelected={setPostSelected} /> :
+					<RenderPosts filteredPosts={filteredPosts}
+						setPostSelected={setPostSelected}
+						dateFilter={dateFilter} /> :
 					<RenderMsgNoPosts />
 			}
 		</>
@@ -48,6 +54,7 @@ const PostsPannel = ({ setPostSelected }) => {
 function RenderPosts({ filteredPosts, setPostSelected }) {
 	return (
 		< Container maxWidth="xl" sx={{ margin: "30px 0px" }}>
+
 			<Grid container spacing={3} style={classCss.mainPannelGrid}>
 				{filteredPosts.map((post) => {
 					return (

@@ -9,8 +9,15 @@
           - save html on backend and retreive. (post examples: https://deepenglish.com/blog/)
           - save picture on backend and retreive
 
+
+=============================================================================
+AWS COPY COMMANDS
+
 copy project: scp -r -i ..\awsKeys\KY-NV-SSHKey.pem * ubuntu@3.209.1.2:~/dev/JS.Blog-React-Node-Express-SQLite/.
 copy DB: scp -r -i ..\awsKeys\KY-NV-SSHKey.pem ubuntu@3.209.1.2:~/dev/JS.Blog-React-Node-Express-SQLite/db/* C:\Users\ekbuhal\Downloads\.
+
+=============================================================================
+WRITING DATA IN BACKEND USING CURL
 
 curl -H "Content-type: application/x-www-form-urlencoded" \
      -d "name=Nando Erves" \

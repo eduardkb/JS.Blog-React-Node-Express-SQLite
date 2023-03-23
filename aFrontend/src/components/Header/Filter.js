@@ -20,12 +20,11 @@ export default function Filter(props) {
 
     function BuildCatMenu(props) {
         const categories = props.categories
-        const { setCatFilter, setTitleFilter } = useContext(PostDataContext);
+        const { setCatFilter, fResetFilters } = useContext(PostDataContext);
 
         const handleBtnCatClick = (e, CategID, setCategFilter) => {
             e.preventDefault();
-            setPostSelected(0) // 0 = show main page with all posts insted of one post detail
-            setTitleFilter("") // removes filter by post title if any category button is clicked
+            fResetFilters() // removes all filters
             setCategFilter(CategID) // filter list of posts by Category ID
         }
 
@@ -144,16 +143,15 @@ export default function Filter(props) {
     }
 
     function FilterSlide() {
-        const [anchorEl, setAnchorEl] = React.useState(null);
+        const { titleFilter, setTitleFilter, fResetFilters, dateFilter, setDateFilter } = useContext(PostDataContext)
 
+        const [anchorEl, setAnchorEl] = React.useState(null);
         const handleClick = (event) => {
             setAnchorEl(event.currentTarget);
         };
-
         const handleClose = () => {
             setAnchorEl(null);
         };
-        const { titleFilter, setTitleFilter, fResetFilters } = useContext(PostDataContext)
         function handleChangePostFilter(e) {
             setTitleFilter(e.target.value);
         }
@@ -161,7 +159,6 @@ export default function Filter(props) {
             fResetFilters()
             setTitleFilter(e.target.value);
         }
-
         const open = Boolean(anchorEl);
         const id = open ? 'simple-popover' : undefined;
 
@@ -184,25 +181,32 @@ export default function Filter(props) {
                     }}
                 >
                     {/* ITEMS ON POPOVER MENU */}
-                    <Grid container direction="column" p="10px">
+                    <Grid container direction="column" >
                         <TextField
                             id="filterPostTitle"
                             label="Filter by Post Title"
                             variant="standard"
                             color="tertiary"
-                            sx={{ ml: 1, mb: 1 }}
                             onChange={handleChangePostFilter}
                             value={titleFilter}
+                            sx={{ margin: 2 }}
                         />
+                        <Divider sx={{ borderBottomWidth: 3 }} />
                         <TextField
-                            id="filterDate"
+                            name="someDate"
                             label="Filter by Start Date"
                             variant="standard"
-                            color="tertiary"
-                            sx={{ ml: 1, mb: 1 }}
+                            InputLabelProps={{ shrink: true }}
+                            type="date"
+                            onChange={(newDate) => {
+                                setDateFilter(newDate.target.value)
+                            }}
+                            defaultValue={dateFilter}
+                            sx={{ margin: 2 }}
                         />
+                        <Divider sx={{ borderBottomWidth: 3 }} />
                         <Button vaiant="contained" onClick={handleBtnClearFilters}
-                            sx={{ backgroundColor: "primary.main", color: "black" }}
+                            sx={{ backgroundColor: "primary.main", color: "black", margin: 2 }}
                         >
                             Clear Filters
                         </Button>
