@@ -123,6 +123,29 @@ exports.findOnePostJoinComment = (req, res) => {
 		});
 };
 
+
+exports.findOneJoinAllDetails = (req, res) => {
+	const { id } = req.params;
+
+	// EAGER LOADING - inlude one post and ALL its dependencies
+	Post.findByPk(id, { include: { all: true, nested: true } })
+		.then((data) => {
+			if (data) {
+				res.send(data);
+			} else {
+				res.status(404).send({
+					message: `Cannot find post with id=${id}.`,
+				});
+			}
+		})
+		.catch(() => {
+			res.status(500).send({
+				message: `Error retrieving post with id=${id}`,
+			});
+		});
+};
+
+
 // Find a single Tutorial with an id
 // exports.findOne = (req, res) => {
 //   const { id } = req.params;

@@ -1,6 +1,6 @@
 # To-Do
 	- Backend          
-          - RELATE 1-add "GET: post by ID" and JOIN with post user name, tags, comments user name
+          - 
 	- Frontend                              
           - RELATE 1-post details - display post user name, tags, comments user name                                                           
           - filter - filter by date posted (change field to date mask) and clear filter on category button click
