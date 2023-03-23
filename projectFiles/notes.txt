@@ -2,13 +2,13 @@
 	- Backend          
           - RELATE 1-add "GET: post by ID" and JOIN with user name, coments and tags
           - RELATE 2-comments - add createdAt to controller and data to create different post dates
-	- Frontend                    
-          - RELATE 1-post details - get username from API and diplay user name
-          - on PostPannel - display tags below picture		
-          - save html on backend and retreive. (post examples: https://deepenglish.com/blog/)
-          - RELATE 2-post comments - order by date posted
+	- Frontend                              
+          - RELATE 1-post details - get username from API and diplay user name                                        
           - clicking all on categoris should clear all filters
 		
+          - RELATE 2-post comments - order by date posted
+          - save html on backend and retreive. (post examples: https://deepenglish.com/blog/)
+          - start Admin page
 
 copy project: scp -r -i ..\awsKeys\KY-NV-SSHKey.pem * ubuntu@3.209.1.2:~/dev/JS.Blog-React-Node-Express-SQLite/.
 copy DB: scp -r -i ..\awsKeys\KY-NV-SSHKey.pem ubuntu@3.209.1.2:~/dev/JS.Blog-React-Node-Express-SQLite/db/* C:\Users\ekbuhal\Downloads\.
