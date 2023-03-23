@@ -21,6 +21,7 @@ exports.create = (req, res) => {
 		published: req.body.published ? req.body.published : false,
 		userId: req.body.userId,
 		postId: req.body.postId,
+		createdAt: req.body.createdAt,
 	};
 
 	// Save comment in the database
@@ -31,7 +32,7 @@ exports.create = (req, res) => {
 		.catch((err) => {
 			res.status(500).send({
 				message:
-                    err.message || `Error while creating a comment. |${comment.comment}`,
+					err.message || `Error while creating a comment. |${comment.comment}`,
 			});
 		});
 };
@@ -48,7 +49,7 @@ exports.findAll = (req, res) => {
 		.catch((err) => {
 			res.status(500).send({
 				message:
-                    err.message || "Some error occurred while retrieving comments.",
+					err.message || "Some error occurred while retrieving comments.",
 			});
 		});
 };

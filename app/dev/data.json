@@ -95,19 +95,29 @@
             "comment": "Jules Davidoff is studying these semi-nomadic herders",
             "published": true,
             "userId": 3,
-            "postId": 3
+            "postId": 3,
+            "createdAt": "2023-03-12T10:11:21.114Z"
         },
         {
             "comment": "Eventually, her grandmother passed down this ancient power to heal through whispering to her granddaughter, Babka Vanda.",
             "published": true,
             "userId": 3,
-            "postId": 3
+            "postId": 3,
+            "createdAt": "2023-03-23T10:11:21.114Z"
+        },
+        {
+            "comment": "Many ancient stories paint a picture of floods, earthquakes or the world going up in flames.",
+            "published": true,
+            "userId": 3,
+            "postId": 3,
+            "createdAt": "2023-02-02T10:11:21.114Z"
         },
         {
             "comment": "The Himba can be found in the small town of Opuwo",
             "published": false,
             "userId": 3,
-            "postId": 3
+            "postId": 3,
+            "createdAt": "2023-03-23T10:11:21.114Z"
         }
     ],
     "tag": [

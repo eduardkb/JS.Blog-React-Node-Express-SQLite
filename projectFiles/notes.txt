@@ -4,10 +4,13 @@
           - RELATE 2-comments - add createdAt to controller and data to create different post dates
 	- Frontend                              
           - RELATE 1-post details - get username from API and diplay user name                                                  
-		
-          - RELATE 2-post comments - order by date posted
-          - save html on backend and retreive. (post examples: https://deepenglish.com/blog/)
+          - RELATE 2-post comments - order by date posted on post details page
+          - filter - filter by date posted (change field to date mask)
+          - Create comment as guest on post details page
+
           - start Admin page
+          - save html on backend and retreive. (post examples: https://deepenglish.com/blog/)
+          - save picture on backend and retreive
 
 copy project: scp -r -i ..\awsKeys\KY-NV-SSHKey.pem * ubuntu@3.209.1.2:~/dev/JS.Blog-React-Node-Express-SQLite/.
 copy DB: scp -r -i ..\awsKeys\KY-NV-SSHKey.pem ubuntu@3.209.1.2:~/dev/JS.Blog-React-Node-Express-SQLite/db/* C:\Users\ekbuhal\Downloads\.
