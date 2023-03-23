@@ -1,11 +1,9 @@
 # To-Do
 	- Backend          
-          - RELATE 1-add "GET: post by ID" and JOIN with user name, coments and tags
-          - RELATE 2-comments - add createdAt to controller and data to create different post dates
+          - RELATE 1-add "GET: post by ID" and JOIN with post user name, tags, comments user name
 	- Frontend                              
-          - RELATE 1-post details - get username from API and diplay user name                                                  
-          - RELATE 2-post comments - order by date posted on post details page
-          - filter - filter by date posted (change field to date mask)
+          - RELATE 1-post details - display post user name, tags, comments user name                                                           
+          - filter - filter by date posted (change field to date mask) and clear filter on category button click
           - Create comment as guest on post details page
 
           - start Admin page

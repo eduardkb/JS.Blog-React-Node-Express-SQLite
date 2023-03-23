@@ -5,9 +5,14 @@ import Divider from '@mui/material/Divider';
 
 export default function PostDetailsComments(props) {
     const comments = props.comm;
-    const filteredComments = comments.filter((comment) => {
-        return (comment.published === true)
-    })
+    const filteredComments = comments
+        .filter((comment) => {
+            return (comment.published === true)
+        })
+        .sort((a, b) => {
+            // sorts by date 
+            return new Date(b.createdAt) - new Date(a.createdAt);
+        })
 
     if (filteredComments.length > 0) {
         return (
