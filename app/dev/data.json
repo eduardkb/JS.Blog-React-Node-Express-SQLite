@@ -50,7 +50,8 @@
             "published": true,
             "userId": 2,
             "categoryId": 1,
-            "upvote": 3
+            "upvote": 11,
+            "createdAt": "2023-03-23T10:11:21.114Z"
         },
         {
             "title": "TI Atlantis",
@@ -59,7 +60,8 @@
             "published": true,
             "userId": 2,
             "categoryId": 1,
-            "upvote": 115
+            "upvote": 55,
+            "createdAt": "2023-03-21T12:11:21.114Z"
         },
         {
             "title": "Programming Nature As Medicine",
@@ -68,7 +70,8 @@
             "published": true,
             "userId": 3,
             "categoryId": 2,
-            "upvote": 12
+            "upvote": 188,
+            "createdAt": "2023-02-16T12:11:21.114Z"
         },
         {
             "title": "The Modern World Changed Your Brain",
@@ -77,7 +80,8 @@
             "published": false,
             "userId": 3,
             "categoryId": 2,
-            "upvote": 68
+            "upvote": 2211,
+            "createdAt": "2022-10-02T12:11:21.114Z"
         }
     ],
     "comment": [

@@ -21,6 +21,7 @@ exports.create = (req, res) => {
 		body: req.body.body,
 		published: req.body.published ? req.body.published : false,
 		userId: req.body.userId,
+		upvote: req.body.upvote,
 		createdAt: req.body.createdAt,
 	};
 

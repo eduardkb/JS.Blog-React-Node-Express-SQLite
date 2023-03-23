@@ -23,7 +23,6 @@ module.exports = (sequelize, DataTypes) => {
 		upvote: {
 			type: DataTypes.INTEGER,
 			allowNull: false,
-			unique: true,
 		},
 	});
 
