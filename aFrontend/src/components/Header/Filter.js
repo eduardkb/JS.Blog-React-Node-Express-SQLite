@@ -24,6 +24,7 @@ export default function Filter(props) {
 
         const handleBtnCatClick = (e, CategID, setCategFilter) => {
             e.preventDefault();
+            setPostSelected(0) // sets post selected to 0 to return to main posts list
             fResetFilters() // removes all filters
             setCategFilter(CategID) // filter list of posts by Category ID
         }
@@ -234,7 +235,7 @@ export default function Filter(props) {
                         </Box>
                         {/* Display only on xs screen */}
                         <Box sx={{ display: { xs: "block", sm: "none" }, textAlign: "right" }}>
-                            <BuildCatMenu categories={dta} buildType="xs" setPostSelected={setPostSelected} />
+                            <BuildCatMenu categories={dta} buildType="xs" />
                         </Box>
                     </Grid>
                 </Grid>
