@@ -79,7 +79,7 @@ export default function PostDetails(props) {
     }
 
     return (
-        <Box>
+        <Box sx={classCss.centerBox}>
             < Container maxWidth="lg" sx={{ backgroundColor: "tertiary.main", m: "30px 0px", p: "10px" }}>
                 <Box m={1} display="inline" sx={{
                     float: "left"

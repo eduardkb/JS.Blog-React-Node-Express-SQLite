@@ -18,7 +18,7 @@ const PostsPannel = ({ setPostSelected }) => {
 		.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
 
 	return (
-		<>
+		<Box sx={classCss.centerBox}>
 			{
 				filteredPosts.length > 0 ?
 					<RenderPosts filteredPosts={filteredPosts}
@@ -26,7 +26,8 @@ const PostsPannel = ({ setPostSelected }) => {
 						dateFilter={dateFilter} /> :
 					<RenderMsgNoPosts />
 			}
-		</>
+		</Box>
+
 
 	);
 };
