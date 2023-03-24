@@ -46,7 +46,7 @@ function RenderComments({ comments }) {
     }
 }
 
-function RenderCreateComment({ postCreate, postSelected }) {
+function RenderCreateComment({ commentCreate, postSelected }) {
     const sUser = "guest"
     const iUserID = 1
     const iPostID = postSelected
@@ -54,14 +54,14 @@ function RenderCreateComment({ postCreate, postSelected }) {
     const [commValue, setCommValue] = useState(sDefaultComm)
 
     function onCommSubmitClick(e, postID, userID, comm) {
-        e.preventDefault()
+        //e.preventDefault()
         const jsonComment = {
             "comment": comm,
             "published": true,
             "postId": postID,
             "userId": userID
         }
-        postCreate(jsonComment)
+        commentCreate(jsonComment)
     }
 
     return (
@@ -103,11 +103,11 @@ function RenderCreateComment({ postCreate, postSelected }) {
     )
 }
 
-export default function PostDetailsComments({ comments, postCreate, postSelected }) {
+export default function PostDetailsComments({ comments, commentCreate, postSelected }) {
     return (
         <>
             <Box sx={{ m: 2, p: 2, bgcolor: "white", outlineStyle: "dashed" }}>
-                <RenderCreateComment postCreate={postCreate} postSelected={postSelected} />
+                <RenderCreateComment commentCreate={commentCreate} postSelected={postSelected} />
                 <RenderComments comments={comments} />
             </Box>
         </>

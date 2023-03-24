@@ -1,8 +1,9 @@
 # To-Do
 	- Backend          
           - 
-	- Frontend
-          - Create comment as guest on post details page
+	- Frontend          
+          - on postDetailsComments - display messages (success and error)
+          - on postDetailsComments - clear text field after success submit
           - upvote on post
           - Make global session context with user and userID logged in
           - display user logged-in in header

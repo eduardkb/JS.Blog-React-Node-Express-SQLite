@@ -36,35 +36,47 @@ function usePostDetailsData(postID, delayTime = 300) {
         // eslint-disable-next-line 
     }, []);
 
-    function postCreate(newComment) {
+    function commentCreate(newComment) {
         const postData = postDetails
         async function writeComment() {
+            let bDbOk = false;
             try {
                 // save new commenmt
                 const restUrl = `${GLOBAL_SETTINGS.axiosUrl}/comment`
                 await axios.post(restUrl, newComment)
-                // get comments with userID
 
-                // const newComm = { "id": 10, "comment": "ED TEST", "published": true, "createdAt": "2023-03-24T16:10:48.938Z", "updatedAt": "2023-03-24T16:10:48.938Z", "postId": 2, "userId": 1 }
-                // console.log("d1", newComm)
-                // postData.Comments = newComm
-                // console.log("d2", postData)
-                // setPostDetails(postData)
+                bDbOk = true;
+
             }
             catch (error) {
                 console.log("Error while adding comment. Error:", error.message)
                 setPostDetails(postData)
+                bDbOk = false;
             }
+            if (bDbOk) {
+                try {
+                    // get comments with userID
+                    const restUrl = `${GLOBAL_SETTINGS.axiosUrl}/post/loadpostdetails/${newComment.postId}`
+                    const postsWithComments = await axios.get(restUrl)
 
+                    // set new comments on postDetails
+                    setPostDetails(postsWithComments.data)
+                }
+                catch {
+                    console.log("Error while loading new comment. Try refreshing the page.")
+                    setPostDetails(postData)
+                }
+            }
         }
         writeComment();
+        // eslint-disable-next-line         
     }
 
     return {
         postDetails,
         requestStatusPostDetails,
         errorPostDetails,
-        postCreate,
+        commentCreate,
     };
 }
 
