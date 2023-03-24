@@ -38,18 +38,18 @@ function usePostDetailsData(postID, delayTime = 300) {
 
     function commentCreate(newComment) {
         const postData = postDetails
+        let errMsg = "";
         async function writeComment() {
             let bDbOk = false;
             try {
                 // save new commenmt
                 const restUrl = `${GLOBAL_SETTINGS.axiosUrl}/comment`
                 await axios.post(restUrl, newComment)
-
                 bDbOk = true;
 
             }
             catch (error) {
-                console.log("Error while adding comment. Error:", error.message)
+                errMsg = `Error while adding comment. Error: ${error.message}`
                 setPostDetails(postData)
                 bDbOk = false;
             }
@@ -62,11 +62,19 @@ function usePostDetailsData(postID, delayTime = 300) {
                     // set new comments on postDetails
                     setPostDetails(postsWithComments.data)
                 }
-                catch {
-                    console.log("Error while loading new comment. Try refreshing the page.")
+                catch (error) {
+                    errMsg = `Error while loading new comment. Try refreshing the page.. Error: ${error.message}`
                     setPostDetails(postData)
+                    bDbOk = false;
                 }
             }
+            if (errMsg === "") {
+                console.log("Success adding a comment.")
+            }
+            else {
+                console.log(errMsg)
+            }
+
         }
         writeComment();
         // eslint-disable-next-line         
