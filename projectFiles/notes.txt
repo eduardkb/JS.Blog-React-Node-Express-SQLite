@@ -3,7 +3,9 @@
           - 
 	- Frontend
           - post detail pane not centralized
+          - remove filter button if in post details
           - Create comment as guest on post details page
+          - upvote on post
 
           - start Admin page
           - save html on backend and retreive. (post examples: https://deepenglish.com/blog/)

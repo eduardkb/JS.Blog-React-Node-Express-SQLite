@@ -19,11 +19,6 @@ const PostsPannel = ({ setPostSelected }) => {
 
 	return (
 		<>
-			<div style={{ margin: 5 }}>
-				DATE Filter Value:
-				{dateFilter}
-			</div>
-
 			{
 				filteredPosts.length > 0 ?
 					<RenderPosts filteredPosts={filteredPosts}
