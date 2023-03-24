@@ -16,6 +16,7 @@ import ArrowDropDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
 export default function Filter(props) {
     const dta = props.dta
     const setPostSelected = props.setPostSelected
+    const postSelected = props.postSelected;
 
 
     function BuildCatMenu(props) {
@@ -162,59 +163,60 @@ export default function Filter(props) {
         }
         const open = Boolean(anchorEl);
         const id = open ? 'simple-popover' : undefined;
-
-        return (
-            <div>
-                <Button aria-describedby={id}
-                    variant="contained" onClick={handleClick}
-                    endIcon={<ArrowDropDownIcon />} sx={{ marginLeft: 2 }}
-                >
-                    Filters
-                </Button>
-                <Popover
-                    id={id}
-                    open={open}
-                    anchorEl={anchorEl}
-                    onClose={handleClose}
-                    anchorOrigin={{
-                        vertical: 'bottom',
-                        horizontal: 'left',
-                    }}
-                >
-                    {/* ITEMS ON POPOVER MENU */}
-                    <Grid container direction="column" >
-                        <TextField
-                            id="filterPostTitle"
-                            label="Filter by Post Title"
-                            variant="standard"
-                            color="tertiary"
-                            onChange={handleChangePostFilter}
-                            value={titleFilter}
-                            sx={{ margin: 2 }}
-                        />
-                        <Divider sx={{ borderBottomWidth: 3 }} />
-                        <TextField
-                            name="someDate"
-                            label="Filter by Start Date"
-                            variant="standard"
-                            InputLabelProps={{ shrink: true }}
-                            type="date"
-                            onChange={(newDate) => {
-                                setDateFilter(newDate.target.value)
-                            }}
-                            defaultValue={dateFilter}
-                            sx={{ margin: 2 }}
-                        />
-                        <Divider sx={{ borderBottomWidth: 3 }} />
-                        <Button vaiant="contained" onClick={handleBtnClearFilters}
-                            sx={{ backgroundColor: "primary.main", color: "black", margin: 2 }}
-                        >
-                            Clear Filters
-                        </Button>
-                    </Grid>
-                </Popover>
-            </div >
-        );
+        if (postSelected === 0) {
+            return (
+                <div>
+                    <Button aria-describedby={id}
+                        variant="contained" onClick={handleClick}
+                        endIcon={<ArrowDropDownIcon />} sx={{ marginLeft: 2 }}
+                    >
+                        Filters
+                    </Button>
+                    <Popover
+                        id={id}
+                        open={open}
+                        anchorEl={anchorEl}
+                        onClose={handleClose}
+                        anchorOrigin={{
+                            vertical: 'bottom',
+                            horizontal: 'left',
+                        }}
+                    >
+                        {/* ITEMS ON POPOVER MENU */}
+                        <Grid container direction="column" >
+                            <TextField
+                                id="filterPostTitle"
+                                label="Filter by Post Title"
+                                variant="standard"
+                                color="tertiary"
+                                onChange={handleChangePostFilter}
+                                value={titleFilter}
+                                sx={{ margin: 2 }}
+                            />
+                            <Divider sx={{ borderBottomWidth: 3 }} />
+                            <TextField
+                                name="someDate"
+                                label="Filter by Start Date"
+                                variant="standard"
+                                InputLabelProps={{ shrink: true }}
+                                type="date"
+                                onChange={(newDate) => {
+                                    setDateFilter(newDate.target.value)
+                                }}
+                                defaultValue={dateFilter}
+                                sx={{ margin: 2 }}
+                            />
+                            <Divider sx={{ borderBottomWidth: 3 }} />
+                            <Button vaiant="contained" onClick={handleBtnClearFilters}
+                                sx={{ backgroundColor: "primary.main", color: "black", margin: 2 }}
+                            >
+                                Clear Filters
+                            </Button>
+                        </Grid>
+                    </Popover>
+                </div >
+            );
+        }
     }
 
     if (dta !== undefined) {

@@ -2,7 +2,6 @@
 	- Backend          
           - 
 	- Frontend
-          - remove filter button if in post details
           - Create comment as guest on post details page
           - upvote on post
 

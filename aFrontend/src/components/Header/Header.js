@@ -11,6 +11,7 @@ import Filter from "./Filter";
 function Header(props) {
 	const dta = props.data
 	const setPostSelected = props.setPostSelected
+	const postSelected = props.postSelected
 
 	return (
 		<AppBar position="static">
@@ -30,7 +31,7 @@ function Header(props) {
 						<Button variant="contained" sx={{ bgcolor: "secondary.main" }}> Login</Button>
 					</Grid>
 				</Grid>
-				<Filter dta={dta} setPostSelected={setPostSelected} />
+				<Filter dta={dta} setPostSelected={setPostSelected} postSelected={postSelected} />
 			</div>
 
 		</AppBar >
