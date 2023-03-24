@@ -5,6 +5,7 @@ import Divider from '@mui/material/Divider';
 import FormControl from "@mui/material/FormControl";
 import { Button, TextField } from "@mui/material";
 
+
 function RenderComments({ comments }) {
     const filteredComments = comments
         .filter((comment) => {
@@ -45,9 +46,24 @@ function RenderComments({ comments }) {
     }
 }
 
-function RenderCreateComment() {
+function RenderCreateComment({ postCreate, postSelected }) {
+    const sUser = "guest"
+    const iUserID = 1
+    const iPostID = postSelected
     const sDefaultComm = "Type your comment in here (minimum 10 letters)."
     const [commValue, setCommValue] = useState(sDefaultComm)
+
+    function onCommSubmitClick(e, postID, userID, comm) {
+        e.preventDefault()
+        const jsonComment = {
+            "comment": comm,
+            "published": true,
+            "postId": postID,
+            "userId": userID
+        }
+        postCreate(jsonComment)
+    }
+
     return (
         <>
             <Typography variant="h5" display="block">
@@ -57,7 +73,7 @@ function RenderCreateComment() {
                 <Typography variant="body2">
                     User:
                 </Typography>
-                <TextField size="small" disabled value="guest"></TextField>
+                <TextField size="small" disabled value={sUser}></TextField>
                 <Typography variant="body2" display="block">
                     Comment:
                 </Typography>
@@ -77,6 +93,7 @@ function RenderCreateComment() {
                             backgroundColor: "primary.main", color: "text.main"
                         }}
                         disabled={commValue.length < 10 || commValue === sDefaultComm}
+                        onClick={(e) => { onCommSubmitClick(e, iPostID, iUserID, commValue) }}
                     >
                         Submit
                     </Button>
@@ -86,12 +103,11 @@ function RenderCreateComment() {
     )
 }
 
-export default function PostDetailsComments(props) {
-    const comments = props.comm;
+export default function PostDetailsComments({ comments, postCreate, postSelected }) {
     return (
         <>
             <Box sx={{ m: 2, p: 2, bgcolor: "white", outlineStyle: "dashed" }}>
-                <RenderCreateComment />
+                <RenderCreateComment postCreate={postCreate} postSelected={postSelected} />
                 <RenderComments comments={comments} />
             </Box>
         </>

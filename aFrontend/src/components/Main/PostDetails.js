@@ -16,7 +16,8 @@ export default function PostDetails(props) {
     const postSelected = props.postSelected;
     const setPostSelected = props.setPostSelected;
     const { fResetFilters } = useContext(PostDataContext)
-    const { postDetails, requestStatusPostDetails, errorPostDetails } = usePostDetailsData(postSelected);
+    const { postDetails, requestStatusPostDetails,
+        errorPostDetails, postCreate } = usePostDetailsData(postSelected);
 
     function handleBtnBackToMainClick(e, id) {
         e.preventDefault();
@@ -114,7 +115,8 @@ export default function PostDetails(props) {
                 </Grid>
 
                 <p>{postDetails.body}</p>
-                <PostDetailsComments comm={postDetails.Comments} />
+                <PostDetailsComments comments={postDetails.Comments}
+                    postCreate={postCreate} postSelected={postSelected} />
                 <Button variant="contained" onClick={e => handleBtnBackToMainClick(e, 0)}>Back to Main Page</Button>
             </Container >
         </Box>

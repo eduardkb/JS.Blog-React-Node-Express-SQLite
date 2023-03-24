@@ -4,6 +4,9 @@
 	- Frontend
           - Create comment as guest on post details page
           - upvote on post
+          - Make global session context with user and userID logged in
+          - display user logged-in in header
+          - change user that created comment in PostDetailsComments
 
           - start Admin page
           - save html on backend and retreive. (post examples: https://deepenglish.com/blog/)
