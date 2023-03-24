@@ -54,6 +54,27 @@ exports.findAll = (req, res) => {
 		});
 };
 
+
+exports.findCommentByPostJoinUser = (req, res) => {
+	const { id } = req.params;
+
+	Comment.findByPk({ include: [db.User], where: { postId: id } })
+		.then((data) => {
+			if (data) {
+				res.send(data);
+			} else {
+				res.status(404).send({
+					message: `Cannot find comment with id=${id}.`,
+				});
+			}
+		})
+		.catch(() => {
+			res.status(500).send({
+				message: `Error retrieving comment with id=${id}`,
+			});
+		});
+};
+
 // Find a single Tutorial with an id
 // exports.findOne = (req, res) => {
 //   const { id } = req.params;
