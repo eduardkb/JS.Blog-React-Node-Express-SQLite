@@ -5,6 +5,7 @@
           - change switch parameter to a new global appState context
           - fix filter alignment
           - fix main posts card margins (picture margin)
+		  - fix tag background not being white in both modes. plus on details make box on categocy/tags
           - on postDetailsComments - display messages (success and error)
           - on postDetailsComments - clear text field after success submit
           - upvote on post
