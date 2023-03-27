@@ -1,54 +1,99 @@
-import { green, yellow, blueGrey } from "@mui/material/colors"
+import React, { useState } from "react";
+import { deepOrange, grey, teal } from "@mui/material/colors"
 import { createTheme } from '@mui/material/styles';
 
-export const myTheme = createTheme({
-  palette: {
-    primary: {
-      main: blueGrey[200]
+export function MyCustomTheme() {
+  const [mode, setMode] = useState('light');
+
+  const getDesignTokens = (mode) => ({
+    palette: {
+      mode,
+      ...(mode === 'light'
+        ?
+        {
+          // palette values for light mode
+          primary: {
+            main: teal[300]
+          },
+          divider: grey[200],
+          text: {
+            primary: "#000",
+            secondary: '#fff',
+          },
+        }
+
+        // {
+        //   // palette values for light mode
+        //   primary: grey,
+        //   secondary: grey,
+        //   divider: grey[200],
+        //   text: {
+        //     primary: "#000",
+        //     secondary: yellow[800],
+        //   },
+        // }
+        :
+        {
+          // palette values for dark mode
+          primary: deepOrange,
+          secondary: {
+            main: "#664200",
+          },
+          divider: deepOrange[700],
+          background: {
+            default: "#000",
+            paper: deepOrange[900],
+          },
+          text: {
+            primary: '#fff',
+            secondary: "#000",
+          },
+        }),
     },
-    secondary: {
-      main: blueGrey[100]
-    },
-    tertiary: {
-      main: blueGrey[50]
-    },
-    warning: {
-      main: yellow[600]
-    },
-    info: {
-      main: green[600]
-    },
-    text: {
-      main: '#000000'
-    }
+  });
+
+  function setTheme() {
+    setMode((prevMode) =>
+      prevMode === 'light' ? 'dark' : 'light',
+    );
   }
-})
+  const myTheme = React.useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
+
+  return { myTheme, setTheme }
+}
 
 export const classCss = {
-
+  mainPage: {
+    backgroundColor: "background.default",
+  },
+  headerBox: {
+    color: "text.primary",
+    bgcolor: "primary.main",
+  },
   paperPost: {
     textAlign: "center",
-    backgroundColor: "white",
-    color: myTheme.palette.tertiary.main,
     height: '200px',
   },
-
+  cardTitle: {
+    color: "text.primary",
+  },
+  mainTags: {
+    backgroundColor: "white",
+    color: "primary.light",
+    borderRadius: '5px'
+  },
   headerAppBar: {
-    bgcolor: 'primary.main',
-    color: 'text.main',
     // marginBottom: "10px"
   },
   cardPost: {
+    backgroundColor: "primary.main",
+    color: "text.primary",
     // margin: 5,
     padding: 5,
-    backgroundColor: myTheme.palette.primary.main,
-    color: myTheme.palette.text.main,
     borderRadius: '5px',
   },
 
   boxFilter: {
-    bgcolor: 'secondary.main',
-    color: myTheme.palette.text.main,
     margin: "5px 10px",
     padding: "5px 20px",
     borderRadius: '5px',
@@ -67,9 +112,9 @@ export const classCss = {
     fontSize: 'small',
   },
   footerBox: {
-    textAlign: "center",
+    color: "text.primary",
     bgcolor: "primary.main",
-    color: "text.main",
+    textAlign: "center",
     padding: "10px"
   },
   postsPictureBox: {
@@ -86,9 +131,21 @@ export const classCss = {
     justifyContent: "center",
     alignItems: "center",
   },
+  postDetailBox: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    color: "text.primary",
+  },
   centerBox: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+  },
+  postComments: {
+    m: 2,
+    p: 2,
+    backgroundColor: "primary.main",
+    outlineStyle: "dashed"
   }
 };

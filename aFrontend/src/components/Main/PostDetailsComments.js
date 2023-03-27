@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography";
 import Divider from '@mui/material/Divider';
 import FormControl from "@mui/material/FormControl";
 import { Button, TextField } from "@mui/material";
+import { classCss } from "../../mui_css/muiStyles";
 
 
 function RenderComments({ comments }) {
@@ -87,11 +88,8 @@ function RenderCreateComment({ commentCreate, postSelected }) {
                         onBlur={() => commValue === "" && setCommValue(sDefaultComm)}
                         onChange={(e) => setCommValue(e.target.value)}
                     />
-                    <Button variant="outlined"
-                        sx={{
-                            width: "100px", marginTop: 1,
-                            backgroundColor: "primary.main", color: "text.main"
-                        }}
+                    <Button variant="contained"
+                        sx={{ width: "100px", marginTop: 1 }}
                         disabled={commValue.length < 10 || commValue === sDefaultComm}
                         onClick={(e) => { onCommSubmitClick(e, iPostID, iUserID, commValue) }}
                     >
@@ -106,7 +104,7 @@ function RenderCreateComment({ commentCreate, postSelected }) {
 export default function PostDetailsComments({ comments, commentCreate, postSelected }) {
     return (
         <>
-            <Box sx={{ m: 2, p: 2, bgcolor: "white", outlineStyle: "dashed" }}>
+            <Box sx={classCss.postComments}>
                 <RenderCreateComment commentCreate={commentCreate} postSelected={postSelected} />
                 <RenderComments comments={comments} />
             </Box>

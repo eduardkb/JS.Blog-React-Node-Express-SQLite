@@ -1,7 +1,10 @@
 # To-Do
 	- Backend          
           - 
-	- Frontend          
+	- Frontend               
+          - change switch parameter to a new global appState context
+          - fix filter alignment
+          - fix main posts card margins (picture margin)
           - on postDetailsComments - display messages (success and error)
           - on postDetailsComments - clear text field after success submit
           - upvote on post

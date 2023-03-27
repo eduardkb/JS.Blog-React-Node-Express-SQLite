@@ -6,6 +6,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Tooltip from '@mui/material/Tooltip';
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
+import Switch from "@mui/material/Switch";
 import Divider from "@mui/material/Divider";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
@@ -17,6 +18,7 @@ export default function Filter(props) {
     const dta = props.dta
     const setPostSelected = props.setPostSelected
     const postSelected = props.postSelected;
+    const setTheme = props.setTheme;
 
 
     function BuildCatMenu(props) {
@@ -35,12 +37,12 @@ export default function Filter(props) {
             const setCatFilter = props.funcCatFilter
             return (
                 <React.Fragment>
-                    <Button key={0} onClick={e => handleBtnCatClick(e, 0, setCatFilter)} size="small" variant="contained" sx={{ bgcolor: "secondary.main", marginLeft: 1, marginBottom: 1 }}>
+                    <Button key={0} onClick={e => handleBtnCatClick(e, 0, setCatFilter)} size="small" variant="contained" sx={{ marginLeft: 1, marginBottom: 1 }}>
                         All
                     </Button>
                     {categories.map((category) => {
                         return (
-                            <Button key={category.id} onClick={e => handleBtnCatClick(e, category.id, setCatFilter)} size="small" variant="contained" sx={{ bgcolor: "secondary.main", marginLeft: 1, marginBottom: 1 }}>
+                            <Button key={category.id} onClick={e => handleBtnCatClick(e, category.id, setCatFilter)} size="small" variant="contained" sx={{ marginLeft: 1, marginBottom: 1 }}>
                                 {category.name}
                             </Button>
                         )
@@ -106,7 +108,7 @@ export default function Filter(props) {
                                     right: 14,
                                     width: 10,
                                     height: 10,
-                                    bgcolor: 'background.paper',
+                                    //bgcolor: 'background.paper',
                                     transform: 'translateY(-50%) rotate(45deg)',
                                     zIndex: 0,
                                 },
@@ -145,9 +147,10 @@ export default function Filter(props) {
     }
 
     function FilterSlide() {
-        const { titleFilter, setTitleFilter, fResetFilters, dateFilter, setDateFilter } = useContext(PostDataContext)
-
+        const { titleFilter, setTitleFilter,
+            fResetFilters, dateFilter, setDateFilter } = useContext(PostDataContext)
         const [anchorEl, setAnchorEl] = React.useState(null);
+
         const handleClick = (event) => {
             setAnchorEl(event.currentTarget);
         };
@@ -168,7 +171,7 @@ export default function Filter(props) {
                 <div>
                     <Button aria-describedby={id}
                         variant="contained" onClick={handleClick}
-                        endIcon={<ArrowDropDownIcon />} sx={{ marginLeft: 2 }}
+                        endIcon={<ArrowDropDownIcon />}
                     >
                         Filters
                     </Button>
@@ -188,7 +191,6 @@ export default function Filter(props) {
                                 id="filterPostTitle"
                                 label="Filter by Post Title"
                                 variant="standard"
-                                color="tertiary"
                                 onChange={handleChangePostFilter}
                                 value={titleFilter}
                                 sx={{ margin: 2 }}
@@ -207,8 +209,8 @@ export default function Filter(props) {
                                 sx={{ margin: 2 }}
                             />
                             <Divider sx={{ borderBottomWidth: 3 }} />
-                            <Button vaiant="contained" onClick={handleBtnClearFilters}
-                                sx={{ backgroundColor: "primary.main", color: "black", margin: 2 }}
+                            <Button variant="contained" onClick={handleBtnClearFilters}
+                                sx={{ margin: 2 }}
                             >
                                 Clear Filters
                             </Button>
@@ -224,7 +226,9 @@ export default function Filter(props) {
             <>
                 <Divider sx={{ marginTop: "5px", borderBottomWidth: 3 }} />
                 <Grid container spacing={2}>
-                    <Grid item xs={6} display="flex" alignItems="flex-end" justifyContent="left">
+                    <Grid item xs={6} direction="row">
+                        Dark Mode:
+                        <Switch onClick={() => setTheme()} />
                         <FilterSlide />
                     </Grid>
                     <Grid item xs={6}>

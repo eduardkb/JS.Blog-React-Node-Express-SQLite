@@ -21,7 +21,7 @@ function PostCard({ post, setPostSelected }) {
 					</Typography>
 					{tags.map((tag) => {
 						return (
-							<Typography key={tag.id} display="inline" variant="body2" ml={1} sx={{ backgroundColor: "white", borderRadius: '5px' }}>
+							<Typography key={tag.id} display="inline" variant="body2" ml={1}>
 								#{tag.name}
 							</Typography>
 						)
@@ -33,7 +33,7 @@ function PostCard({ post, setPostSelected }) {
 	}
 
 	return (
-		<Card style={classCss.cardPost}>
+		<Card sx={classCss.cardPost}>
 			{/* <Paper style={classCss.paperPost}><img src='/PicturePlaceholder.jpg' alt="logo" /></Paper> */}
 
 			<Box
@@ -47,8 +47,8 @@ function PostCard({ post, setPostSelected }) {
 			<RenderTags tags={post.Tags} />
 
 			<Box display="flex" alignItems="center" justifyContent="center">
-				<Button variant="text" color="secondary" onClick={e => handleBtnPostTitleClick(e, post.id)}>
-					<Typography variant="h6">
+				<Button variant="text" onClick={e => handleBtnPostTitleClick(e, post.id)}>
+					<Typography sx={classCss.cardTitle} variant="h6">
 						{post.title}
 					</Typography>
 				</Button>

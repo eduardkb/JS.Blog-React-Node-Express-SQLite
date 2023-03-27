@@ -38,7 +38,7 @@ export default function PostDetails(props) {
                         }} p={"5px"}>
                         {tags.map((tag) => {
                             return (
-                                <Typography key={tag.id} display="inline" variant="body2" ml={1} sx={{ backgroundColor: "white", borderRadius: '5px' }}>
+                                <Typography key={tag.id} display="inline" variant="body2" ml={1} sx={classCss.mainTags}>
                                     #{tag.name}
                                 </Typography>
                             )
@@ -80,12 +80,12 @@ export default function PostDetails(props) {
     }
 
     return (
-        <Box sx={classCss.centerBox}>
-            < Container maxWidth="lg" sx={{ backgroundColor: "tertiary.main", m: "30px 0px", p: "10px" }}>
+        <Box sx={classCss.postDetailBox}>
+            < Container maxWidth="lg" sx={{ m: "30px 0px", p: "10px" }}>
                 <Box m={1} display="inline" sx={{
                     float: "left"
                 }}>
-                    <Typography variant="subtitle2" display="inline" sx={{ backgroundColor: "white", borderRadius: '5px' }} p={"5px"}>
+                    <Typography variant="subtitle2" display="inline" sx={classCss.mainTags} p={"5px"}>
                         {postDetails.Category.name}
                     </Typography>
                 </Box>

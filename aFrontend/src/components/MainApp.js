@@ -11,7 +11,7 @@ import useCategoryData from "../hooks/useCategoryData";
 import PostDetails from "./Main/PostDetails";
 import { classCss } from "../mui_css/muiStyles";
 
-function MainApp() {
+function MainApp({ setTheme }) {
 	const { dataPost, errorPost, requestStatusPost } = usePostData();
 	const { dataCategory, errorCategory, requestStatusCategory } = useCategoryData();
 	const [postSelected, setPostSelected] = useState(0);
@@ -62,6 +62,7 @@ function MainApp() {
 			<Header data={dataCategory}
 				setPostSelected={setPostSelected}
 				postSelected={postSelected}
+				setTheme={setTheme}
 			/>
 			{postSelected === 0
 				? <PostsPannel setPostSelected={setPostSelected} />
