@@ -226,10 +226,15 @@ export default function Filter(props) {
             <>
                 <Divider sx={{ marginTop: "5px", borderBottomWidth: 3 }} />
                 <Grid container spacing={2}>
-                    <Grid item xs={6} direction="row">
-                        Dark Mode:
-                        <Switch onClick={() => setTheme()} />
-                        <FilterSlide />
+                    <Grid item xs={6}>
+                        <Grid container height="100%" display="flex" direction="column"
+                            justifyContent="end" alignItems="start">
+                            <Box>
+                                Dark Mode:
+                                <Switch onClick={() => setTheme()} />
+                            </Box>
+                            <FilterSlide />
+                        </Grid>
                     </Grid>
                     <Grid item xs={6}>
                         {/* Display only on screens larger than sm */}

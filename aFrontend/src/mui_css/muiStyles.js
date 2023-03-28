@@ -4,34 +4,37 @@ import { createTheme } from '@mui/material/styles';
 
 export function MyCustomTheme() {
   const [mode, setMode] = useState('light');
+  const setGray = true;
 
   const getDesignTokens = (mode) => ({
     palette: {
       mode,
       ...(mode === 'light'
         ?
-        {
-          // palette values for light mode
-          primary: {
-            main: teal[300]
-          },
-          divider: grey[200],
-          text: {
-            primary: "#000",
-            secondary: '#fff',
-          },
-        }
-
-        // {
-        //   // palette values for light mode
-        //   primary: grey,
-        //   secondary: grey,
-        //   divider: grey[200],
-        //   text: {
-        //     primary: "#000",
-        //     secondary: yellow[800],
-        //   },
-        // }
+        (setGray)
+          ?
+          {
+            // palette values for light mode
+            primary: grey,
+            secondary: grey,
+            divider: grey[200],
+            text: {
+              primary: "#000",
+              secondary: "#fff",
+            },
+          }
+          :
+          {
+            // palette values for light mode
+            primary: {
+              main: teal[300]
+            },
+            divider: grey[200],
+            text: {
+              primary: "#000",
+              secondary: '#fff',
+            },
+          }
         :
         {
           // palette values for dark mode
@@ -57,6 +60,7 @@ export function MyCustomTheme() {
       prevMode === 'light' ? 'dark' : 'light',
     );
   }
+  // eslint-disable-next-line
   const myTheme = React.useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
 
   return { myTheme, setTheme }
@@ -77,19 +81,23 @@ export const classCss = {
   cardTitle: {
     color: "text.primary",
   },
-  mainTags: {
+  TagsMainPage: {
+    marginLeft: 1,
+    padding: "2px",
     backgroundColor: "white",
-    color: "primary.light",
+    color: "primary.main",
     borderRadius: '5px'
   },
-  headerAppBar: {
-    // marginBottom: "10px"
+  TagsDetailsPage: {
+    backgroundColor: "primary.main",
+    padding: "2px 5px",
+    color: "text.primary",
+    borderRadius: '5px'
   },
   cardPost: {
     backgroundColor: "primary.main",
     color: "text.primary",
-    // margin: 5,
-    padding: 5,
+    padding: 1,
     borderRadius: '5px',
   },
 
@@ -147,5 +155,5 @@ export const classCss = {
     p: 2,
     backgroundColor: "primary.main",
     outlineStyle: "dashed"
-  }
+  },
 };

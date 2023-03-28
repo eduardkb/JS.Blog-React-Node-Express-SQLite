@@ -28,17 +28,11 @@ export default function PostDetails(props) {
     function RenderTags({ tags }) {
         if (tags.length > 0) {
             return (
-                <Box m={1} display="inline" sx={{
-                    float: "right"
-                }}>
-                    <Typography variant="subtitle2" display="inline"
-                        sx={{
-                            backgroundColor: "white",
-                            borderRadius: '5px'
-                        }} p={"5px"}>
+                <Box display="inline" sx={{ float: "right" }}>
+                    <Typography variant="subtitle2" display="inline">
                         {tags.map((tag) => {
                             return (
-                                <Typography key={tag.id} display="inline" variant="body2" ml={1} sx={classCss.mainTags}>
+                                <Typography key={tag.id} display="inline" variant="body2" ml={1} sx={classCss.TagsDetailsPage}>
                                     #{tag.name}
                                 </Typography>
                             )
@@ -82,17 +76,15 @@ export default function PostDetails(props) {
     return (
         <Box sx={classCss.postDetailBox}>
             < Container maxWidth="lg" sx={{ m: "30px 0px", p: "10px" }}>
-                <Box m={1} display="inline" sx={{
-                    float: "left"
-                }}>
-                    <Typography variant="subtitle2" display="inline" sx={classCss.mainTags} p={"5px"}>
+                <Box display="inline">
+                    <Typography variant="subtitle2" display="inline" sx={classCss.TagsDetailsPage}>
                         {postDetails.Category.name}
                     </Typography>
                 </Box>
                 <RenderTags tags={postDetails.Tags} />
 
                 <Box sx={classCss.centerBox} mt={6}>
-                    <Typography variant="h3" sx={{ textDecoration: "underline overline" }}>
+                    <Typography variant="h3" textAlign="center" sx={{ textDecoration: "underline overline" }}>
                         {postDetails.title}
                     </Typography>
                 </Box>
