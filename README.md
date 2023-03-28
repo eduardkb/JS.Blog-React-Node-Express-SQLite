@@ -7,16 +7,17 @@
 
 ### Components tree
 
-    - App
-		- Admin (To-Do)
+    - App		
 		- MainApp
-			- Header
-				- Filter
-			- Main	
-				- PostPannel  (main pannel with all posts)
-					- Post
-				- PostDetails (changes main pannel to details of clicked post)
-			- Footer
+			- Admin (To-Do)
+			- MainPostsPage
+				- Header
+					- Filter
+				- Main	
+					- PostPannel  (main pannel with all posts)
+						- Post
+					- PostDetails (changes main pannel to details of clicked post)
+				- Footer
 
 ### Initial setup
 

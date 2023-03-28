@@ -2,7 +2,7 @@
 	- Backend          
           - 
 	- Frontend
-          - change switch parameter to a new global appState context          
+          - change switch parameter to a new global appState context
           - fix header design
           - on postDetailsComments - display messages (success and error)
           - on postDetailsComments - clear text field after success submit
