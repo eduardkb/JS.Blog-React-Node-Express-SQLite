@@ -13,7 +13,6 @@ function Header(props) {
 	const dta = props.data
 	const setPostSelected = props.setPostSelected
 	const postSelected = props.postSelected
-	const setTheme = props.setTheme
 
 	const { userLoggedIn, setUserLoggedIn } = useContext(SessionContext)
 
@@ -39,7 +38,7 @@ function Header(props) {
 					</Grid>
 				</Grid>
 				<Filter dta={dta} setPostSelected={setPostSelected}
-					postSelected={postSelected} setTheme={setTheme} />
+					postSelected={postSelected} />
 			</div>
 
 		</AppBar >

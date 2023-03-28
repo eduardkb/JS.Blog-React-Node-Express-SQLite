@@ -1,16 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import MainPostsPage from "./Main/MainPostsPage";
 import { ThemeProvider } from "@mui/material/styles";
-import { MyCustomTheme } from "../mui_css/muiStyles";
 import Box from "@mui/material/Box";
 import { classCss } from "../mui_css/muiStyles";
+import { SessionContext } from "../contexts/SessionContext";
 
 function MainApp() {
-	const { myTheme, setTheme } = MyCustomTheme();
+	const { myTheme } = useContext(SessionContext)
 	return (
 		<ThemeProvider theme={myTheme}>
 			<Box className="App" sx={classCss.mainPage}>
-				<MainPostsPage setTheme={setTheme} />
+				<MainPostsPage />
 			</Box>
 		</ ThemeProvider >
 	)

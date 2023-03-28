@@ -13,13 +13,13 @@ import Grid from "@mui/material/Grid";
 import Popover from "@mui/material/Popover";
 import Typography from "@mui/material/Typography";
 import ArrowDropDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
+import { SessionContext } from "../../contexts/SessionContext";
 
 export default function Filter(props) {
     const dta = props.dta
     const setPostSelected = props.setPostSelected
     const postSelected = props.postSelected;
-    const setTheme = props.setTheme;
-
+    const { setTheme } = useContext(SessionContext);
 
     function BuildCatMenu(props) {
         const categories = props.categories
