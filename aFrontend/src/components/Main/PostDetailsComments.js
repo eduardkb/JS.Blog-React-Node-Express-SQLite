@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Divider from '@mui/material/Divider';
 import FormControl from "@mui/material/FormControl";
 import { Button, TextField } from "@mui/material";
 import { classCss } from "../../mui_css/muiStyles";
-
+import { SessionContext } from "../../contexts/SessionContext"
 
 function RenderComments({ comments }) {
     const filteredComments = comments
@@ -48,11 +48,14 @@ function RenderComments({ comments }) {
 }
 
 function RenderCreateComment({ commentCreate, postSelected }) {
-    const sUser = "guest"
-    const iUserID = 1
     const iPostID = postSelected
     const sDefaultComm = "Type your comment in here (minimum 10 letters)."
     const [commValue, setCommValue] = useState(sDefaultComm)
+
+    // get user from session
+    const { userLoggedIn } = useContext(SessionContext)
+    const sUser = userLoggedIn.name;
+    const iUserID = userLoggedIn.id;
 
     function onCommSubmitClick(e, postID, userID, comm) {
         //e.preventDefault()

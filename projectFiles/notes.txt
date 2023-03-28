@@ -5,8 +5,7 @@
           - fix header design
           - on postDetailsComments - display messages (success and error)
           - on postDetailsComments - clear text field after success submit
-          - upvote on post          
-          - change user that created comment in PostDetailsComments
+          - upvote on post
 
           - start Admin page
           - save html on backend and retreive. (post examples: https://deepenglish.com/blog/)
