@@ -6,7 +6,6 @@ import Box from "@mui/material/Box";
 import { classCss } from "./mui_css/muiStyles";
 
 
-
 function App() {
 	const { myTheme, setTheme } = MyCustomTheme();
 	return (
