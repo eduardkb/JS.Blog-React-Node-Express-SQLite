@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import AppBar from "@mui/material/AppBar";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
 import Filter from "./Filter";
 import { classCss } from "../../mui_css/muiStyles";
-
+import { SessionContext } from "../../contexts/SessionContext";
 
 
 function Header(props) {
@@ -15,6 +15,7 @@ function Header(props) {
 	const postSelected = props.postSelected
 	const setTheme = props.setTheme
 
+	const { userLoggedIn, setUserLoggedIn } = useContext(SessionContext)
 
 	return (
 		<AppBar position="static" sx={classCss.headerBox}>
@@ -31,7 +32,10 @@ function Header(props) {
 						</Typography>
 					</Grid>
 					<Grid item xs={4} textAlign='right'>
-						<Button variant="contained"> Login</Button>
+						<Typography variant="body2" sx={{ margin: 0 }}>
+							Welcome, {userLoggedIn.name}
+						</Typography>
+						<Button variant="contained" onClick={() => setUserLoggedIn({ id: 2, name: "John" })} > Login</Button>
 					</Grid>
 				</Grid>
 				<Filter dta={dta} setPostSelected={setPostSelected}

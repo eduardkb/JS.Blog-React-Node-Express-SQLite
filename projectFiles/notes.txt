@@ -2,12 +2,11 @@
 	- Backend          
           - 
 	- Frontend
-          - change switch parameter to a new global appState context
+          - change switch parameter to a new global appState context          
+          - fix header design
           - on postDetailsComments - display messages (success and error)
           - on postDetailsComments - clear text field after success submit
-          - upvote on post
-          - Make global session context with user and userID logged in
-          - display user logged-in in header
+          - upvote on post          
           - change user that created comment in PostDetailsComments
 
           - start Admin page
