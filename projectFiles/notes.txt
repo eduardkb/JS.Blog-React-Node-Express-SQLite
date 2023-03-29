@@ -1,7 +1,8 @@
 # To-Do
 	- Backend          
           - 
-	- Frontend               
+	- Frontend
+          - when not able to load data (bakend out) correct message is not displayed
           - make SnackBar appear from left to right
           - upvote on post
           - fix header design
