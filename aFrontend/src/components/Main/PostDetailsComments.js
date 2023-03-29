@@ -5,7 +5,6 @@ import Divider from '@mui/material/Divider';
 import FormControl from "@mui/material/FormControl";
 import SendIcon from '@mui/icons-material/Send';
 import LoadingButton from '@mui/lab/LoadingButton';
-import SaveIcon from '@mui/icons-material/Save';
 import { Button, TextField } from "@mui/material";
 import { classCss } from "../../mui_css/muiStyles";
 import { SessionContext } from "../../contexts/SessionContext"
@@ -59,6 +58,7 @@ function RenderCreateComment({ commentCreate, postSelected }) {
     const [updatingRec, setUpdatingRec] = useState(false);
     function doneCallback() {
         setUpdatingRec(false);
+        setCommValue(sDefaultComm)
     }
 
     // get user from session

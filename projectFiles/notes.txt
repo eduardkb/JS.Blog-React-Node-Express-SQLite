@@ -1,8 +1,7 @@
 # To-Do
 	- Backend          
           - 
-	- Frontend          
-          - on postDetailsComments - clear text field after success submit
+	- Frontend
           - on postDetailsComments when saving comment- display messages (success and error)          
           - upvote on post
           - fix header design
