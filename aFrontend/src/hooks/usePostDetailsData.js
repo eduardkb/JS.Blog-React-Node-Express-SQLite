@@ -36,7 +36,7 @@ function usePostDetailsData(postID, delayTime = 300) {
         // eslint-disable-next-line 
     }, []);
 
-    function commentCreate(newComment) {
+    function commentCreate(newComment, doneCallback) {
         const postData = postDetails
         let errMsg = "";
         async function writeComment() {
@@ -74,10 +74,11 @@ function usePostDetailsData(postID, delayTime = 300) {
             else {
                 console.log(errMsg)
             }
-
+            if (doneCallback) {
+                doneCallback();
+            }
         }
         writeComment();
-        // eslint-disable-next-line         
     }
 
     return {

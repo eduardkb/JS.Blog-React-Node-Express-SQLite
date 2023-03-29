@@ -1,11 +1,11 @@
 # To-Do
 	- Backend          
           - 
-	- Frontend
-          - fix header design
-          - on postDetailsComments - display messages (success and error)
+	- Frontend          
           - on postDetailsComments - clear text field after success submit
+          - on postDetailsComments when saving comment- display messages (success and error)          
           - upvote on post
+          - fix header design
 
           - start Admin page
           - save html on backend and retreive. (post examples: https://deepenglish.com/blog/)

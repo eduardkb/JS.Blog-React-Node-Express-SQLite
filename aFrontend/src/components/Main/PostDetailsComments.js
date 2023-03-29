@@ -3,6 +3,9 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Divider from '@mui/material/Divider';
 import FormControl from "@mui/material/FormControl";
+import SendIcon from '@mui/icons-material/Send';
+import LoadingButton from '@mui/lab/LoadingButton';
+import SaveIcon from '@mui/icons-material/Save';
 import { Button, TextField } from "@mui/material";
 import { classCss } from "../../mui_css/muiStyles";
 import { SessionContext } from "../../contexts/SessionContext"
@@ -52,6 +55,12 @@ function RenderCreateComment({ commentCreate, postSelected }) {
     const sDefaultComm = "Type your comment in here (minimum 10 letters)."
     const [commValue, setCommValue] = useState(sDefaultComm)
 
+    // state and function used when creating comment to give visual feedback to user
+    const [updatingRec, setUpdatingRec] = useState(false);
+    function doneCallback() {
+        setUpdatingRec(false);
+    }
+
     // get user from session
     const { userLoggedIn } = useContext(SessionContext)
     const sUser = userLoggedIn.name;
@@ -59,13 +68,14 @@ function RenderCreateComment({ commentCreate, postSelected }) {
 
     function onCommSubmitClick(e, postID, userID, comm) {
         //e.preventDefault()
+        setUpdatingRec(true);
         const jsonComment = {
             "comment": comm,
             "published": true,
             "postId": postID,
             "userId": userID
         }
-        commentCreate(jsonComment)
+        commentCreate(jsonComment, doneCallback)
     }
 
     return (
@@ -91,13 +101,27 @@ function RenderCreateComment({ commentCreate, postSelected }) {
                         onBlur={() => commValue === "" && setCommValue(sDefaultComm)}
                         onChange={(e) => setCommValue(e.target.value)}
                     />
-                    <Button variant="contained"
-                        sx={{ width: "100px", marginTop: 1 }}
-                        disabled={commValue.length < 10 || commValue === sDefaultComm}
-                        onClick={(e) => { onCommSubmitClick(e, iPostID, iUserID, commValue) }}
-                    >
-                        Submit
-                    </Button>
+
+                    {/* if updating, show Saving... disabled Button */}
+                    {updatingRec
+                        ? (
+                            <LoadingButton
+                                sx={{ width: "150px", marginTop: 1 }}
+                                loading
+                                loadingPosition="end"
+                                variant="outlined"
+                            >
+                                Saving...
+                            </LoadingButton>
+                        ) : (
+                            <Button variant="contained" endIcon={<SendIcon />}
+                                sx={{ width: "100px", marginTop: 1 }}
+                                disabled={commValue.length < 10 || commValue === sDefaultComm}
+                                onClick={(e) => { onCommSubmitClick(e, iPostID, iUserID, commValue) }}
+                            >
+                                Submit
+                            </Button>
+                        )}
                 </FormControl>
             </Box>
         </>
