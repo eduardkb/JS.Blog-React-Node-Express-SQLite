@@ -42,14 +42,14 @@ function usePostDetailsData(postID, delayTime = 300) {
         async function writeComment() {
             let bDbOk = false;
             try {
-                // save new commenmt
+                // save new commenmt                
                 const restUrl = `${GLOBAL_SETTINGS.axiosUrl}/comment`
                 await axios.post(restUrl, newComment)
                 bDbOk = true;
 
             }
             catch (error) {
-                errMsg = `Error while adding comment. Error: ${error.message}`
+                errMsg = `Error while adding comment.`
                 setPostDetails(postData)
                 bDbOk = false;
             }
@@ -61,21 +61,19 @@ function usePostDetailsData(postID, delayTime = 300) {
 
                     // set new comments on postDetails
                     setPostDetails(postsWithComments.data)
+                    bDbOk = true;
                 }
                 catch (error) {
-                    errMsg = `Error while loading new comment. Try refreshing the page.. Error: ${error.message}`
+                    errMsg = `Error while loading new comment. Try refreshing the page..`
                     setPostDetails(postData)
                     bDbOk = false;
                 }
             }
             if (errMsg === "") {
-                console.log("Success adding a comment.")
-            }
-            else {
-                console.log(errMsg)
+                errMsg = "Added a comment successfully."
             }
             if (doneCallback) {
-                doneCallback();
+                doneCallback(errMsg, bDbOk);
             }
         }
         writeComment();

@@ -1,8 +1,8 @@
 # To-Do
 	- Backend          
           - 
-	- Frontend
-          - on postDetailsComments when saving comment- display messages (success and error)          
+	- Frontend               
+          - make SnackBar appear from left to right
           - upvote on post
           - fix header design
 

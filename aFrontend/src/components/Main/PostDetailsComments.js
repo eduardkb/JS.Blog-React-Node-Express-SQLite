@@ -5,9 +5,13 @@ import Divider from '@mui/material/Divider';
 import FormControl from "@mui/material/FormControl";
 import SendIcon from '@mui/icons-material/Send';
 import LoadingButton from '@mui/lab/LoadingButton';
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from '@mui/material/Alert';
 import { Button, TextField } from "@mui/material";
 import { classCss } from "../../mui_css/muiStyles";
 import { SessionContext } from "../../contexts/SessionContext"
+
+
 
 function RenderComments({ comments }) {
     const filteredComments = comments
@@ -53,19 +57,44 @@ function RenderCreateComment({ commentCreate, postSelected }) {
     const iPostID = postSelected
     const sDefaultComm = "Type your comment in here (minimum 10 letters)."
     const [commValue, setCommValue] = useState(sDefaultComm)
-
-    // state and function used when creating comment to give visual feedback to user
-    const [updatingRec, setUpdatingRec] = useState(false);
-    function doneCallback() {
-        setUpdatingRec(false);
-        setCommValue(sDefaultComm)
-    }
+    const [saveMessage, setSaveMessage] = useState("")
+    const [sevType, setSevType] = useState("success")
 
     // get user from session
     const { userLoggedIn } = useContext(SessionContext)
     const sUser = userLoggedIn.name;
     const iUserID = userLoggedIn.id;
 
+
+    // state and function used when creating comment to give visual feedback to user
+    const [updatingRec, setUpdatingRec] = useState(false);
+    function doneCallback(sMsg, bSuccess) {
+        setUpdatingRec(false);
+        setSaveMessage(sMsg)
+        if (bSuccess) {
+            setSevType("success")
+            setCommValue(sDefaultComm)
+        }
+        else {
+            setSevType("error");
+        }
+        setOpen(true);
+    }
+
+    // functions for the snackbar
+    const Alert = React.forwardRef(function Alert(props, ref) {
+        return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+    });
+    const [open, setOpen] = React.useState(false);
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        setOpen(false);
+    };
+
+    // on comment submit function
     function onCommSubmitClick(e, postID, userID, comm) {
         //e.preventDefault()
         setUpdatingRec(true);
@@ -122,6 +151,13 @@ function RenderCreateComment({ commentCreate, postSelected }) {
                                 Submit
                             </Button>
                         )}
+
+                    {/* select if showing success or error message */}
+                    <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+                        <Alert onClose={handleClose} sx={{ width: '100%' }} severity={sevType} >
+                            {saveMessage}
+                        </Alert>
+                    </Snackbar>
                 </FormControl>
             </Box>
         </>
