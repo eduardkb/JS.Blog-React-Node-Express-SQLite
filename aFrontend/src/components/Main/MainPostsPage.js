@@ -36,10 +36,22 @@ function MainPostsPage() {
             )
         }
         function Error() {
+            let sMsg = ""
+            if (errorPost.message) {
+                sMsg = errorPost.message
+            }
+            else {
+                errorPost ? sMsg = errorPost : sMsg = errorCategory
+            }
+
             return (
                 <Box sx={[classCss.centerBox, { margin: '100px 0px' }]} >
+
+                    {/* <Alert variant="Outlined" severity="error">
+                        Error
+                    </Alert> */}
                     <Alert variant="outlined" severity="error">
-                        Error while getting posts. Message: "{errorPost ? errorPost : errorCategory}"
+                        Error while getting posts. Message: {sMsg}
                     </Alert>
                 </Box>
             )
