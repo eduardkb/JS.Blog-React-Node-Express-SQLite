@@ -4,7 +4,7 @@ import { createTheme } from '@mui/material/styles';
 
 export function MyCustomTheme() {
   const [mode, setMode] = useState('light');
-  const setGray = true;
+  const setGray = false;
 
   const getDesignTokens = (mode) => ({
     palette: {
@@ -155,5 +155,12 @@ export const classCss = {
     p: 2,
     backgroundColor: "primary.main",
     outlineStyle: "dashed"
+  },
+  thumbUpButton: {
+    margin: "0px 10px", cursor: 'pointer',
+    '&:hover': {
+      color: "blue",
+      textDecoration: 'underline',
+    },
   }
-};
+}

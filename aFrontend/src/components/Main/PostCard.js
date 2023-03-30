@@ -5,6 +5,7 @@ import { classCss } from "../../mui_css/muiStyles";
 import moment from "moment/moment";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
+import ThumbUpOutlined from '@mui/icons-material/ThumbUpOutlined';
 
 function PostCard({ post, setPostSelected }) {
 	function handleBtnPostTitleClick(e, id) {
@@ -59,7 +60,12 @@ function PostCard({ post, setPostSelected }) {
 				<p style={classCss.pCardProps}>
 					Posted: {moment.utc(post.createdAt).fromNow()}
 				</p>
-				<p style={classCss.pCardProps} >Upvotes: {post.upvote}</p>
+				<div>
+					Upvotes: {post.upvote}
+					<span onClick={() => alert("Click upvote!")}>
+						<ThumbUpOutlined sx={classCss.thumbUpButton} />
+					</span>
+				</div>
 			</Typography>
 		</Card>
 	);

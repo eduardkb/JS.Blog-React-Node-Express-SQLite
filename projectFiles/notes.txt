@@ -2,7 +2,8 @@
 	- Backend          
           - 
 	- Frontend
-          - upvote on post
+          - upvote icon color. change color fitting to both themes
+          - make upvote on post using post/upvotePost/:id api
 
           - start Admin page
           - save html on backend and retreive. (post examples: https://deepenglish.com/blog/)
