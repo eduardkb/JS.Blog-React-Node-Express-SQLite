@@ -145,27 +145,47 @@ exports.findOneJoinAllDetails = (req, res) => {
 		});
 };
 
+exports.upvotePost = (req, res) => {
+	const { id } = req.params;
 
-// Find a single Tutorial with an id
-// exports.findOne = (req, res) => {
-//   const { id } = req.params;
-
-//   Tutorial.findByPk(id)
-//     .then((data) => {
-//       if (data) {
-//         res.send(data);
-//       } else {
-//         res.status(404).send({
-//           message: `Cannot find Tutorial with id=${id}.`,
-//         });
-//       }
-//     })
-//     .catch(() => {
-//       res.status(500).send({
-//         message: `Error retrieving Tutorial with id=${id}`,
-//       });
-//     });
-// };
+	Post.findByPk(id)
+		.then((data) => {
+			const newUpvoteData = { upvote: data.upvote + 1 }
+			Post.update(newUpvoteData, {
+				where: { id },
+			})
+				.then((num) => {
+					if (num == 1) {
+						res.send({
+							newData: newUpvoteData,
+							message: 'Post Upvoted.',
+							success: true,
+						})
+					}
+					else {
+						res.send({
+							newData: {},
+							message: 'Error while upvoting post.',
+							success: false,
+						})
+					}
+				})
+				.catch(() => {
+					res.status(500).send({
+						newData: {},
+						message: "Unable to update post right now.",
+						success: false,
+					})
+				})
+		})
+		.catch(() => {
+			res.status(500).send({
+				newData: {},
+				message: "Unable to update post right now.",
+				success: false,
+			})
+		})
+}
 
 // Update a Tutorial by the id in the request
 // exports.update = (req, res) => {

@@ -23,6 +23,9 @@ module.exports = (app) => {
 	// Retrieve a single post with id and all comments, Tags, post user and comment user
 	router.get("/loadPostDetails/:id", post.findOneJoinAllDetails);
 
+	// upvote a post
+	router.put('/upvotePost/:id', post.upvotePost);
+
 	// Update a post with id
 	// router.put('/:id', post.update);
 
