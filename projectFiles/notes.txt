@@ -2,7 +2,6 @@
 	- Backend          
           - 
 	- Frontend
-          - make SnackBar appear from left to right
           - upvote on post
 
           - start Admin page

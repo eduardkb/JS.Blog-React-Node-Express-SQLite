@@ -7,6 +7,7 @@ import SendIcon from '@mui/icons-material/Send';
 import LoadingButton from '@mui/lab/LoadingButton';
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from '@mui/material/Alert';
+import Slide from '@mui/material/Slide';
 import { Button, TextField } from "@mui/material";
 import { classCss } from "../../mui_css/muiStyles";
 import { SessionContext } from "../../contexts/SessionContext"
@@ -93,6 +94,10 @@ function RenderCreateComment({ commentCreate, postSelected }) {
 
         setOpen(false);
     };
+    function TransitionRight(props) {
+        return <Slide {...props} direction="right" />;
+    }
+
 
     // on comment submit function
     function onCommSubmitClick(e, postID, userID, comm) {
@@ -153,7 +158,8 @@ function RenderCreateComment({ commentCreate, postSelected }) {
                         )}
 
                     {/* select if showing success or error message */}
-                    <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+                    <Snackbar open={open} autoHideDuration={6000}
+                        onClose={handleClose} TransitionComponent={TransitionRight} >
                         <Alert onClose={handleClose} sx={{ width: '100%' }} severity={sevType} >
                             {saveMessage}
                         </Alert>
