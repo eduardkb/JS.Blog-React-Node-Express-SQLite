@@ -231,7 +231,7 @@ export default function Filter(props) {
                             justifyContent="end" alignItems="start">
                             <Box>
                                 Dark Mode:
-                                <Switch onClick={() => setTheme()} />
+                                <Switch color="default" onClick={() => setTheme()} />
                             </Box>
                             <FilterSlide />
                         </Grid>

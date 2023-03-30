@@ -155,5 +155,5 @@ export const classCss = {
     p: 2,
     backgroundColor: "primary.main",
     outlineStyle: "dashed"
-  },
+  }
 };
