@@ -2,9 +2,6 @@
 	- Backend          
           - 
 	- Frontend
-          - make upvote on post using post/upvotePost/:id api               
-               implement callback function with feedback to user
-          - fix upvote line design          
           - sort by title, upvote, date (default)
 
           - start Admin page

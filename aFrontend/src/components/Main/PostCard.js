@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Box";
 import { classCss } from "../../mui_css/muiStyles";
@@ -7,9 +7,11 @@ import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import ThumbUpOutlined from '@mui/icons-material/ThumbUpOutlined';
 import { PostDataContext } from "../../contexts/PostsContext";
+import CircularProgress from '@mui/material/CircularProgress';
 
 function PostCard({ post, setPostSelected }) {
 	const { fUpvotePost } = useContext(PostDataContext);
+	const [upvotingInProgress, setUpvotingInProgress] = useState(false);
 
 	function handleBtnPostTitleClick(e, id) {
 		e.preventDefault();
@@ -38,10 +40,11 @@ function PostCard({ post, setPostSelected }) {
 	}
 
 	function doneCallback(resData) {
-		console.log("doneCallback function called. Res: ", resData)
+		setUpvotingInProgress(false)
 	}
 
 	function onUpvoteClick(id) {
+		setUpvotingInProgress(true)
 		fUpvotePost(id, doneCallback)
 	}
 
@@ -65,18 +68,27 @@ function PostCard({ post, setPostSelected }) {
 				</Button>
 			</Box>
 
-			<Typography variant="h6">
+			<Typography variant="h6" >
 				<p style={classCss.pCardProps}>
 					Posted: {moment.utc(post.createdAt).fromNow()}
 				</p>
-				<p style={classCss.pCardProps}>
-					{/* <Box display="flex" flexDirection="row" justifyContent="start" alignItems="center"> */}
-					Upvotes:
-					<i>{' '}{post.upvote}</i>
-					<ThumbUpOutlined sx={[classCss.thumbUpButton, { fontSize: 20 }]}
-						onClick={() => onUpvoteClick(post.id)} />
-					{/* </Box> */}
-				</p>
+
+
+				<Box display="flex" flexDirection="row" justifyContent="start" alignItems="center">
+					<p style={classCss.pCardProps}>
+						Upvotes:
+						<i>{' '}{post.upvote}</i>
+					</p>
+					{upvotingInProgress
+						? (
+							<CircularProgress color="inherit" size={15}
+								thickness={3} sx={{ ml: 2 }} />
+						) : (
+							<ThumbUpOutlined sx={[classCss.thumbUpButton, { fontSize: 20 }]}
+								onClick={() => onUpvoteClick(post.id)} />
+						)
+					}
+				</Box>
 			</Typography>
 		</Card >
 	);
