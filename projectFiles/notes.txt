@@ -2,9 +2,6 @@
 	- Backend          
           - 
 	- Frontend
-          - sort by title, upvote, date (default)
-          - filter fix radio color on ligth mode
-
           - start Admin page
           - save html on backend and retreive. (post examples: https://deepenglish.com/blog/)
           - save picture on backend and retreive
