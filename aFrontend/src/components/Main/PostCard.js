@@ -5,6 +5,9 @@ import { classCss } from "../../mui_css/muiStyles";
 import moment from "moment/moment";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from '@mui/material/Alert';
+import Slide from '@mui/material/Slide';
 import ThumbUpOutlined from '@mui/icons-material/ThumbUpOutlined';
 import { PostDataContext } from "../../contexts/PostsContext";
 import CircularProgress from '@mui/material/CircularProgress';
@@ -12,6 +15,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 function PostCard({ post, setPostSelected }) {
 	const { fUpvotePost } = useContext(PostDataContext);
 	const [upvotingInProgress, setUpvotingInProgress] = useState(false);
+	const [upvoteResult, setUpvoteResult] = useState({});
 
 	function handleBtnPostTitleClick(e, id) {
 		e.preventDefault();
@@ -41,11 +45,31 @@ function PostCard({ post, setPostSelected }) {
 
 	function doneCallback(resData) {
 		setUpvotingInProgress(false)
+		setUpvoteResult(resData)
+		if (!resData.success) {
+			setOpen(true);
+		}
 	}
 
 	function onUpvoteClick(id) {
 		setUpvotingInProgress(true)
 		fUpvotePost(id, doneCallback)
+	}
+
+	// functions for the snackbar
+	const Alert = React.forwardRef(function Alert(props, ref) {
+		return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+	});
+	const [open, setOpen] = React.useState(false);
+	const handleClose = (event, reason) => {
+		if (reason === 'clickaway') {
+			return;
+		}
+
+		setOpen(false);
+	};
+	function TransitionRight(props) {
+		return <Slide {...props} direction="right" />;
 	}
 
 	return (
@@ -89,6 +113,13 @@ function PostCard({ post, setPostSelected }) {
 						)
 					}
 				</Box>
+				{/* display message on error */}
+				<Snackbar open={open} autoHideDuration={6000}
+					onClose={handleClose} TransitionComponent={TransitionRight} >
+					<Alert onClose={handleClose} sx={{ width: '100%' }} severity="error" >
+						{upvoteResult.message}
+					</Alert>
+				</Snackbar>
 			</Typography>
 		</Card >
 	);

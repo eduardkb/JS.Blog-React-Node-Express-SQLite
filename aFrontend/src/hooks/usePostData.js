@@ -42,6 +42,7 @@ function usePostData(delayTime = 0) {
                 await delay(2000);
                 const restUrl = `${GLOBAL_SETTINGS.axiosUrl}/post/upvotePost/${postId}`
                 const resAxios = await axios.put(restUrl);
+
                 const resData = { success: true, message: "Upvoted Successfully.", axiosRes: resAxios }
 
                 //update live array dataPost       
@@ -60,7 +61,7 @@ function usePostData(delayTime = 0) {
 
 
             catch (error) {
-                const resData = { success: false, message: "Upvote failed. Try again later.", axiosRes: {} }
+                const resData = { success: false, message: "Upvote failed. Try again later.", axiosRes: {}, originalMsg: error }
                 if (doneCallback) {
                     doneCallback(resData);
                 }
