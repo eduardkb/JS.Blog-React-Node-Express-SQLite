@@ -150,7 +150,7 @@ exports.upvotePost = (req, res) => {
 
 	Post.findByPk(id)
 		.then((data) => {
-			const newUpvoteData = { upvote: data.upvote + 1 }
+			const newUpvoteData = { upvote: data.upvote + 1 };
 			Post.update(newUpvoteData, {
 				where: { id },
 			})
@@ -158,16 +158,16 @@ exports.upvotePost = (req, res) => {
 					if (num == 1) {
 						res.send({
 							newData: newUpvoteData,
-							message: 'Post Upvoted.',
+							message: "Post Upvoted.",
 							success: true,
-						})
+						});
 					}
 					else {
 						res.send({
 							newData: {},
-							message: 'Error while upvoting post.',
+							message: "Error while upvoting post.",
 							success: false,
-						})
+						});
 					}
 				})
 				.catch(() => {
@@ -175,17 +175,17 @@ exports.upvotePost = (req, res) => {
 						newData: {},
 						message: "Unable to update post right now.",
 						success: false,
-					})
-				})
+					});
+				});
 		})
 		.catch(() => {
 			res.status(500).send({
 				newData: {},
 				message: "Unable to update post right now.",
 				success: false,
-			})
-		})
-}
+			});
+		});
+};
 
 // Update a Tutorial by the id in the request
 // exports.update = (req, res) => {

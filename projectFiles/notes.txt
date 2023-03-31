@@ -2,8 +2,11 @@
 	- Backend          
           - 
 	- Frontend
-          - upvote icon color. change color fitting to both themes
           - make upvote on post using post/upvotePost/:id api
+               update live react data with new post count
+               implement callback function with feedback to user
+          - fix upvote line design          
+          - sort by title, upvote, date (default)
 
           - start Admin page
           - save html on backend and retreive. (post examples: https://deepenglish.com/blog/)
@@ -25,16 +28,18 @@ curl -H "Content-type: application/x-www-form-urlencoded" \
      -d "pass=nerves1234" \
 	 -d "role=user" \
      -X POST \
-     localhost:3000/api/user
+     localhost:8080/api/user
 	  
 curl -H "Content-type: application/x-www-form-urlencoded" \
-     -d "title=new ways of prog" \
+     -d "title=aws ec3 tech" \
      -d "picture=pict22" \
      -d "body=new post text" \
-	 -d "published=false" \
+	 -d "published=true" \
+      -d "upvote=42" \
 	 -d "userId=2" \
+      -d "categoryId=3" \
      -X POST \
-     localhost:3000/api/post
+     localhost:8080/api/post
 	  
 curl -H "Content-type: application/x-www-form-urlencoded" \
      -d "comment=new test comm 7" \
@@ -43,16 +48,21 @@ curl -H "Content-type: application/x-www-form-urlencoded" \
 	 -d "userId=1" \
 	 -d "postId=1" \
      -X POST \
-     localhost:3000/api/comment
+     localhost:8080/api/comment
 
 curl -H "Content-type: application/x-www-form-urlencoded" \
      -d "name=Finances" \
      -d "description=Financ2 Tips&Tricks" \
      -d "active=true" \
      -X POST \
-     localhost:3000/api/category
+     localhost:8080/api/category
 
 curl -H "Content-type: application/x-www-form-urlencoded" \
      -d "name=BI" \
      -X POST \
-     localhost:3000/api/tag
+     localhost:8080/api/tag
+
+     
+curl -H "Content-type: application/x-www-form-urlencoded" \
+     -X PUT \
+     localhost:8080/api/post/upvotePost/6

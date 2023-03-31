@@ -30,7 +30,7 @@ exports.create = (req, res) => {
 		.catch((err) => {
 			res.status(500).send({
 				message:
-                    err.message || "Some error occurred while creating a user.",
+					err.message || "Some error occurred while creating a user.",
 			});
 		});
 };
@@ -47,7 +47,7 @@ exports.findAll = (req, res) => {
 		.catch((err) => {
 			res.status(500).send({
 				message:
-                    err.message || "Some error occurred while retrieving users.",
+					err.message || "Some error occurred while retrieving users.",
 			});
 		});
 };
@@ -60,7 +60,7 @@ exports.findUserJoinPost = (req, res) => {
 		.catch((err) => {
 			res.status(500).send({
 				message:
-                    err.message || "Some error occurred while retrieving users and posts.",
+					err.message || "Some error occurred while retrieving users and posts.",
 			});
 		});
 };

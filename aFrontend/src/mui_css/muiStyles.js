@@ -159,7 +159,7 @@ export const classCss = {
   thumbUpButton: {
     margin: "0px 10px", cursor: 'pointer',
     '&:hover': {
-      color: "blue",
+      color: "#063970",
       textDecoration: 'underline',
     },
   }

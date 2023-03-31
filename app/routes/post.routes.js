@@ -24,7 +24,7 @@ module.exports = (app) => {
 	router.get("/loadPostDetails/:id", post.findOneJoinAllDetails);
 
 	// upvote a post
-	router.put('/upvotePost/:id', post.upvotePost);
+	router.put("/upvotePost/:id", post.upvotePost);
 
 	// Update a post with id
 	// router.put('/:id', post.update);

@@ -12,7 +12,7 @@ import PostDetails from "../Main/PostDetails";
 import { classCss } from "../../mui_css/muiStyles";
 
 function MainPostsPage() {
-    const { dataPost, errorPost, requestStatusPost } = usePostData();
+    const { dataPost, errorPost, requestStatusPost, fUpvotePost } = usePostData();
     const { dataCategory, errorCategory, requestStatusCategory } = useCategoryData();
     const [postSelected, setPostSelected] = useState(0);
 
@@ -70,7 +70,7 @@ function MainPostsPage() {
     }
     return (
 
-        < PostsProvider startingPosts={dataPost} >
+        < PostsProvider startingPosts={dataPost} fUpvotePost={fUpvotePost}>
             <Header data={dataCategory}
                 setPostSelected={setPostSelected}
                 postSelected={postSelected}

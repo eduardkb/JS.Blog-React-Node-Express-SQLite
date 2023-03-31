@@ -29,7 +29,7 @@ exports.create = (req, res) => {
 		.catch((err) => {
 			res.status(500).send({
 				message:
-                    err.message || `Error while creating a Category. |${Category.name}`,
+					err.message || `Error while creating a Category. |${Category.name}`,
 			});
 		});
 };
@@ -46,7 +46,7 @@ exports.findAll = (req, res) => {
 		.catch((err) => {
 			res.status(500).send({
 				message:
-                    err.message || "Some error occurred while retrieving Categorys.",
+					err.message || "Some error occurred while retrieving Categorys.",
 			});
 		});
 };
@@ -59,7 +59,7 @@ exports.findCategoryJoinPost = (req, res) => {
 		.catch((err) => {
 			res.status(500).send({
 				message:
-                    err.message || "Some error occurred while retrieving categories and posts.",
+					err.message || "Some error occurred while retrieving categories and posts.",
 			});
 		});
 };

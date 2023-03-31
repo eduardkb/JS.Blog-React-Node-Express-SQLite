@@ -1,4 +1,4 @@
-const { post } = require("../dev/data");
+// const { post } = require("../dev/data");
 const db = require("../models");
 
 const Tag = db.Tag;
@@ -28,7 +28,7 @@ exports.create = (req, res) => {
 		.catch((err) => {
 			res.status(500).send({
 				message:
-                    err.message || `Error while creating a Tag. |${Tag.Tag}`,
+					err.message || `Error while creating a Tag. |${Tag.Tag}`,
 			});
 		});
 };
@@ -45,13 +45,13 @@ exports.findAll = (req, res) => {
 		.catch((err) => {
 			res.status(500).send({
 				message:
-                    err.message || "Some error occurred while retrieving Tags.",
+					err.message || "Some error occurred while retrieving Tags.",
 			});
 		});
 };
 
 exports.findOneTagJoinPost = (req, res) => {
-	const {id} = req.params;
+	const { id } = req.params;
 
 	Tag.findByPk(id, { include: [db.Post] })
 		.then((data) => {

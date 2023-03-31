@@ -9,7 +9,7 @@ export const REQUEST_STATUS = {
     FAILURE: "failure",
 };
 
-function usePostDetailsData(postID, delayTime = 300) {
+function usePostDetailsData(postID, delayTime = 0) {
     const [postDetails, setPostDetails] = useState([]);
     const [requestStatusPostDetails, setRequestStatusPostDetails] = useState(REQUEST_STATUS.LOADING);
     const [errorPostDetails, setErrorPostDetails] = useState("");
@@ -44,7 +44,7 @@ function usePostDetailsData(postID, delayTime = 300) {
             try {
                 // save new commenmt                
                 const restUrl = `${GLOBAL_SETTINGS.axiosUrl}/comment`
-                await axios.post(restUrl, newComment)
+                await axios.post(restUrl, newComment);
                 bDbOk = true;
 
             }

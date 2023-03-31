@@ -9,7 +9,7 @@ export const REQUEST_STATUS = {
     FAILURE: "failure",
 };
 
-function useCategoryData(delayTime = 300) {
+function useCategoryData(delayTime = 0) {
     const [dataCategory, setDataCategory] = useState([]);
     const [requestStatusCategory, setRequestStatusCategory] = useState(REQUEST_STATUS.LOADING);
     const [errorCategory, setErrorCategory] = useState("");

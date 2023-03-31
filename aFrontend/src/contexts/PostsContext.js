@@ -2,7 +2,7 @@ import { createContext, useState } from "react";
 
 export const PostDataContext = createContext();
 
-function PostsProvider({ children, startingPosts }) {
+function PostsProvider({ children, startingPosts, fUpvotePost }) {
     const [posts, setPosts] = useState(startingPosts);
     const [catFilter, setCatFilter] = useState(0);
     const [titleFilter, setTitleFilter] = useState("");
@@ -20,7 +20,7 @@ function PostsProvider({ children, startingPosts }) {
             setCatFilter, catFilter,
             titleFilter, setTitleFilter,
             dateFilter, setDateFilter,
-            fResetFilters
+            fResetFilters, fUpvotePost
         }}>
             {children}
         </PostDataContext.Provider>

@@ -57,9 +57,9 @@ exports.findAll = (req, res) => {
 
 exports.findCommentByPostJoinUser = (req, res) => {
 	const { id } = req.params;
-	const condition = { postId:id };
+	const condition = { postId: id };
 
-	Comment.findAll({ include: [db.User], where: condition})
+	Comment.findAll({ include: [db.User], where: condition })
 		.then((data) => {
 			if (data) {
 				res.send(data);

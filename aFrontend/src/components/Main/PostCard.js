@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Box";
 import { classCss } from "../../mui_css/muiStyles";
@@ -6,8 +6,11 @@ import moment from "moment/moment";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import ThumbUpOutlined from '@mui/icons-material/ThumbUpOutlined';
+import { PostDataContext } from "../../contexts/PostsContext";
 
 function PostCard({ post, setPostSelected }) {
+	const { fUpvotePost } = useContext(PostDataContext);
+
 	function handleBtnPostTitleClick(e, id) {
 		e.preventDefault();
 		setPostSelected(id)
@@ -34,10 +37,16 @@ function PostCard({ post, setPostSelected }) {
 		}
 	}
 
+	function doneCallback(resData) {
+		console.log("doneCallback function called. Res: ", resData)
+	}
+
+	function onUpvoteClick(id) {
+		fUpvotePost(id, doneCallback)
+	}
+
 	return (
 		<Card sx={classCss.cardPost}>
-			{/* <Paper style={classCss.paperPost}><img src='/PicturePlaceholder.jpg' alt="logo" /></Paper> */}
-
 			<Box
 				component="img"
 				sx={classCss.postsPictureBox}
@@ -60,14 +69,16 @@ function PostCard({ post, setPostSelected }) {
 				<p style={classCss.pCardProps}>
 					Posted: {moment.utc(post.createdAt).fromNow()}
 				</p>
-				<div>
-					Upvotes: {post.upvote}
-					<span onClick={() => alert("Click upvote!")}>
-						<ThumbUpOutlined sx={classCss.thumbUpButton} />
-					</span>
-				</div>
+				<p style={classCss.pCardProps}>
+					{/* <Box display="flex" flexDirection="row" justifyContent="start" alignItems="center"> */}
+					Upvotes:
+					<i>{' '}{post.upvote}</i>
+					<ThumbUpOutlined sx={[classCss.thumbUpButton, { fontSize: 20 }]}
+						onClick={() => onUpvoteClick(post.id)} />
+					{/* </Box> */}
+				</p>
 			</Typography>
-		</Card>
+		</Card >
 	);
 }
 
