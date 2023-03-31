@@ -3,6 +3,7 @@
           - 
 	- Frontend
           - sort by title, upvote, date (default)
+          - filter fix radio color on ligth mode
 
           - start Admin page
           - save html on backend and retreive. (post examples: https://deepenglish.com/blog/)
@@ -27,13 +28,13 @@ curl -H "Content-type: application/x-www-form-urlencoded" \
      localhost:8080/api/user
 	  
 curl -H "Content-type: application/x-www-form-urlencoded" \
-     -d "title=aws ec3 tech" \
+     -d "title=Disk full warning" \
      -d "picture=pict22" \
-     -d "body=new post text" \
+     -d "body=static cloud" \
 	 -d "published=true" \
       -d "upvote=42" \
-	 -d "userId=2" \
-      -d "categoryId=3" \
+	 -d "userId=1" \
+      -d "categoryId=4" \
      -X POST \
      localhost:8080/api/post
 	  

@@ -162,5 +162,11 @@ export const classCss = {
       color: "#063970",
       textDecoration: 'underline',
     },
-  }
+  },
+  radioUnchecked: {
+    color: "text.primary",
+    "&.Mui-checked": {
+      color: "primary.main"
+    }
+  },
 }

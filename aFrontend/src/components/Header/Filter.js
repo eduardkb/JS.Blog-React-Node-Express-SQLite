@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { PostDataContext } from "../../contexts/PostsContext";
+import { SessionContext } from "../../contexts/SessionContext";
 import MenuIcon from "@mui/icons-material/Menu"
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -11,15 +12,22 @@ import Divider from "@mui/material/Divider";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Popover from "@mui/material/Popover";
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
 import Typography from "@mui/material/Typography";
 import ArrowDropDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
-import { SessionContext } from "../../contexts/SessionContext";
+import { classCss } from "../../mui_css/muiStyles";
+
+
 
 export default function Filter(props) {
     const dta = props.dta
     const setPostSelected = props.setPostSelected
     const postSelected = props.postSelected;
     const { setTheme } = useContext(SessionContext);
+
 
     function BuildCatMenu(props) {
         const categories = props.categories
@@ -149,6 +157,8 @@ export default function Filter(props) {
     function FilterSlide() {
         const { titleFilter, setTitleFilter,
             fResetFilters, dateFilter, setDateFilter } = useContext(PostDataContext)
+        const { selectedOrderBy, setSelectedOrderBy } = useContext(PostDataContext)
+
         const [anchorEl, setAnchorEl] = React.useState(null);
 
         const handleClick = (event) => {
@@ -162,10 +172,11 @@ export default function Filter(props) {
         }
         function handleBtnClearFilters(e) {
             fResetFilters()
-            setTitleFilter(e.target.value);
+            handleClose()
         }
         const open = Boolean(anchorEl);
         const id = open ? 'simple-popover' : undefined;
+
         if (postSelected === 0) {
             return (
                 <div>
@@ -187,18 +198,23 @@ export default function Filter(props) {
                     >
                         {/* ITEMS ON POPOVER MENU */}
                         <Grid container direction="column" >
+                            <span style={{ marginLeft: "5px", marginTop: "5px" }}>
+                                Filter By Title:
+                            </span>
                             <TextField
                                 id="filterPostTitle"
-                                label="Filter by Post Title"
                                 variant="standard"
                                 onChange={handleChangePostFilter}
                                 value={titleFilter}
                                 sx={{ margin: 2 }}
                             />
+
                             <Divider sx={{ borderBottomWidth: 3 }} />
+                            <span style={{ marginLeft: "5px", marginTop: "5px" }}>
+                                Filter By Date
+                            </span>
                             <TextField
                                 name="someDate"
-                                label="Filter by Start Date"
                                 variant="standard"
                                 InputLabelProps={{ shrink: true }}
                                 type="date"
@@ -208,7 +224,47 @@ export default function Filter(props) {
                                 defaultValue={dateFilter}
                                 sx={{ margin: 2 }}
                             />
+
                             <Divider sx={{ borderBottomWidth: 3 }} />
+                            <span style={{ marginLeft: "5px", marginTop: "5px" }}>
+                                Sort By
+                            </span>
+                            <Box ml={2}>
+                                <FormControl>
+                                    <RadioGroup
+                                        aria-labelledby="demo-radio-buttons-group-label"
+                                        defaultValue="female"
+                                        name="radio-buttons-group"
+                                    >
+                                        <FormControlLabel value="Date"
+                                            control={<Radio sx={classCss.radioUnchecked} />} label="Date"
+                                            onClick={() => {
+                                                setSelectedOrderBy("Date")
+                                                handleClose()
+                                            }}
+                                            checked={selectedOrderBy === "Date"}
+                                        />
+                                        <FormControlLabel value="Title"
+                                            control={<Radio sx={classCss.radioUnchecked} />} label="Title"
+                                            onClick={() => {
+                                                setSelectedOrderBy("Title")
+                                                handleClose()
+                                            }}
+                                            checked={selectedOrderBy === "Title"}
+                                        />
+                                        <FormControlLabel value="Upvote"
+                                            control={<Radio sx={classCss.radioUnchecked} />} label="Upvote"
+                                            onClick={() => {
+                                                setSelectedOrderBy("Upvote")
+                                                handleClose()
+                                            }}
+                                            checked={selectedOrderBy === "Upvote"}
+                                        />
+                                    </RadioGroup>
+                                </FormControl>
+                            </Box>
+                            <Divider sx={{ borderBottomWidth: 3 }} />
+
                             <Button variant="contained" onClick={handleBtnClearFilters}
                                 sx={{ margin: 2 }}
                             >

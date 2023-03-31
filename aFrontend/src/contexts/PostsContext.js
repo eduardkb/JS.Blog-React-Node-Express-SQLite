@@ -7,11 +7,13 @@ function PostsProvider({ children, startingPosts, fUpvotePost }) {
     const [catFilter, setCatFilter] = useState(0);
     const [titleFilter, setTitleFilter] = useState("");
     const [dateFilter, setDateFilter] = useState("");
+    const [selectedOrderBy, setSelectedOrderBy] = useState('Date');
 
     function fResetFilters() {
         setCatFilter(0);
         setTitleFilter("");
         setDateFilter("");
+        setSelectedOrderBy("Date");
     }
 
     return (
@@ -20,7 +22,8 @@ function PostsProvider({ children, startingPosts, fUpvotePost }) {
             setCatFilter, catFilter,
             titleFilter, setTitleFilter,
             dateFilter, setDateFilter,
-            fResetFilters, fUpvotePost
+            fResetFilters, fUpvotePost,
+            selectedOrderBy, setSelectedOrderBy
         }}>
             {children}
         </PostDataContext.Provider>
