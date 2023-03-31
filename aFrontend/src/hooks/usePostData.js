@@ -39,14 +39,20 @@ function usePostData(delayTime = 0) {
         // upvote
         async function upvote() {
             try {
-
+                await delay(2000);
                 const restUrl = `${GLOBAL_SETTINGS.axiosUrl}/post/upvotePost/${postId}`
                 const resAxios = await axios.put(restUrl);
                 const resData = { success: true, message: "Upvoted Successfully.", axiosRes: resAxios }
 
-                //update live array dataPost
-                console.log("new data: ", resAxios.data.newData.upvote)
-
+                //update live array dataPost       
+                const newUpvote = dataPost.find(function (item) {
+                    return item.id === postId
+                })
+                newUpvote.upvote = resAxios.data.newData.upvote
+                const newRec = dataPost.map(function (rec) {
+                    return rec.ic === postId ? newUpvote : rec
+                })
+                setDataPost(newRec)
                 if (doneCallback) {
                     doneCallback(resData);
                 }

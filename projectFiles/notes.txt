@@ -2,8 +2,7 @@
 	- Backend          
           - 
 	- Frontend
-          - make upvote on post using post/upvotePost/:id api
-               update live react data with new post count
+          - make upvote on post using post/upvotePost/:id api               
                implement callback function with feedback to user
           - fix upvote line design          
           - sort by title, upvote, date (default)
