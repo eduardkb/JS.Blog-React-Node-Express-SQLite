@@ -2,6 +2,8 @@
 	- Backend          
           - 
 	- Frontend
+          - BUG: console error while posting comment
+
           - start Admin page
           - save html on backend and retreive. (post examples: https://deepenglish.com/blog/)
           - save picture on backend and retreive
