@@ -2,7 +2,6 @@
 	- Backend          
           - 
 	- Frontend
-          - spacing between login / return to blog portal
           - dark mode not available in admin portal
           - develop login popup (option admin or user)
           

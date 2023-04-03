@@ -42,15 +42,15 @@ function Header(props) {
 							</Typography>
 							<Box container width="100%" display="flex"
 								flexDirection="row" justifyContent="flex-end"
-								alignItems="end">
+								alignItems="end" >
 								{
 									isAdminUser ?
 										showAdminPortal ? (
-											<Button variant="contained" onClick={() => setShowAdminPortal(!showAdminPortal)}>
+											<Button variant="contained" sx={{ mr: 1, }} onClick={() => setShowAdminPortal(!showAdminPortal)}>
 												Blog
 											</Button>
 										) : (
-											<Button variant="contained" onClick={() => setShowAdminPortal(!showAdminPortal)}>
+											<Button variant="contained" sx={{ mr: 1, }} onClick={() => setShowAdminPortal(!showAdminPortal)}>
 												Admin Page
 											</Button>
 										)
