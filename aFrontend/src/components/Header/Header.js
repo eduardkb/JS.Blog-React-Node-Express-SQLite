@@ -15,7 +15,8 @@ function Header(props) {
 	const setPostSelected = props.setPostSelected
 	const postSelected = props.postSelected
 
-	const { userLoggedIn, userLogin, userLogoff } = useContext(SessionContext)
+	const { userLoggedIn, userLogin, userLogoff, showAdminPortal,
+		isAdminUser, setShowAdminPortal } = useContext(SessionContext)
 
 	return (
 		<AppBar position="static" sx={classCss.headerBox}>
@@ -39,18 +40,36 @@ function Header(props) {
 							<Typography variant="body2" sx={{ margin: "0px 10px", textAlign: "right" }}>
 								Welcome, <strong>{userLoggedIn.name}</strong>
 							</Typography>
-							{userLoggedIn.id === 1
-								? (
-									<Button variant="contained" onClick={() => userLogin()} > Login</Button>
-								) : (
-									<Button variant="contained" onClick={() => userLogoff()} > Log Out</Button>
-								)
-							}
+							<Box container width="100%" display="flex"
+								flexDirection="row" justifyContent="flex-end"
+								alignItems="end">
+								{
+									isAdminUser ?
+										showAdminPortal ? (
+											<Button variant="contained" onClick={() => setShowAdminPortal(!showAdminPortal)}>
+												Blog
+											</Button>
+										) : (
+											<Button variant="contained" onClick={() => setShowAdminPortal(!showAdminPortal)}>
+												Admin Page
+											</Button>
+										)
+										: (null)}
+								{userLoggedIn.id === 1
+									? (
+										<Button variant="contained" onClick={() => userLogin()}  > Login</Button>
+									) : (
+										<Button variant="contained" onClick={() => userLogoff()} > Log Out</Button>
+									)
+								}
+							</Box>
 						</Box>
 					</Grid>
 				</Grid>
-				<Filter dta={dta} setPostSelected={setPostSelected}
-					postSelected={postSelected} />
+				{showAdminPortal ? null : (
+					<Filter dta={dta} setPostSelected={setPostSelected}
+						postSelected={postSelected} />
+				)}
 			</div>
 
 		</AppBar >

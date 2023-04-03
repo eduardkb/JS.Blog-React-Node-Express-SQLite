@@ -8,23 +8,29 @@ const arrUsers = [{ "id": 1, "name": "guest", "email": "anonymous@uta.edu", "pas
 function SessionProvider({ children }) {
     const [userLoggedIn, setUserLoggedIn] = useState(arrUsers[0]);
     const [showAdminPortal, setShowAdminPortal] = useState(false);
+    const [isAdminUser, setIsAdminUser] = useState(false);
     const { myTheme, setTheme } = MyCustomTheme();
 
 
     function userLogin() {
         setUserLoggedIn(arrUsers[1])
-        setShowAdminPortal(true)
+
+        const isAdmin = true;
+        setShowAdminPortal(isAdmin)
+        setIsAdminUser(isAdmin)
 
     }
     function userLogoff() {
         setUserLoggedIn(arrUsers[0])
         setShowAdminPortal(false)
+        setIsAdminUser(false)
     }
 
     return (
         <SessionContext.Provider value={{
             userLoggedIn, myTheme, setTheme,
-            userLogin, userLogoff, showAdminPortal
+            userLogin, userLogoff, showAdminPortal,
+            isAdminUser, setShowAdminPortal
         }}>
             {children}
         </SessionContext.Provider>
