@@ -2,10 +2,9 @@
 	- Backend          
           - 
 	- Frontend
-          - dark mode not available in admin portal
+          - change dark mode switch size (https://stackoverflow.com/questions/62964764/manually-set-size-of-materialui-switch-component)
           - develop login popup (option admin or user)
           
-
           - save html on backend and retreive. (post examples: https://deepenglish.com/blog/)
           - save picture on backend and retreive
 

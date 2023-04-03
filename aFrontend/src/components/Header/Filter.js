@@ -1,13 +1,11 @@
 import React, { useContext } from "react";
 import { PostDataContext } from "../../contexts/PostsContext";
-import { SessionContext } from "../../contexts/SessionContext";
 import MenuIcon from "@mui/icons-material/Menu"
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Tooltip from '@mui/material/Tooltip';
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
-import Switch from "@mui/material/Switch";
 import Divider from "@mui/material/Divider";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
@@ -26,7 +24,6 @@ export default function Filter(props) {
     const dta = props.dta
     const setPostSelected = props.setPostSelected
     const postSelected = props.postSelected;
-    const { setTheme } = useContext(SessionContext);
 
 
     function BuildCatMenu(props) {
@@ -285,10 +282,6 @@ export default function Filter(props) {
                     <Grid item xs={6}>
                         <Grid container height="100%" display="flex" direction="column"
                             justifyContent="end" alignItems="start">
-                            <Box>
-                                Dark Mode:
-                                <Switch color="default" onClick={() => setTheme()} />
-                            </Box>
                             <FilterSlide />
                         </Grid>
                     </Grid>
