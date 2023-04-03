@@ -15,7 +15,7 @@ function Header(props) {
 	const setPostSelected = props.setPostSelected
 	const postSelected = props.postSelected
 
-	const { userLoggedIn, setUserLoggedIn } = useContext(SessionContext)
+	const { userLoggedIn, userLogin, userLogoff } = useContext(SessionContext)
 
 	return (
 		<AppBar position="static" sx={classCss.headerBox}>
@@ -39,7 +39,13 @@ function Header(props) {
 							<Typography variant="body2" sx={{ margin: "0px 10px", textAlign: "right" }}>
 								Welcome, <strong>{userLoggedIn.name}</strong>
 							</Typography>
-							<Button variant="contained" onClick={() => setUserLoggedIn({ id: 3, name: "Daeneris Strongborn" })} > Login</Button>
+							{userLoggedIn.id === 1
+								? (
+									<Button variant="contained" onClick={() => userLogin()} > Login</Button>
+								) : (
+									<Button variant="contained" onClick={() => userLogoff()} > Log Out</Button>
+								)
+							}
 						</Box>
 					</Grid>
 				</Grid>
