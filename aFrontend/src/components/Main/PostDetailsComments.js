@@ -8,6 +8,7 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from '@mui/material/Alert';
 import Slide from '@mui/material/Slide';
+import SaveIcon from '@mui/icons-material/Save';
 import { Button, TextField } from "@mui/material";
 import { classCss } from "../../mui_css/muiStyles";
 import { SessionContext } from "../../contexts/SessionContext"
@@ -142,8 +143,9 @@ function RenderCreateComment({ commentCreate, postSelected }) {
                             <LoadingButton
                                 sx={{ width: "150px", marginTop: 1 }}
                                 loading
-                                loadingPosition="end"
                                 variant="outlined"
+                                loadingPosition="end"
+                                endIcon={<SaveIcon />}
                             >
                                 Saving...
                             </LoadingButton>
