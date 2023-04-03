@@ -5,10 +5,11 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
-import Switch from "@mui/material/Switch";
+// import Switch from "@mui/material/Switch";
 import { classCss } from "../../mui_css/muiStyles";
 import { SessionContext } from "../../contexts/SessionContext";
 import Filter from "./Filter"
+import CustomSwitch from "../Other/CustomSwitch";
 
 function Header(props) {
 	const dta = props.data
@@ -17,6 +18,10 @@ function Header(props) {
 
 	const { setTheme, userLoggedIn, userLogin, userLogoff, showAdminPortal,
 		isAdminUser, setShowAdminPortal } = useContext(SessionContext)
+
+	function handleThemeClick() {
+		setTheme()
+	}
 
 	return (
 		<AppBar position="static" sx={classCss.headerBox}>
@@ -45,7 +50,8 @@ function Header(props) {
 								<Typography variant="body2" sx={{ margin: "0px 10px", textAlign: "right" }}>
 									Dark Mode:
 								</Typography>
-								<Switch color="default" onClick={() => setTheme()} />
+								<CustomSwitch sLabel="Test" handleClick={handleThemeClick} />
+								{/* <Switch color="default" onClick={() => setTheme()} /> */}
 							</Box>
 							<Typography variant="body2" sx={{ margin: "0px 10px", textAlign: "right" }}>
 								Welcome, <strong>{userLoggedIn.name}</strong>

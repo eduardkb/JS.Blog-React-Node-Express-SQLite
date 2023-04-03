@@ -2,7 +2,8 @@
 	- Backend          
           - 
 	- Frontend
-          - change dark mode switch size (https://stackoverflow.com/questions/62964764/manually-set-size-of-materialui-switch-component)
+          - fix theme switch (color and initial position off)
+          - fix layout - on xs screens buttons/text does not fit
           - develop login popup (option admin or user)
           
           - save html on backend and retreive. (post examples: https://deepenglish.com/blog/)
