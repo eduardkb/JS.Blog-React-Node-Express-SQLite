@@ -20,7 +20,7 @@ export function MyCustomTheme() {
             divider: grey[200],
             text: {
               primary: "#000",
-              secondary: "#fff",
+              secondary: "#000",
             },
           }
           :
@@ -49,7 +49,7 @@ export function MyCustomTheme() {
           },
           text: {
             primary: '#fff',
-            secondary: "#000",
+            secondary: "#fff",
           },
         }),
     },

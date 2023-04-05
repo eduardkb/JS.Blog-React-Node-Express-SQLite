@@ -107,6 +107,7 @@ export default function PostDetails(props) {
                 </Grid>
 
                 <p>{postDetails.body}</p>
+
                 <PostDetailsComments comments={postDetails.Comments}
                     commentCreate={commentCreate} postSelected={postSelected} />
                 <Button variant="contained" onClick={e => handleBtnBackToMainClick(e, 0)}>Back to Main Page</Button>

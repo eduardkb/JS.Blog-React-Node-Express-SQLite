@@ -9,6 +9,9 @@
           - save html on backend and retreive. (post examples: https://deepenglish.com/blog/)
           - save picture on backend and retreive
 
+          - secure api with keys
+          - authenticate Users
+
 
 =============================================================================
 AWS COPY COMMANDS
