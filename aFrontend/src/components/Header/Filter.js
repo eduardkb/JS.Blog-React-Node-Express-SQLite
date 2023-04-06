@@ -229,9 +229,7 @@ export default function Filter(props) {
                             <Box ml={2}>
                                 <FormControl>
                                     <RadioGroup
-                                        aria-labelledby="demo-radio-buttons-group-label"
-                                        defaultValue="female"
-                                        name="radio-buttons-group"
+                                        name="radio-filter"
                                     >
                                         <FormControlLabel value="Date"
                                             control={<Radio sx={classCss.radioUnchecked} />} label="Date"
