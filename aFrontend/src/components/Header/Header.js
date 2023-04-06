@@ -26,6 +26,23 @@ function Header(props) {
 	return (
 		<AppBar position="static" sx={classCss.headerBox}>
 			<div style={{ padding: 5 }}>
+				<Box sx={{ display: { xs: "block", sm: "none" } }} >
+					<Grid container display="flex" direction="row" justifyContent="space-between">
+						<Grid item display="flex"
+							justifyContent="start" alignItems="center">
+							<Typography variant="body2" mr="2px">
+								DarkMode:
+							</Typography>
+							<CustomSwitch sLabel="Darkmode Switch" handleClick={handleThemeClick} />
+
+						</Grid>
+						<Grid item display="flex" justifyContent="end" alignItems="center" >
+							<Typography variant="body2" >
+								Welcome, <strong>{userLoggedIn.name}</strong>
+							</Typography>
+						</Grid>
+					</Grid>
+				</Box>
 				<Grid container spacing={2} display="flex" flexDirection="row">
 					<Grid item xs={5} display="flex"
 						justifyContent="start" alignItems="center">
@@ -39,11 +56,11 @@ function Header(props) {
 							Eb Blg
 						</Typography>
 					</Grid>
+
 					<Grid item xs={5} display="flex"
-						justifyContent="end" alignItems="center">
-						<Box width="100%" display="flex"
-							flexDirection="column" justifyContent="end"
-							alignItems="end" >
+						justifyContent="end" alignItems="center"
+					>
+						<Box width="100%" sx={{ display: { xs: "none", sm: "block" } }}>
 							<Box display="flex"
 								flexDirection="row" justifyContent="end"
 								alignItems="end" >
@@ -51,31 +68,50 @@ function Header(props) {
 									Dark Mode:
 								</Typography>
 								<CustomSwitch sLabel="Test" handleClick={handleThemeClick} />
-								{/* <Switch color="default" onClick={() => setTheme()} /> */}
 							</Box>
 							<Typography variant="body2" sx={{ margin: "0px 10px", textAlign: "right" }}>
 								Welcome, <strong>{userLoggedIn.name}</strong>
 							</Typography>
 						</Box>
-						<Box display="flex"
-							flexDirection="row" justifyContent="flex-end"
-							alignItems="end" >
-							{
-								isAdminUser
-									? (
-										<Button variant="contained" sx={{ mr: 1, }} onClick={() => setShowAdminPortal(!showAdminPortal)}>
-											{showAdminPortal ? "Blog" : "Admin"}
-										</Button>
-									) : (null)}
-
-							{
-								userLoggedIn.id === 1
-									? (
-										<Button variant="contained" sx={{ width: "50px" }} onClick={() => userLogin()}  > Login</Button>
-									) : (
-										<Button variant="contained" sx={{ width: "100px" }} onClick={() => userLogoff()} > Log Out</Button>
-									)
-							}
+						<Box sx={{ display: { xs: "none", md: "block" } }} >
+							<Box display="flex" flexDirection="row" justifyContent="end" alignItems="end" >
+								{
+									userLoggedIn.id === 1
+										? (
+											<Button variant="contained" sx={{ width: "50px" }} onClick={() => userLogin()}  > Login</Button>
+										) : (
+											<Button variant="contained" sx={{ width: "100px", mt: 1 }} onClick={() => userLogoff()} > Log Out</Button>
+										)
+								}
+								{
+									isAdminUser
+										? (
+											<Button variant="contained" sx={{ mr: 1, }} onClick={() => setShowAdminPortal(!showAdminPortal)}>
+												{showAdminPortal ? "Blog" : "Admin"}
+											</Button>
+										) : (null)
+								}
+							</Box>
+						</Box>
+						<Box sx={{ display: { xs: "block", md: "none" } }} >
+							<Box display="flex" flexDirection="column" justifyContent="end" alignItems="end" >
+								{
+									userLoggedIn.id === 1
+										? (
+											<Button variant="contained" sx={{ width: "100px" }} onClick={() => userLogin()}  > Login</Button>
+										) : (
+											<Button variant="contained" sx={{ width: "100px", mt: "2px" }} onClick={() => userLogoff()} > Log Out</Button>
+										)
+								}
+								{
+									isAdminUser
+										? (
+											<Button variant="contained" sx={{ width: "100px" }} onClick={() => setShowAdminPortal(!showAdminPortal)}>
+												{showAdminPortal ? "Blog" : "Admin"}
+											</Button>
+										) : (null)
+								}
+							</Box>
 						</Box>
 					</Grid>
 				</Grid>

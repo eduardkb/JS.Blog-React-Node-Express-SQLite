@@ -1,9 +1,8 @@
 # To-Do
-	- Backend          
+	- Backend
           - 
 	- Frontend
           - fix theme switch (color and initial position off)
-          - fix layout - on xs screens buttons/text does not fit
           - develop login popup (option admin or user)
           
           - save html on backend and retreive. (post examples: https://deepenglish.com/blog/)
