@@ -62,10 +62,9 @@ function PostForm() {
                         onClick={() => setIsPosted(!isPosted)} />
                 </Typography>
             </Grid>
-            <Grid item sx={{ width: "100%" }} >
-
-                <FormControl>
-                    <RadioGroup
+            <Grid item sx={{ width: "100%" }}>
+                <FormControl sx={{ width: "100%" }}>
+                    <RadioGroup sx={{ width: "100%" }}
                         name="radio-Category"
                         defaultValue="Information Technology"
                     >

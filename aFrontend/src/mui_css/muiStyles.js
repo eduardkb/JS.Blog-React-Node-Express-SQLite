@@ -32,7 +32,7 @@ export function MyCustomTheme() {
             divider: grey[200],
             text: {
               primary: "#000",
-              secondary: '#fff',
+              secondary: '#000',
             },
           }
         :
@@ -170,6 +170,7 @@ export const classCss = {
     }
   },
   postAddCatBox: {
+    width: "79%",
     border: "solid",
     borderWidth: "1px",
     borderColor: "#444",
