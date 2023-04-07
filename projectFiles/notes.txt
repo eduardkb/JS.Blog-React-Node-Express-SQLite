@@ -2,7 +2,6 @@
 	- Backend
           - 
 	- Frontend
-          - fix theme switch (color and initial position off)
           - develop login popup (option admin or user)
           
           - save html on backend and retreive. (post examples: https://deepenglish.com/blog/)

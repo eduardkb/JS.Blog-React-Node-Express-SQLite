@@ -4,7 +4,7 @@ import { createTheme } from '@mui/material/styles';
 
 export function MyCustomTheme() {
   const [mode, setMode] = useState('light');
-  const setGray = true;
+  const setGray = false;
 
   const getDesignTokens = (mode) => ({
     palette: {

@@ -23,7 +23,7 @@ const AntSwitch = styled(Switch)(({ theme }) => ({
             color: '#fff',
             '& + .MuiSwitch-track': {
                 opacity: 1,
-                backgroundColor: theme.palette.mode === 'dark' ? '#177ddc' : '#1890ff',
+                backgroundColor: theme.palette.mode === 'dark' ? '#666' : '#1890ff',
             },
         },
     },
@@ -45,9 +45,9 @@ const AntSwitch = styled(Switch)(({ theme }) => ({
     },
 }));
 
-export default function CustomSwitch({ handleClick }) {
+export default function CustomSwitch({ handleClick, isSelected }) {
     return (
-        <AntSwitch defaultChecked onClick={handleClick}
+        <AntSwitch onClick={handleClick} checked={isSelected}
             inputProps={{ 'aria-label': 'ant design' }} />
 
     );

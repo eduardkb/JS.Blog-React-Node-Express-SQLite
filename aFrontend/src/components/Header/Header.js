@@ -1,11 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
-// import Switch from "@mui/material/Switch";
 import { classCss } from "../../mui_css/muiStyles";
 import { SessionContext } from "../../contexts/SessionContext";
 import Filter from "./Filter"
@@ -15,12 +14,14 @@ function Header(props) {
 	const dta = props.data
 	const setPostSelected = props.setPostSelected
 	const postSelected = props.postSelected
+	const [isSelected, setIsSelected] = useState(false)
 
 	const { setTheme, userLoggedIn, userLogin, userLogoff, showAdminPortal,
 		isAdminUser, setShowAdminPortal } = useContext(SessionContext)
 
 	function handleThemeClick() {
 		setTheme()
+		setIsSelected(!isSelected)
 	}
 
 	return (
@@ -33,8 +34,7 @@ function Header(props) {
 							<Typography variant="body2" mr="2px">
 								DarkMode:
 							</Typography>
-							<CustomSwitch sLabel="Darkmode Switch" handleClick={handleThemeClick} />
-
+							<CustomSwitch handleClick={handleThemeClick} isSelected={isSelected} />
 						</Grid>
 						<Grid item display="flex" justifyContent="end" alignItems="center" >
 							<Typography variant="body2" >
@@ -67,7 +67,7 @@ function Header(props) {
 								<Typography variant="body2" sx={{ margin: "0px 10px", textAlign: "right" }}>
 									Dark Mode:
 								</Typography>
-								<CustomSwitch sLabel="Test" handleClick={handleThemeClick} />
+								<CustomSwitch sLabel="Darkmode Switch" handleClick={handleThemeClick} isSelected={isSelected} />
 							</Box>
 							<Typography variant="body2" sx={{ margin: "0px 10px", textAlign: "right" }}>
 								Welcome, <strong>{userLoggedIn.name}</strong>
@@ -80,13 +80,13 @@ function Header(props) {
 										? (
 											<Button variant="contained" sx={{ width: "50px" }} onClick={() => userLogin()}  > Login</Button>
 										) : (
-											<Button variant="contained" sx={{ width: "100px", mt: 1 }} onClick={() => userLogoff()} > Log Out</Button>
+											<Button variant="contained" sx={{ width: "100px" }} onClick={() => userLogoff()} > Log Out</Button>
 										)
 								}
 								{
 									isAdminUser
 										? (
-											<Button variant="contained" sx={{ mr: 1, }} onClick={() => setShowAdminPortal(!showAdminPortal)}>
+											<Button variant="contained" sx={{ ml: "3px" }} onClick={() => setShowAdminPortal(!showAdminPortal)}>
 												{showAdminPortal ? "Blog" : "Admin"}
 											</Button>
 										) : (null)
@@ -100,13 +100,13 @@ function Header(props) {
 										? (
 											<Button variant="contained" sx={{ width: "100px" }} onClick={() => userLogin()}  > Login</Button>
 										) : (
-											<Button variant="contained" sx={{ width: "100px", mt: "2px" }} onClick={() => userLogoff()} > Log Out</Button>
+											<Button variant="contained" sx={{ width: "100px" }} onClick={() => userLogoff()} > Log Out</Button>
 										)
 								}
 								{
 									isAdminUser
 										? (
-											<Button variant="contained" sx={{ width: "100px" }} onClick={() => setShowAdminPortal(!showAdminPortal)}>
+											<Button variant="contained" sx={{ width: "100px", mt: "3px" }} onClick={() => setShowAdminPortal(!showAdminPortal)}>
 												{showAdminPortal ? "Blog" : "Admin"}
 											</Button>
 										) : (null)
