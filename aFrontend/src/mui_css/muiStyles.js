@@ -172,8 +172,9 @@ export const classCss = {
   postAddCatBox: {
     border: "solid",
     borderWidth: "1px",
-    borderColor: "primary.main",
-    m: "5px",
+    borderColor: "#444",
+    color: "text.primary",
+    m: "1px",
     p: "5px"
   }
 }

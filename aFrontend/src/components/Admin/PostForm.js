@@ -57,8 +57,9 @@ function PostForm() {
                 />
             </Grid>
             <Grid item >
-                <Typography variant="body1" >
-                    Posted: <Checkbox checked={isPosted} onClick={() => setIsPosted(!isPosted)} />
+                <Typography variant="body1" sx={{ color: "text.primary", }}>
+                    Posted: <Checkbox checked={isPosted} sx={{ color: "primary.main" }}
+                        onClick={() => setIsPosted(!isPosted)} />
                 </Typography>
             </Grid>
             <Grid item sx={{ width: "100%" }} >
@@ -70,7 +71,7 @@ function PostForm() {
                     >
                         <Box sx={classCss.postAddCatBox}>
                             Category:
-                            <Box display="flex" flexDirection="row">
+                            <Box >
                                 <FormControlLabel value="Information Technology"
                                     control={<Radio sx={classCss.radioUnchecked} />} label="Information Technology"
                                 />
