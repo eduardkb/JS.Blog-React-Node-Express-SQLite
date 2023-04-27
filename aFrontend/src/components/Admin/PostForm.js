@@ -1,8 +1,9 @@
 import {
     Box, Button, Checkbox, FormControl, FormControlLabel, Grid,
     Radio, RadioGroup, TextField, Typography, LinearProgress, Stack,
-    Alert
+    Slide, Snackbar
 } from "@mui/material";
+import MuiAlert from "@mui/material/Alert";
 import React, { useContext, useState } from "react";
 import { classCss } from "../../mui_css/muiStyles";
 import useCategoryData, { REQUEST_STATUS } from "../../hooks/useCategoryData";
@@ -28,23 +29,47 @@ function PostForm() {
     //other state
     const [validate, setValidate] = useState(false)
 
+    // functions for the snackbar
+    const [snackMsg, setSnackMsg] = useState("");
+    const Alert = React.forwardRef(function Alert(props, ref) {
+        return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+    });
+    const [open, setOpen] = React.useState(false);
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
 
-    function onSaveClick() {
+        setOpen(false);
+    };
+    function TransitionRight(props) {
+        return <Slide {...props} direction="right" />;
+    }
+
+    // save post
+    function onSaveClick(e) {
+        e.preventDefault()
         setValidate(true)
         // validate data: all text fields
-        if (title === "" || picture === "" || body === "") {
-            alert("Please fill out all the fields")
-            return 0
+        if (title === "" || title.length < 5
+            || picture === "" || picture.length < 5
+            || body === "" || body.length < 5) {
+            setSnackMsg("Please fill out all fields with at least 5 characters.")
+            setOpen(true)
+            return
         }
         // validate data: category != 0
         if (category === 0) {
-            alert("A Category must be selected")
-            return 0
+            setSnackMsg("Please select a category.")
+            setOpen(true)
+            return
         }
+        // validate tags. if default value send blank
+        let sTag = "";
+        (tag === defaultTagValue) ? sTag = "" : sTag = tag
 
-        alert("Saving Data!!!")
-
-
+        // save post
+        console.log(`Saving:\n|${title}|\n|${picture}|\n|${body}|\n|${isPosted}|\n|${category}|\n|${sTag}|\n|${user}|`)
     }
     function onCancelClick() {
         setTitle("")
@@ -54,6 +79,16 @@ function PostForm() {
         setIsPosted(true)
         setTag(defaultTagValue)
         setValidate(false)
+    }
+
+    function fDisplayMessage(sMessage) {
+        return (
+            <Box sx={[classCss.centerBox, { margin: '100px 0px' }]} >
+                <Alert variant="outlined" severity="error">
+                    {sMessage}
+                </Alert>
+            </Box>
+        )
     }
 
     // display feedback wile loading category data
@@ -71,125 +106,129 @@ function PostForm() {
     }
     // verify if category data has loaded correctly
     if (requestStatusCategory === REQUEST_STATUS.FAILURE) {
-        <Box sx={[classCss.centerBox, { margin: '100px 0px' }]} >
-            <Alert variant="outlined" severity="error">
-                Error while getting categories. Message: {errorCategory}
-            </Alert>
-        </Box>
+        fDisplayMessage(`Error while getting categories. Message: ${errorCategory}`)
     }
     return (
+        <>
+            <Grid container spacing={1} style={{ border: "solid", borderWidth: "1px", margin: 2, padding: 10 }}
+                display="flex" flexDirection="column" >
+                <Grid item sx={{ width: "80%" }}>
+                    <TextField
+                        sx={{ width: "100%" }}
+                        type="text"
+                        label="Title"
+                        variant="outlined"
+                        value={title}
+                        onChange={(e) => { setTitle(e.target.value); setOpen(false) }}
+                        error={(title === "" || title.length < 5) && validate}
+                        helperText={title === "" && validate ? 'This field cannot be empty.' : ' '}
+                    />
+                </Grid>
+                <Grid item sx={{ width: "80%" }}>
+                    <TextField
+                        sx={{ width: "100%" }}
+                        type="text"
+                        label="Picture"
+                        variant="outlined"
+                        value={picture}
+                        onChange={(e) => { setPicture(e.target.value); setOpen(false) }}
+                        error={(picture === "" || picture.length < 5) && validate}
+                        helperText={picture === "" && validate ? 'This field cannot be empty.' : ' '}
+                    />
+                </Grid>
+                <Grid item sx={{ width: "100%" }}>
+                    <TextField
+                        sx={{ width: "100%" }}
+                        type="text"
+                        label="Post Body"
+                        variant="outlined"
+                        multiline
+                        rows={6}
+                        value={body}
+                        onChange={(e) => { setBody(e.target.value); setOpen(false) }}
+                        error={(body === "" || body.length < 5) && validate}
+                        helperText={body === "" && validate ? 'This field cannot be empty.' : ' '}
+                    />
+                </Grid>
+                <Grid item >
+                    <Typography variant="body1" sx={{ color: "text.primary", }}>
+                        Posted: <Checkbox checked={isPosted} sx={{ color: "primary.main" }}
+                            onClick={() => setIsPosted(!isPosted)} />
+                    </Typography>
+                </Grid>
+                <Grid item sx={{ width: "100%" }}>
+                    <FormControl sx={{ width: "100%" }}>
+                        <RadioGroup sx={{ width: "100%" }}
+                            name="controlled-radio-Category"
+                            value={category}
+                            onChange={(e) => { setCategory(e.target.value) }}
+                        >
+                            <Box sx={classCss.postAddCatBox}>
+                                Category:
+                                <Box >
+                                    {
+                                        // display categories from database
+                                        dataCategory.map((e) => {
+                                            return (
+                                                <FormControlLabel key={e.id} value={e.id}
+                                                    control={<Radio sx={classCss.radioUnchecked} />}
+                                                    label={e.name}
+                                                />
+                                            )
 
-        <Grid container spacing={1} style={{ border: "solid", borderWidth: "1px", margin: 2, padding: 10 }}
-            display="flex" flexDirection="column" >
-            <Grid item sx={{ width: "80%" }}>
-                <TextField
-                    sx={{ width: "100%" }}
-                    type="text"
-                    label="Title"
-                    variant="outlined"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                    error={title === "" && validate}
-                    helperText={title === "" && validate ? 'This field cannot be empty.' : ' '}
-                />
-            </Grid>
-            <Grid item sx={{ width: "80%" }}>
-                <TextField
-                    sx={{ width: "100%" }}
-                    type="text"
-                    label="Picture"
-                    variant="outlined"
-                    value={picture}
-                    onChange={(e) => setPicture(e.target.value)}
-                    error={picture === "" && validate}
-                    helperText={picture === "" && validate ? 'This field cannot be empty.' : ' '}
-                />
-            </Grid>
-            <Grid item sx={{ width: "100%" }}>
-                <TextField
-                    sx={{ width: "100%" }}
-                    type="text"
-                    label="Post Body"
-                    variant="outlined"
-                    multiline
-                    rows={6}
-                    value={body}
-                    onChange={(e) => setBody(e.target.value)}
-                    error={body === "" && validate}
-                    helperText={body === "" && validate ? 'This field cannot be empty.' : ' '}
-                />
-            </Grid>
-            <Grid item >
-                <Typography variant="body1" sx={{ color: "text.primary", }}>
-                    Posted: <Checkbox checked={isPosted} sx={{ color: "primary.main" }}
-                        onClick={() => setIsPosted(!isPosted)} />
-                </Typography>
-            </Grid>
-            <Grid item sx={{ width: "100%" }}>
-                <FormControl sx={{ width: "100%" }}>
-                    <RadioGroup sx={{ width: "100%" }}
-                        name="controlled-radio-Category"
-                        value={category}
-                        onChange={(e) => { setCategory(e.target.value) }}
-                    >
-                        <Box sx={classCss.postAddCatBox}>
-                            Category:
-                            <Box >
-                                {
-                                    // display categories from database
-                                    dataCategory.map((e) => {
-                                        return (
-                                            <FormControlLabel key={e.id} value={e.id}
-                                                control={<Radio sx={classCss.radioUnchecked} />}
-                                                label={e.name}
-                                            />
-                                        )
+                                        })
+                                    }
 
-                                    })
-                                }
-
+                                </Box>
                             </Box>
-                        </Box>
-                    </RadioGroup>
-                </FormControl>
+                        </RadioGroup>
+                    </FormControl>
 
-            </Grid>
-            <Grid item>
-                <TextField
-                    sx={{ width: "80%", maxWidth: "400px" }}
-                    type="text"
-                    label="Tags"
-                    variant="outlined"
-                    multiline
-                    value={tag}
-                    onClick={() => tag === defaultTagValue && setTag("")}
-                    onBlur={() => tag === "" && setTag(defaultTagValue)}
-                    onChange={(e) => setTag(e.target.value)}
-                />
-            </Grid>
-            <Grid item>
-                <TextField
-                    sx={{ width: "80%", maxWidth: "400px" }}
-                    type="text"
-                    label="User Posting"
-                    variant="outlined"
-                    disabled
-                    value={user}
-                // onChange={(e) => setBody(e.target.value)}
-                />
-            </Grid>
+                </Grid>
+                <Grid item>
+                    <TextField
+                        sx={{ width: "80%", maxWidth: "400px" }}
+                        type="text"
+                        label="Tags"
+                        variant="outlined"
+                        multiline
+                        value={tag}
+                        onClick={() => tag === defaultTagValue && setTag("")}
+                        onBlur={() => tag === "" && setTag(defaultTagValue)}
+                        onChange={(e) => setTag(e.target.value)}
+                    />
+                </Grid>
+                <Grid item>
+                    <TextField
+                        sx={{ width: "80%", maxWidth: "400px" }}
+                        type="text"
+                        label="User Posting"
+                        variant="outlined"
+                        disabled
+                        value={user}
+                    // onChange={(e) => setBody(e.target.value)}
+                    />
+                </Grid>
 
-            <Grid item >
-                <Button variant="contained" color="primary"
-                    onClick={() => onCancelClick()}>
-                    cancel
-                </Button>
-                <Button sx={{ ml: 1 }} variant="contained" color="primary"
-                    onClick={() => onSaveClick()}>
-                    save
-                </Button>
-            </Grid>
-        </Grid >
+                <Grid item >
+                    <Button variant="contained" color="primary"
+                        onClick={() => onCancelClick()}>
+                        cancel
+                    </Button>
+                    <Button sx={{ ml: 1 }} variant="contained" color="primary"
+                        onClick={(e) => onSaveClick(e)}>
+                        save
+                    </Button>
+                </Grid>
+            </Grid >
+            <Snackbar open={open} autoHideDuration={6000}
+                onClose={handleClose} TransitionComponent={TransitionRight} >
+                <Alert onClose={handleClose} sx={{ width: '100%' }} severity="error" >
+                    {snackMsg}
+                </Alert>
+            </Snackbar>
+        </>
+
     )
 }
 export default PostForm;

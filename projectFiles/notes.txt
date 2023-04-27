@@ -3,6 +3,8 @@
           - 
 	- Frontend
           - BUG: axios when URL incorrect on category blank page with error on console. verify all axios calls
+          - BUG: on creating post - when backend unavailable, try catch is not triggered on axios
+          - validate tags field (if starts with #, and each time there is a space there is also a new #)
 
           - develop login popup (option admin or user)
           

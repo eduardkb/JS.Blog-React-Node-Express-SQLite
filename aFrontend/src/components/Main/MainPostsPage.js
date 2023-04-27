@@ -46,10 +46,6 @@ function MainPostsPage() {
 
             return (
                 <Box sx={[classCss.centerBox, { margin: '100px 0px' }]} >
-
-                    {/* <Alert variant="Outlined" severity="error">
-                        Error
-                    </Alert> */}
                     <Alert variant="outlined" severity="error">
                         Error while getting posts. Message: {sMsg}
                     </Alert>
