@@ -2,9 +2,11 @@
 	- Backend
           - 
 	- Frontend
+          - BUG: axios when URL incorrect on category blank page with error on console. verify all axios calls
+
           - develop login popup (option admin or user)
           
-          - save html on backend and retreive. (post examples: https://deepenglish.com/blog/)
+          - save post full html on backend and retreive. (post examples: https://deepenglish.com/blog/)
           - save picture on backend and retreive
 
           - secure api with keys

@@ -13,7 +13,7 @@ function SessionProvider({ children }) {
 
 
     function userLogin() {
-        setUserLoggedIn(arrUsers[1])
+        setUserLoggedIn(arrUsers[3])
 
         const isAdmin = true;
         setShowAdminPortal(isAdmin)
