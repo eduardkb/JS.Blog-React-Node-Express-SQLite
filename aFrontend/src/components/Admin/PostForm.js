@@ -25,10 +25,26 @@ function PostForm() {
     const [tag, setTag] = useState(defaultTagValue)
     const [user] = useState(userLoggedIn.name)
 
+    //other state
+    const [validate, setValidate] = useState(false)
+
 
     function onSaveClick() {
+        setValidate(true)
+        // validate data: all text fields
+        if (title === "" || picture === "" || body === "") {
+            alert("Please fill out all the fields")
+            return 0
+        }
         // validate data: category != 0
-        alert(`test dta: ${title}|${picture}|${body}|${isPosted}|${tag}|`)
+        if (category === 0) {
+            alert("A Category must be selected")
+            return 0
+        }
+
+        alert("Saving Data!!!")
+
+
     }
     function onCancelClick() {
         setTitle("")
@@ -37,6 +53,7 @@ function PostForm() {
         setCategory(0)
         setIsPosted(true)
         setTag(defaultTagValue)
+        setValidate(false)
     }
 
     // display feedback wile loading category data
@@ -72,6 +89,8 @@ function PostForm() {
                     variant="outlined"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
+                    error={title === "" && validate}
+                    helperText={title === "" && validate ? 'This field cannot be empty.' : ' '}
                 />
             </Grid>
             <Grid item sx={{ width: "80%" }}>
@@ -82,6 +101,8 @@ function PostForm() {
                     variant="outlined"
                     value={picture}
                     onChange={(e) => setPicture(e.target.value)}
+                    error={picture === "" && validate}
+                    helperText={picture === "" && validate ? 'This field cannot be empty.' : ' '}
                 />
             </Grid>
             <Grid item sx={{ width: "100%" }}>
@@ -94,6 +115,8 @@ function PostForm() {
                     rows={6}
                     value={body}
                     onChange={(e) => setBody(e.target.value)}
+                    error={body === "" && validate}
+                    helperText={body === "" && validate ? 'This field cannot be empty.' : ' '}
                 />
             </Grid>
             <Grid item >
