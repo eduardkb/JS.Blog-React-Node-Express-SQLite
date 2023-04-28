@@ -4,9 +4,15 @@ const fillDB = require("./app/dev/insertDevData");
 const cors = require("cors");
 
 const WRITE_DEV_DATA = false;
-const PORT = 8080;
+const PORT = 80;
 
 const app = express();
+
+// Running React FrontEnd with Express
+const path = __dirname + '/aFrontend/build';
+console.log(`FE Path: ${__dirname}`);
+app.use(express.static(path));
+
 //Following lines are to make sure our app can parse the json data
 app.use(express.json());
 app.use(express.urlencoded({
@@ -44,9 +50,14 @@ else {
 }
 
 function initilizeServer() {
-    // define root route
-    app.get("/", (req, res) => {
-        res.json({ message: "EKB Blog application Backend." });
+    // define root route (WITHOUT LOADING REACT FE WITH EXPRESS)
+    // app.get("/", (req, res) => {
+    //     res.json({ message: "EKB Blog application Backend." });
+    // });
+
+    // Running React FrontEnd with Express
+    app.get('/', function (req, res) {
+        res.sendFile(path + "index.html");
     });
 
     console.log("============================================================");
