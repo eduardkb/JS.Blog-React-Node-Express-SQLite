@@ -1,0 +1,27 @@
+### Dockerfile.dev
+FROM node:18-alpine
+WORKDIR /usr/src/app
+COPY package*.json ./
+RUN npm install
+COPY . .
+ENV PORT=3000
+CMD [ "node", "server.js" ]
+
+### Docker notes
+create .dockerignore file:
+	node_modules
+	npm-debug.log
+	build
+	.git
+	*.md
+	.gitignore
+	
+Docker Build image with docker file
+	$ docker build -f Dockerfile -t apptest02-img .
+create container from docker image
+	$ docker run -d -it --rm -p 80:3000 --name apptest02-cnt apptest02-img
+	
+Docker - access container shell
+	docker exec -ti <container_name> /bin/bash
+	
+	
