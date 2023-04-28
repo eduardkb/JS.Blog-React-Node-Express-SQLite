@@ -31,12 +31,13 @@ function PostForm() {
     const [tag, setTag] = useState(defaultTagValue)
     const [user] = useState(userLoggedIn.name)
 
-    //other state
+    //other state    
     const [validate, setValidate] = useState(false)
     const [creatingPost, setCreatingPost] = useState(false)
 
     // functions for the snackbar
     const [snackMsg, setSnackMsg] = useState("");
+    const [msgSev, setMsgSev] = useState("success")
     const Alert = React.forwardRef(function Alert(props, ref) {
         return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
     });
@@ -56,8 +57,14 @@ function PostForm() {
     function doneCallback(resData) {
         setCreatingPost(false)
         setSnackMsg(resData.message)
+        if (resData.success) {
+            setMsgSev("success")
+            onCancelClick();
+        }
+        else {
+            setMsgSev("error")
+        }
         setOpen(true)
-        onCancelClick()
     }
 
     // save post
@@ -69,12 +76,14 @@ function PostForm() {
             || picture === "" || picture.length < 5
             || body === "" || body.length < 5) {
             setSnackMsg("Please fill out all fields with at least 5 characters.")
+            setMsgSev("error")
             setOpen(true)
             return
         }
         // validate data: category != 0
         if (category === 0) {
             setSnackMsg("Please select a category.")
+            setMsgSev("error")
             setOpen(true)
             return
         }
@@ -87,6 +96,9 @@ function PostForm() {
         createPost(doneCallback, title, picture, body, isPosted, category, sTag, userLoggedIn.id)
     }
     function onCancelClick() {
+        fClearAllFields()
+    }
+    function fClearAllFields() {
         setTitle("")
         setPicture("")
         setBody("")
@@ -95,7 +107,6 @@ function PostForm() {
         setTag(defaultTagValue)
         setValidate(false)
     }
-
     function fDisplayMessage(sMessage) {
         return (
             <Box sx={[classCss.centerBox, { margin: '100px 0px' }]} >
@@ -257,7 +268,7 @@ function PostForm() {
             </Grid >
             <Snackbar open={open} autoHideDuration={6000}
                 onClose={handleClose} TransitionComponent={TransitionRight} >
-                <Alert onClose={handleClose} sx={{ width: '100%' }} severity="error" >
+                <Alert onClose={handleClose} sx={{ width: '100%' }} severity={msgSev} >
                     {snackMsg}
                 </Alert>
             </Snackbar>

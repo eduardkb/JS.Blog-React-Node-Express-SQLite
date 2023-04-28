@@ -26,6 +26,13 @@ exports.create = (req, res) => {
 		createdAt: req.body.createdAt,
 	};
 
+	console.log("".padEnd("40", "*"))
+	console.log("DEB: req.body.title: ", req.body.title)
+	console.log("DEB: req.body.CatID: ", req.body.categoryId)
+	console.log("DEB: post: ", post)
+	console.log("DEB: post.categoryId: ", post.categoryId)
+	console.log("".padEnd("40", "*"))
+
 	// Save post in the database
 	Post.create(post)
 		.then((data) => {
