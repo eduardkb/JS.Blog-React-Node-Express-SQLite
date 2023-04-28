@@ -1,6 +1,6 @@
 # To-Do
 	- Backend
-          - 
+          - BUG - category ID not being saved
 	- Frontend
           - BUG: axios when URL incorrect on category blank page with error on console. verify all axios calls
           - BUG: on creating post - when backend unavailable, try catch is not triggered on axios

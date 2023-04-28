@@ -20,8 +20,9 @@ exports.create = (req, res) => {
 		picture: req.body.picture,
 		body: req.body.body,
 		published: req.body.published ? req.body.published : false,
-		userId: req.body.userId,
 		upvote: req.body.upvote,
+		categoryId: req.body.categoryId,
+		userId: req.body.userId,
 		createdAt: req.body.createdAt,
 	};
 

@@ -4,10 +4,15 @@ import {
     Slide, Snackbar
 } from "@mui/material";
 import MuiAlert from "@mui/material/Alert";
+import LoadingButton from '@mui/lab/LoadingButton';
+import SaveIcon from '@mui/icons-material/Save';
+import SendIcon from '@mui/icons-material/Send';
+import CancelIcon from '@mui/icons-material/Cancel'
 import React, { useContext, useState } from "react";
 import { classCss } from "../../mui_css/muiStyles";
 import useCategoryData, { REQUEST_STATUS } from "../../hooks/useCategoryData";
 import { SessionContext } from "../../contexts/SessionContext";
+import { createPost } from "../../hooks/updatePost";
 
 function PostForm() {
     // load categories
@@ -28,6 +33,7 @@ function PostForm() {
 
     //other state
     const [validate, setValidate] = useState(false)
+    const [creatingPost, setCreatingPost] = useState(false)
 
     // functions for the snackbar
     const [snackMsg, setSnackMsg] = useState("");
@@ -44,6 +50,14 @@ function PostForm() {
     };
     function TransitionRight(props) {
         return <Slide {...props} direction="right" />;
+    }
+
+    // function to display progress while updating
+    function doneCallback(resData) {
+        setCreatingPost(false)
+        setSnackMsg(resData.message)
+        setOpen(true)
+        onCancelClick()
     }
 
     // save post
@@ -69,7 +83,8 @@ function PostForm() {
         (tag === defaultTagValue) ? sTag = "" : sTag = tag
 
         // save post
-        console.log(`Saving:\n|${title}|\n|${picture}|\n|${body}|\n|${isPosted}|\n|${category}|\n|${sTag}|\n|${user}|`)
+        setCreatingPost(true)
+        createPost(doneCallback, title, picture, body, isPosted, category, sTag, userLoggedIn.id)
     }
     function onCancelClick() {
         setTitle("")
@@ -206,18 +221,37 @@ function PostForm() {
                         variant="outlined"
                         disabled
                         value={user}
-                    // onChange={(e) => setBody(e.target.value)}
                     />
                 </Grid>
 
                 <Grid item >
-                    <Button variant="contained" color="primary"
+
+                    {/* if creating post, show Saving... and disabled Button */}
+                    {creatingPost
+                        ? (
+                            <LoadingButton
+                                sx={{ width: "150px", marginTop: 1 }}
+                                loading
+                                variant="outlined"
+                                loadingPosition="end"
+                                endIcon={<SaveIcon />}
+                            >
+                                Saving...
+                            </LoadingButton>
+                        ) : (
+                            <Button variant="contained" endIcon={<SendIcon />}
+                                sx={{ width: "100px", mr: 1 }}
+                                //disabled={commValue.length < 10 || commValue === sDefaultComm}
+                                onClick={(e) => { onSaveClick(e) }}
+                            >
+                                Save
+                            </Button>
+                        )
+                    }
+
+                    <Button variant="contained" color="primary" endIcon={<CancelIcon />}
                         onClick={() => onCancelClick()}>
                         cancel
-                    </Button>
-                    <Button sx={{ ml: 1 }} variant="contained" color="primary"
-                        onClick={(e) => onSaveClick(e)}>
-                        save
                     </Button>
                 </Grid>
             </Grid >
