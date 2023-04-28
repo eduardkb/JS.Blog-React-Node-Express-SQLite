@@ -4,13 +4,13 @@ const fillDB = require("./app/dev/insertDevData");
 const cors = require("cors");
 
 const WRITE_DEV_DATA = false;
-const PORT = 80;
+const PORT = 3000;
 
 const app = express();
 
 // Running React FrontEnd with Express
 const path = __dirname + '/aFrontend/build';
-console.log(`FE Path: ${__dirname}`);
+console.log(`FE Path: ${path}`);
 app.use(express.static(path));
 
 //Following lines are to make sure our app can parse the json data
@@ -21,7 +21,7 @@ app.use(express.urlencoded({
 
 // CORS Backend access permissions
 const corsOptions = {
-    origin: "*",
+    origin: "http://www.eduardkb.website",
 };
 app.use(cors(corsOptions));
 
@@ -56,9 +56,9 @@ function initilizeServer() {
     // });
 
     // Running React FrontEnd with Express
-    app.get('/', function (req, res) {
-        res.sendFile(path + "index.html");
-    });
+    //app.get('/', function (req, res) {
+    //	res.sendFile(path + "index.html");
+    //});
 
     console.log("============================================================");
     console.log("APP SETUP: Adding Routes");
