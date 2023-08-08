@@ -35,6 +35,12 @@
     $ npm install
     $ npm run dev
 
+### Changes made for Azure WebApp
+	Removed lines below from package.json		
+    	// "dev": "nodemon server.js",
+    	// "test": "echo \"Error: no test specified\" && exit 1"
+	added file web.config
+
 ### APIs
 
     - /api/user

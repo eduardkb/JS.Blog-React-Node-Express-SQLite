@@ -4,7 +4,7 @@ const fillDB = require("./app/dev/insertDevData");
 const cors = require("cors");
 
 const WRITE_DEV_DATA = false;
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 
@@ -55,7 +55,7 @@ function initilizeServer() {
     //     res.json({ message: "EKB Blog application Backend." });
     // });
 
-    // Running React FrontEnd with Express
+    // Running React FrontEnd with Express (currently running on line 11)
     //app.get('/', function (req, res) {
     //	res.sendFile(path + "index.html");
     //});
