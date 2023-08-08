@@ -5,6 +5,10 @@
     $ npm install
     $ npm run dev
 
+	If Site URL changes backend consult URL has to be changed
+		/aFrontend/src/config.js    --> change axiosURL
+		/server.js					--> change corsOptions origin
+
 ### Components tree
 
     - App		
