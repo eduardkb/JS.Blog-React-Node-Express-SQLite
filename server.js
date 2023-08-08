@@ -21,7 +21,7 @@ app.use(express.urlencoded({
 
 // CORS Backend access permissions
 const corsOptions = {
-    origin: "https://dev.ekb.consulting.xom.cloud",
+    origin: "https://studynodewebapp-wa.azurewebsites.net",
 };
 app.use(cors(corsOptions));
 
