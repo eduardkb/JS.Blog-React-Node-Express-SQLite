@@ -8,6 +8,7 @@
 	If Site URL changes backend consult URL has to be changed
 		/aFrontend/src/config.js    --> change axiosURL
 		/server.js					--> change corsOptions origin
+		DON'T FORGET TO BUILD THE FRONT-END (azure just hosts the build directly)
 
 ### Components tree
 

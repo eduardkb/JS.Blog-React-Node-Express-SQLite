@@ -19,11 +19,14 @@ app.use(express.urlencoded({
     extended: false
 }));
 
-// CORS Backend access permissions
-const corsOptions = {
-    origin: "https://studynodewebapp-wa.azurewebsites.net",
-};
-app.use(cors(corsOptions));
+// CORS Backend access permissions (with specific sites)
+// const corsOptions = {
+//     origin: "https://studynodewebapp-wa.azurewebsites.net",    
+// };
+// app.use(cors(corsOptions));
+
+// CORS ALLOW ANY BACKEND
+app.use(cors());
 
 // Sync database
 if (WRITE_DEV_DATA) {
