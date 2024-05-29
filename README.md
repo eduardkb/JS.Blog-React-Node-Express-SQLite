@@ -2,7 +2,6 @@
 
 ### start and run project
 
-test
 $ npm install
 $ npm run dev
 
