@@ -2,34 +2,35 @@
 
 ### start and run project
 
-    $ npm install
-    $ npm run dev
+test
+$ npm install
+$ npm run dev
 
-	If Site URL changes backend consult URL has to be changed
-		/aFrontend/src/config.js    --> change axiosURL
-		/server.js					--> change corsOptions origin
-		DON'T FORGET TO BUILD THE FRONT-END (azure just hosts the build directly)
+    If Site URL changes backend consult URL has to be changed
+    	/aFrontend/src/config.js    --> change axiosURL
+    	/server.js					--> change corsOptions origin
+    	DON'T FORGET TO BUILD THE FRONT-END (azure just hosts the build directly)
 
 ### Components tree
 
-    - App		
-		- MainApp
-			- Admin (To-Do)
-			- MainPostsPage
-				- Header
-					- Filter
-				- Main	
-					- PostPannel  (main pannel with all posts)
-						- Post
-					- PostDetails (changes main pannel to details of clicked post)
-				- Footer
+    - App
+    	- MainApp
+    		- Admin (To-Do)
+    		- MainPostsPage
+    			- Header
+    				- Filter
+    			- Main
+    				- PostPannel  (main pannel with all posts)
+    					- Post
+    				- PostDetails (changes main pannel to details of clicked post)
+    			- Footer
 
 ### Initial setup
 
     npx create-react-app blog-backend
     npm install @mui/material @mui/lab @emotion/react @emotion/styled @fontsource/roboto @mui/icons-material
-	npm install date-fns
-	npm install axios
+    npm install date-fns
+    npm install axios
 
 #### =========================================================================================
 
@@ -41,10 +42,11 @@
     $ npm run dev
 
 ### Changes made for Azure WebApp
-	Removed lines below from package.json		
+
+    Removed lines below from package.json
     	// "dev": "nodemon server.js",
     	// "test": "echo \"Error: no test specified\" && exit 1"
-	added file web.config
+    added file web.config
 
 ### APIs
 
@@ -57,7 +59,7 @@
     	GET: /  		(get all posts)
     	GET: /joincomment 	(get all posts joined with their comments)
     	GET: /joincomment/:id	(get post with id[x] and all its comments)
-		GET: /joinTag/:id	(get post with id[x] and all its tags)
+    	GET: /joinTag/:id	(get post with id[x] and all its tags)
     	POST: / 		(add a new post)
 
     - /api/comment
@@ -71,7 +73,7 @@
 
     - /api/tag
     	GET: /  		(get all tags)
-		GET: /joinPost/:id	(get tag with id[x] and all its posts)
+    	GET: /joinPost/:id	(get tag with id[x] and all its posts)
     	POST: / 		(add a new tag)
 
 ### SQLite tables
@@ -107,7 +109,7 @@
 
     $ npm i express dotenv sequelize sequelize-cli
     $ npm i sqlite3
-	$ npm i cors
+    $ npm i cors
     $ npm install --save-dev nodemon
     On file package.js add script
     	"dev": "nodemon index.js"
